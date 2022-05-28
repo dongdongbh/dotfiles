@@ -45,8 +45,14 @@ d/home/dd/.config
 	vifm
 60
 d/home/dd
-	.config
-11
+	Pictures
+6
+d/home/dd/Pictures
+	Wallpapers
+2
+d/home/dd/Pictures/Wallpapers
+	improve.png
+12
 d
 
 # Right window history (oldest to newest):
@@ -61,6 +67,7 @@ D
 :q
 
 # Search history (oldest to newest):
+/p
 
 # Prompt history (oldest to newest):
 
@@ -75,7 +82,7 @@ D
 # State:
 f
 i1
-[.0
+[.1
 [F
 F
 I1
