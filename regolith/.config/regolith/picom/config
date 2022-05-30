@@ -107,7 +107,7 @@ active-opacity = 0.98;
 frame-opacity = 1;
 inactive-opacity-override = false;
 
-opacity-rule = [ "96:class_g = 'Google-chrome'",
+opacity-rule = [ "98:class_g = 'Google-chrome'",
                  "92:class_g = 'Rofi'"
 ];
 

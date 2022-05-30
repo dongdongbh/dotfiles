@@ -43,4 +43,4 @@ Then just `stow nvim` in `~/dotfiles`.
 ### i3wm 
 I use i3wm to manage windows. More specifically, the `regolith` i3 on Ubuntu.
 The config files of regolith done by `Xresources`. After setting it, you can check by `xrdb -query` to show configurations. 
-The notification bar which I use is `polybar`. with `picom` for opacity. `rifo` for app launcher.
+The notification bar which I use is `polybar`. With `picom` for opacity. `rifo` for app launcher.

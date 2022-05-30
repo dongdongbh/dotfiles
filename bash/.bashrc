@@ -159,8 +159,10 @@ fi
 
 . ~/.bash_aliases
 
+# set go path
+export PATH=/usr/local/bin:$PATH
 export GOPATH=$HOME/code/go
-export PATH=$PATH::/usr/local/go/bin:$GOPATH/bin
+export PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 . "$HOME/.cargo/env"
 
 export PATH=~/.local/bin:$PATH

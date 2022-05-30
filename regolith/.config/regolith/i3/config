@@ -380,7 +380,7 @@ bindsym $mod+$i3-wm.binding.restart restart
 ## Session // Logout // <><Shift> e ##
 set_from_resource $i3-wm.binding.logout i3-wm.binding.logout Shift+e
 set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
-bindsym $mod+$i3-wm.binding.logout exec $i3-wm.program.logout
+bindsym $mod+$i3-wm.binding.logout exec --no-startup-id $i3-wm.program.logout
 
 ## Session // Reboot // <><Shift> b ##
 set_from_resource $i3-wm.binding.reboot i3-wm.binding.reboot Shift+b
@@ -453,10 +453,6 @@ bindsym $mod+$i3-wm.binding.save_layout  exec /usr/bin/i3-snapshot -o > /tmp/i3-
 set_from_resource $i3-wm.binding.load_layout i3-wm.binding.load_layout period
 bindsym $mod+$i3-wm.binding.load_layout exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
 
-# Toggle bar visibility
-## Modify // Toggle Bar // <> i ##
-set_from_resource $i3-wm.binding.bar_toggle i3-wm.binding.bar_toggle i
-bindsym $mod+$i3-wm.binding.bar_toggle bar mode toggle
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
@@ -618,6 +614,12 @@ set_from_resource $i3-wm.bar.mode i3-wm.bar.mode dock
 # i3xrocks config file. Override this for a custom status bar generator.
 set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u ~/.config/regolith/i3xrocks/conf.d -d /etc/regolith/i3xrocks/conf.d
 
+
+# Toggle bar visibility
+## Modify // Toggle Bar // <> i ##
+#set_from_resource $i3-wm.binding.bar_toggle i3-wm.binding.bar_toggle i
+#bindsym $mod+$i3-wm.binding.bar_toggle bar mode toggle
+
 # The bar configuration
 #bar {
   #position $i3-wm.bar.position
@@ -680,12 +682,17 @@ exec --no-startup-id $i3-wm.program.3
 workspace "$ws1" output eDP1
 workspace "$ws2" output HDMI2
 workspace "$ws3" output eDP1
+workspace "$ws5" output HDMI2
 
-for_window [class="Wine"] floating enable
+#for_window [class="Wine"] floating enable
+for_window [class="(?i)wechat.exe"] floating enable,focus
+for_window [instance=”wechat.exe”] floating enable
+for_window [instance=”discord”] floating enable
 
-assign [name="WeChat"] workspace $ws3 
 assign [class="Wine"] workspace $ws3 
 assign [class="WeChat"] workspace $ws3 
+assign [class="discord"] workspace $ws3 
+
 assign [class="Sublime_text"] workspace $ws4 
 assign [class="Mathematica"] workspace $ws7 
 assign [class="netease-cloud-music"] workspace $ws6 
@@ -696,4 +703,11 @@ assign [class="baidunetdisk"] workspace $ws9
 
 # for_window [class="<class of that window>"] focus
 
+# use --no-startup-id to avoid the mouse become loading circle
 exec --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+i exec --no-startup-id polybar-msg cmd toggle
+
+#exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/x-terminal-emulator -e tmux'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/x-terminal-emulator -e \$HOME/.config/tmux/regular.sh'
+exec --no-startup-id i3-msg 'workspace $ws1; exec google-chrome'
+
