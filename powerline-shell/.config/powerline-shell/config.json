@@ -1,0 +1,18 @@
+{
+  "segments": [
+    "virtual_env",
+    "username",
+    "ssh",
+    "cwd",
+    "hg",
+    "jobs",
+    "root"
+  ],
+  "mode": "flat",
+  "cwd": {
+    "mode": "plain",
+    "max_depth": 3,
+    "max_dir_size": 8
+  },
+  "theme": "gruvbox"
+}

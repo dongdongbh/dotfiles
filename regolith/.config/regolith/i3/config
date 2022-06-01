@@ -448,10 +448,10 @@ bindsym $mod+$i3-wm.binding.notification_ui exec $i3-wm.program.notification_ui
 # i3-snapshot for load/save current layout
 ## Modify // Save Window Layout // <> , ##
 set_from_resource $i3-wm.binding.save_layout i3-wm.binding.save_layout comma
-bindsym $mod+$i3-wm.binding.save_layout  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot
+bindsym $mod+$i3-wm.binding.save_layout  exec --no-startup-id /usr/bin/i3-snapshot -o > /tmp/i3-snapshot
 ## Modify // Load Window Layout // <> . ##
 set_from_resource $i3-wm.binding.load_layout i3-wm.binding.load_layout period
-bindsym $mod+$i3-wm.binding.load_layout exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
+bindsym $mod+$i3-wm.binding.load_layout exec --no-startup-id /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
 
 
 # Cause Settings app to float above tiled windows
@@ -683,15 +683,17 @@ workspace "$ws1" output eDP1
 workspace "$ws2" output HDMI2
 workspace "$ws3" output eDP1
 workspace "$ws5" output HDMI2
+workspace "$ws6" output HDMI2
 
 #for_window [class="Wine"] floating enable
 for_window [class="(?i)wechat.exe"] floating enable,focus
 for_window [instance=”wechat.exe”] floating enable
-for_window [instance=”discord”] floating enable
+for_window [class=”netease-cloud-music”] floating enable
 
 assign [class="Wine"] workspace $ws3 
 assign [class="WeChat"] workspace $ws3 
 assign [class="discord"] workspace $ws3 
+assign [instance="crx_clhhggbfdinjmjhajaheehoeibfljjno"] workspace $ws3 
 
 assign [class="Sublime_text"] workspace $ws4 
 assign [class="Mathematica"] workspace $ws7 

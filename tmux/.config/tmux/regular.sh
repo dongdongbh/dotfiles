@@ -8,10 +8,7 @@ then
   # Create the session
   tmux new-session -s ${SESSION_NAME} -n bash -d
 
-  # First window (1) 
-  tmux split-window -h -p 50
-
-  # dotfiles 
+# dotfiles 
   tmux new-window -n dot -t ${SESSION_NAME}
   tmux split-window -h -p 50
   tmux send-keys -t ${SESSION_NAME}:2.1 'cd ~/.config/'

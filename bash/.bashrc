@@ -179,3 +179,13 @@ bind -m vi-command '"yiw":"lbyw"'
 bind -m vi-command '"ciW":"lBcW"'
 bind -m vi-command '"diW":"lBdW"'
 bind -m vi-command '"yiW":"lByW"'
+
+# sutup powerline shell prompt support (only after install powerline-shell)
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
