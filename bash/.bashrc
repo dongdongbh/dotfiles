@@ -165,8 +165,6 @@ export GOPATH=$HOME/code/go
 export PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 . "$HOME/.cargo/env"
 
-export PATH=~/.local/bin:$PATH
-
 #export EDITOR=nvim
 # set bash to vi mode
 set -o vi

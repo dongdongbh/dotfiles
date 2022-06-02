@@ -8,11 +8,11 @@
     "jobs",
     "root"
   ],
-  "mode": "flat",
   "cwd": {
-    "mode": "plain",
-    "max_depth": 3,
-    "max_dir_size": 8
+    "max_depth": 4,
+    "max_dir_size": 3,
+    "full_cwd": true
   },
+  "mode": "flat",
   "theme": "gruvbox"
 }

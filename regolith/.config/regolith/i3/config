@@ -685,7 +685,7 @@ workspace "$ws3" output eDP1
 workspace "$ws5" output HDMI2
 workspace "$ws6" output HDMI2
 
-#for_window [class="Wine"] floating enable
+for_window [class="Wine"] floating enable
 for_window [class="(?i)wechat.exe"] floating enable,focus
 for_window [instance=”wechat.exe”] floating enable
 for_window [class=”netease-cloud-music”] floating enable
