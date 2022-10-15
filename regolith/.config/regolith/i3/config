@@ -429,7 +429,7 @@ bindsym $mod+$i3-wm.binding.bluetooth exec $i3-wm.program.bluetooth
 ## Modify // Sound Settings // <> s ##
 set_from_resource $i3-wm.binding.sound i3-wm.binding.sound s
 set_from_resource $i3-wm.program.sound i3-wm.program.sound gnome-control-center --class=floating_window sound
-bindsym $mod+$i3-wm.binding.sound exec $i3-wm.program.sound
+bindsym $mod+$i3-wm.binding.sound exec --no-startup-id $i3-wm.program.sound
 
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.binding.files i3-wm.binding.files Shift+n
@@ -687,6 +687,7 @@ workspace "$ws6" output HDMI2
 
 for_window [class="Wine"] floating enable
 for_window [class="(?i)wechat.exe"] floating enable,focus
+for_window [class="Wechat"] floating enable
 for_window [instance=”wechat.exe”] floating enable
 for_window [class=”netease-cloud-music”] floating enable
 

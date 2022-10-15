@@ -190,3 +190,6 @@ export FZF_DEFAULT_COMMAND='ag --type f'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export APOLLO_ROOT_DIR=/home/dd/code/apollo
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
