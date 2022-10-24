@@ -21,6 +21,8 @@ set vicmd=nvim
 " doesn't support progress measuring.
 
 set syscalls
+set nu
+set relativenumber
 
 nnoremap <space>q :q<cr>
 nnoremap <bs> h
@@ -503,3 +505,4 @@ nnoremap <f8> :delete<cr>
 "
 " let $VIFM_SERVER_NAME = v:servername
 colorscheme zenburn_1
+set grepprg='rg --color=never -Hn %i %a %s'

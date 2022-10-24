@@ -3,12 +3,13 @@
 [https]
 	proxy = socks5://127.0.0.1:7891
 [core]
-	editor = vim
+	editor = nvim
 [user]
 	name = dongdongbh
 	email = 18310682633@163.com
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	amend = commit --amend --no-edit
 [diff]
 	tool = kdiff3
 [merge]
