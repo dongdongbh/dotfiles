@@ -8,15 +8,6 @@ case $- in
       *) return;;
 esac
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -81,14 +72,42 @@ xterm*|rxvt*)
     ;;
 esac
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -101,61 +120,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
 #Set Proxy
 function setproxy() {
- export {http,https,ftp}_proxy="http://127.0.0.1:8118"
- export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:8118"
+        export {http,https,ftp}_proxy="http://127.0.0.1:8118"
+        export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:8118"
 }
-
+   
 # Unset Proxy
 function unsetproxy() {
- unset {http,https,ftp}_proxy
- unset {HTTP,HTTPS,FTP}_PROXY
+        unset {http,https,ftp}_proxy
+        unset {HTTP,HTTPS,FTP}_PROXY
 }
 
-# enable proxy by default
-# setproxy
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dd/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/dd/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/dd/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dd/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+setproxy
 
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# for ch.sh
-. ~/.bash.d/cht.sh
-cheat() { clear && cht.sh "$1"; } 
-fzfc() {
-      cht.sh $(
-      cht.sh :list | fzf --preview 'cht.sh {} | bat --color=always' -q "$*"
-        ); 
- }
-
-# set go path
-export PATH=/usr/local/bin:$PATH
-export GOPATH=$HOME/code/go
-export PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
-. "$HOME/.cargo/env"
-
-#export EDITOR=nvim
-# set bash to vi mode
 set -o vi
 
 # set some vim commands on bash vi mode 
@@ -167,29 +146,11 @@ bind -m vi-command '"ciW":"lBcW"'
 bind -m vi-command '"diW":"lBdW"'
 bind -m vi-command '"yiW":"lByW"'
 
-# sutup powerline shell prompt support (only after install powerline-shell)
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
+export EDITOR=nvim
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# setup zfz key binding and auto completion
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
-# open a split pane below with 40% height in tmux
-export FZF_TMUX=1
-export FZF_TMUX_OPTS="-d 40%"
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-# Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag --type f'
 
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export APOLLO_ROOT_DIR=/home/dd/code/apollo
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+
+

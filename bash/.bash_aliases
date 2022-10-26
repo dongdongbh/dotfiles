@@ -17,6 +17,10 @@ alias l='ls -CF'
 
 alias vim=nvim
 alias vifm=vifmrun
+alias vimdiff='nvim -d'
 alias du=dust
-alias cdc='cd $HOME/.config/'
-
+alias fd=fdfind
+alias python=python2
+alias ..='cd ..'
+alias ...='cd ./../..'
+alias vrc='cd ~/.config/nvim'
