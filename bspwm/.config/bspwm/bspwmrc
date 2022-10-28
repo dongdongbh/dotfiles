@@ -46,7 +46,7 @@ bspc config urgent_border_color 	      "#dd2727"
 
 
 # Start X wallpaper.
-feh --no-fehbg --bg-fill $HOME/Pictures/Wallpapers/0002.jpg &
+feh --no-fehbg --bg-fill $HOME/dotfiles/bin/wallpapers/japan01.png&
 
 # Remove x cursor
 xsetroot -cursor_name left_ptr &
