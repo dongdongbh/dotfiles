@@ -1,0 +1,46 @@
+# Reload sxhkdrc
+super + shift + r
+  pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# terminal emulator
+super + Return
+	gnome-terminal
+
+# browser
+super + shift + Return
+  google-chrome
+
+# program launcher
+# super + @space
+# 	dmenu_run
+# program launcher after key release
+super + @space
+	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode 
+
+#Volume Control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+  pactl set-sink-volume @DEFAULT_SINK@ {+5% -5% toggle}
+# XF86AudioLowerVolume
+#   pactl set-sink-volume @DEFAULT_SINK@ -5%
+# XF86AudioRaiseVolume
+#   pactl set-sink-volume @DEFAULT_SINK@ +5%
+# XF86AudioMute
+#   pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86ScreenSaver
+    betterlockscreen -l dim
+
+# sleep
+XF86Sleep
+    systemctl suspend
+
+# lock screen 
+alt + shift + x
+    betterlockscreen -l dim
+# Show help
+super + slash
+  sxhkd-help
