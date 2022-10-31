@@ -134,6 +134,9 @@ function unsetproxy() {
 
 setproxy
 
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
 
 set -o vi
 
@@ -151,6 +154,7 @@ export EDITOR=nvim
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-
+# make bat show man page
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 

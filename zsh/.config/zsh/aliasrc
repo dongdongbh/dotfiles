@@ -1,0 +1,53 @@
+#!/usr/bin/zsh
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lh="ls -hl"
+
+
+alias vim=nvim
+alias vifm=vifmrun
+alias vimdiff='nvim -d'
+alias du=dust
+alias fd=fdfind
+alias python=python2
+
+# CD
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias ~="cd ~"
+alias vrc='cd ~/.config/nvim'
+
+# mkdir
+alias mk="mkdir -p"
+alias mkdir="mkdir -p"
+
+# Use less fuck
+alias sl=ls
+
+# Suffix aliases
+alias -s txt=nvim
+
+
+# open ~/.zshrc in using the default editor specified in $EDITOR
+alias ec="$EDITOR $HOME/.zshrc"
+
+# source ~/.zshrc
+alias sc="source $HOME/.zshrc"

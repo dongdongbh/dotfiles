@@ -22,8 +22,14 @@ super + @space
 	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode 
 
 #Volume Control
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-  pactl set-sink-volume @DEFAULT_SINK@ {+5% -5% toggle}
+XF86Audio{RaiseVolume,LowerVolume}
+  pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+ctrl + shift + {Up,Down}
+  pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
 # XF86AudioLowerVolume
 #   pactl set-sink-volume @DEFAULT_SINK@ -5%
 # XF86AudioRaiseVolume
