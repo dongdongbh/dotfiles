@@ -100,14 +100,19 @@ setproxy
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+eval $(thefuck --alias fuck)
+
+
+
+
 # theme
 source ~/.config/zsh/theme/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-eval $(thefuck --alias fuck)
-
 # plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

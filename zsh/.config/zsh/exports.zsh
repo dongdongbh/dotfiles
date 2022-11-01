@@ -14,6 +14,7 @@ export VISUAL="nvim"
 export FILE_BROWSER="vifm"
 export VID_PLAYER="vlc"
 
+export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -21,3 +22,4 @@ export VID_PLAYER="vlc"
 # make bat show man page
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+export PYTHONPATH="${PYTHONPATH}:/usr/lib/python3/dist-packages"

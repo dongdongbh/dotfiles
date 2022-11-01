@@ -20,7 +20,6 @@ alias lh="ls -hl"
 
 
 alias vim=nvim
-alias vifm=vifmrun
 alias vimdiff='nvim -d'
 alias du=dust
 alias fd=fdfind
