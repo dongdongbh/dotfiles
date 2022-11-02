@@ -2,12 +2,17 @@
 # bspwm hotkeys
 #
 
+# Hide-show polybar
+super + shift + space
+	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
+    polybar-msg cmd toggle; bspc config top_padding 23 }
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }q
+super + {_,shift + }c
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -22,6 +27,9 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# rotate split
+super + r
+	bspc node '@parent' -y next
 #
 # state/flags
 #

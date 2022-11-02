@@ -19,11 +19,26 @@ alias l='ls -CF'
 alias lh="ls -hl"
 
 
+alias c="clear"
+alias cat="bat --plain"
+# alias ls="exa"
+alias mv="mv -v"
+alias cp="cp -vr"
+# alias rm="rm -vr"
+alias nf="neofetch"
+
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias du=dust
+alias df=duf
 alias fd=fdfind
-alias python=python2
+# alias python=python2
+
+# mkdir
+alias mk="mkdir -p"
+alias mkdir="mkdir -p"
+
+# Use less fuck
+alias sl=ls
 
 # CD
 alias ..="cd .."
@@ -34,16 +49,9 @@ alias ......="cd ../../../../.."
 alias ~="cd ~"
 alias vrc='cd ~/.config/nvim'
 
-# mkdir
-alias mk="mkdir -p"
-alias mkdir="mkdir -p"
-
-# Use less fuck
-alias sl=ls
 
 # Suffix aliases
 alias -s txt=nvim
-
 
 # open ~/.zshrc in using the default editor specified in $EDITOR
 alias ec="$EDITOR $HOME/.zshrc"

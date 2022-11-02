@@ -10,10 +10,32 @@ super + Escape
 super + Return
 	gnome-terminal
 
+# float terminal emulator
+super + alt + Return
+  bspc rule -a Gnome-terminal -o state=floating && gnome-terminal
+
 # browser
 super + shift + Return
   google-chrome
 
+# open control center.
+super + shift + d
+  gnome-control-center 
+
+# open control center.
+super + n
+gnome-control-center network
+
+# Screenshot; Save to local storage. Should install maim
+super + Print
+	DATE=$(date '+%b%d-%H-%M:%S.png'); \
+	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
+	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+
+super + alt + Print
+	DATE=$(date '+%b%d-%H-%M:%S.png'); \
+	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
+	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 # program launcher
 # super + @space
 # 	dmenu_run
@@ -45,7 +67,7 @@ XF86Sleep
     systemctl suspend
 
 # lock screen 
-alt + shift + x
+ctrl + alt + l
     betterlockscreen -l dim
 # Show help
 super + slash

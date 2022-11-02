@@ -16,7 +16,7 @@ prompt adam1
 
 
 setopt histignorealldups sharehistory
-
+setopt no_nomatch
 
 # History in cache directory:
 HISTSIZE=10000
