@@ -8,7 +8,7 @@ super + Escape
 
 # terminal emulator
 super + Return
-	gnome-terminal
+  bspc rule -a Gnome-terminal -o state=fullscreen && gnome-terminal
 
 # float terminal emulator
 super + alt + Return
@@ -16,7 +16,7 @@ super + alt + Return
 
 # browser
 super + shift + Return
-  google-chrome
+  bspc rule -a Google-chrome -o state=fullscreen && google-chrome
 
 # open control center.
 super + shift + d
@@ -24,7 +24,11 @@ super + shift + d
 
 # open control center.
 super + n
-gnome-control-center network
+  gnome-control-center network
+
+# open file explore
+super + e
+  nautilus
 
 # Screenshot; Save to local storage. Should install maim
 super + Print
@@ -36,39 +40,41 @@ super + alt + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+
 # program launcher
 # super + @space
 # 	dmenu_run
+
 # program launcher after key release
 super + @space
 	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode 
 
-#Volume Control
-XF86Audio{RaiseVolume,LowerVolume}
+# Volume Control
+ctrl + {Up, Down}
   pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
 
+# ctrl + shift + {Up,Down}
+#   pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+
+# Volume Control
+XF86Audio{RaiseVolume,LowerVolume}
+  pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+# mute 
 XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-ctrl + shift + {Up,Down}
-  pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
-# XF86AudioLowerVolume
-#   pactl set-sink-volume @DEFAULT_SINK@ -5%
-# XF86AudioRaiseVolume
-#   pactl set-sink-volume @DEFAULT_SINK@ +5%
-# XF86AudioMute
-#   pactl set-sink-mute @DEFAULT_SINK@ toggle
-
+# lock screen
 XF86ScreenSaver
+    betterlockscreen -l dim
+
+# lock screen 
+ctrl + alt + l
     betterlockscreen -l dim
 
 # sleep
 XF86Sleep
     systemctl suspend
 
-# lock screen 
-ctrl + alt + l
-    betterlockscreen -l dim
 # Show help
 super + slash
   sxhkd-help

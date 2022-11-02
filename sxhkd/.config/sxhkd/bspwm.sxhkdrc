@@ -29,16 +29,21 @@ super + g
 
 # rotate split
 super + r
-	bspc node '@parent' -y next
+bspc node '@parent' -y next
+
 #
 # state/flags
 #
 
+# toggle fullscreen
+super + f 
+	bspc node -t \~fullscreen
+  
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
 
-# set the node flags
+# set the node flags {marked,locked,sticky,private}
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -58,9 +63,9 @@ super + {p,b,comma,period}
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor
+# focus the next/previous occupied desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.occupied.local
 
 # focus the next/previous desktop in the current monitor
 # super + {Up,Down}

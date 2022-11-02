@@ -1,0 +1,3 @@
+# htop
+alt + t; h 
+  gnome-terminal -e htop
