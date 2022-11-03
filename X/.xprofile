@@ -1,6 +1,9 @@
 export EDITOR="nvim"
 export TERMINAL="gnome-terminal"
 
+# Speedy keys
+#  after 210ms of pressing 'R' the OS will put out 40 'R's a second
+xset r rate 210 40
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
@@ -8,7 +11,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 # remap caps to escape
-# setxkbmap -option caps:escape
+setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
 

@@ -8,7 +8,7 @@ HISTFILE=~/.cache/zsh/history
 setopt appendhistory
 
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete
+setopt autocd extendedglob nomatch menucomplete correctall
 setopt interactive_comments
 setopt histignorealldups sharehistory
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -22,7 +22,7 @@ unsetopt BEEP
 # Enable colors 
 autoload -U colors && colors
 
-# completions
+# tab completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 # zstyle ':completion::complete:lsof:*' menu yes select
@@ -34,8 +34,6 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-
-
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -70,9 +68,11 @@ zsh_add_file "envrc"
 setproxy
 
 # fzf
+[ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh  
+[ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
+# fuck
 eval $(thefuck --alias fuck)
 
 # source ~/.config/zsh/theme/powerlevel10k/powerlevel10k.zsh-theme
@@ -81,6 +81,8 @@ eval $(thefuck --alias fuck)
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Plugins
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
@@ -90,14 +92,26 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 compinit
 
 # Key-bindings
+# `showkey -a` to see the key code
+bindkey '^I'   complete-word       # tab          | complete
+bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^X' autosuggest-execute
+bindkey "^N" history-search-forward # without omitting your typed words
+bindkey "^P" history-search-backward # without omitting your typed words
+# bindkey '^E' autosuggest-accept
+bindkey -M menuselect '\e' send-break
 bindkey -s '^o' 'vifm^M'
 # bindkey -s '^f' 'zi^M'
 # bindkey -s '^z' 'zi^M'
 # bindkey -s '^n' 'nvim $(fzf)^M'
 # bindkey -s '^v' 'nvim\n'
-# bindkey '^[[P' delete-char
+# bindkey '^[[P' delete-char  # shift + p
 # bindkey -r "^u"
 # bindkey -r "^d"
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 # Environment variables set everywhere
 export EDITOR="nvim"

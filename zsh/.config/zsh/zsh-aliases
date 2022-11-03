@@ -29,6 +29,7 @@ alias cat="bat --plain"
 alias lg='lazygit'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
+alias vrc='cd ~/.config/nvim'
 
 # alias ls="exa"
 # confirm before overwriting something
@@ -59,7 +60,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias ~="cd ~"
-alias vrc='cd ~/.config/nvim'
 
 
 # Suffix aliases
