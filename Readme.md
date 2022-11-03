@@ -41,7 +41,3 @@ You should have the following in dotfiles by `mv ~/.config/nvim ~/dotfiles/nvim`
 Then just `stow nvim` in `~/dotfiles`.
 
 for tmux, you should use tmux version newer than 3.1 to use config file located in `.config/tmux/`.
-### i3wm 
-I use i3wm to manage windows. More specifically, the `regolith` i3 on Ubuntu.
-The config files of regolith done by `Xresources`. After setting it, you can check by `xrdb -query` to show configurations. 
-The notification bar which I use is `polybar`. With `picom` for opacity. `rifo` for app launcher.

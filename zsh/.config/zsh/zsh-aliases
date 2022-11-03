@@ -20,18 +20,30 @@ alias lh="ls -hl"
 
 
 alias c="clear"
-alias cat="bat --plain"
-# alias ls="exa"
-alias mv="mv -v"
-alias cp="cp -vr"
-# alias rm="rm -vr"
 alias nf="neofetch"
-
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias df=duf
 alias fd=fdfind
 # alias python=python2
+alias cat="bat --plain"
+alias lg='lazygit'
+alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+alias nvimrc='nvim ~/.config/nvim/'
+
+# alias ls="exa"
+# confirm before overwriting something
+alias mv="mv -vi"
+alias cp="cp -vri"
+alias rm="rm -ri"
+
+alias df=duf
+alias free='free -m' # show sizes in MB
+
+# get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4 | head -5'
+
+# get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # mkdir
 alias mk="mkdir -p"
@@ -58,3 +70,4 @@ alias ec="$EDITOR $HOME/.zshrc"
 
 # source ~/.zshrc
 alias sc="source $HOME/.zshrc"
+

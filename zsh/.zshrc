@@ -1,36 +1,41 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#!/bin/sh
 
-# Set up the prompt
-# Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
-
-setopt histignorealldups sharehistory
-setopt no_nomatch
+# set zdotdir
+export ZDOTDIR=$HOME/.config/zsh
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history 
+setopt appendhistory
+
+# some useful options (man zshoptions)
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+setopt histignorealldups sharehistory
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
+
+# beeping is annoying
+unsetopt BEEP
 
 
-# Use modern completion system
+# Set up the prompt
+# Enable colors 
+autoload -U colors && colors
+
+# completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
+# zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
-compinit
-
+# compinit
 _comp_options+=(globdots)		# Include hidden files.
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -50,50 +55,16 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Useful Functions
+source "$ZDOTDIR/zsh-functions"
 
-
-# Use vi keybindings 
-bindkey -v 
-export KEYTIMEOUT=1 
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# Load aliases 
-[ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
-[ -f "$HOME/.config/zsh/exports.zsh" ] && source "$HOME/.config/zsh/exports.zsh"
-[ -f "$HOME/.config/zsh/envrc" ] && source "$HOME/.config/zsh/envrc"
-[ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
+# Normal files to source
+zsh_add_file "zsh-vim-mode"
+zsh_add_file "zsh-exports"
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-prompt"
+zsh_add_file "functions.zsh"
+zsh_add_file "envrc"
 
 # start proxy redirection
 setproxy
@@ -104,15 +75,31 @@ setproxy
 
 eval $(thefuck --alias fuck)
 
-
-
-
-# theme
-source ~/.config/zsh/theme/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.config/zsh/theme/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# plugins
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Plugins
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+# For more plugins: https://github.com/unixorn/awesome-zsh-plugins
+# More completions https://github.com/zsh-users/zsh-completions
+
+
+compinit
+
+# Key-bindings
+bindkey -s '^o' 'vifm^M'
+# bindkey -s '^f' 'zi^M'
+# bindkey -s '^z' 'zi^M'
+# bindkey -s '^n' 'nvim $(fzf)^M'
+# bindkey -s '^v' 'nvim\n'
+# bindkey '^[[P' delete-char
+# bindkey -r "^u"
+# bindkey -r "^d"
+
+# Environment variables set everywhere
+export EDITOR="nvim"
+export TERMINAL="gnome-terminal"
+export BROWSER="google-chrome"

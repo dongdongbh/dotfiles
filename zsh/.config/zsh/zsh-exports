@@ -1,3 +1,14 @@
+#!/bin/sh
+# HISTFILE="$XDG_DATA_HOME"/zsh/history
+HISTSIZE=1000000
+SAVEHIST=1000000
+export PATH="$HOME/.local/bin":$PATH
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
+#export PATH="$HOME/.local/share/neovim/bin":$PATH
+#export PATH="$PATH:./node_modules/.bin"
+#eval "$(zoxide init zsh)"
+
 # C Programming
 export CC='clang'
 
@@ -16,10 +27,9 @@ export VID_PLAYER="vlc"
 
 export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 
 # make bat show man page
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export PYTHONPATH="${PYTHONPATH}:/usr/lib/python3/dist-packages"
+
