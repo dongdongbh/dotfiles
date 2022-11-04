@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-export TERMINAL="gnome-terminal"
+export TERMINAL="alacritty"
 
 # Speedy keys
 #  after 210ms of pressing 'R' the OS will put out 40 'R's a second

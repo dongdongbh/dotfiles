@@ -1,0 +1,7 @@
+os:
+  editCommand: 'nvim' # as an example
+git:
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never

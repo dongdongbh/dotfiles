@@ -63,6 +63,7 @@ zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
 zsh_add_file "envrc"
+zsh_add_file ".zshenv"
 
 # start proxy redirection
 setproxy
@@ -115,5 +116,6 @@ bindkey '^e' edit-command-line
 
 # Environment variables set everywhere
 export EDITOR="nvim"
-export TERMINAL="gnome-terminal"
+export TERMINAL="alacritty"
 export BROWSER="google-chrome"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
