@@ -27,27 +27,16 @@
 
 window:
   # Window dimensions (changes require restart)
-  #
-  # Number of lines/columns (not pixels) in the terminal. Both lines and columns
-  # must be non-zero for this to take effect. The number of columns must be at
-  # least `2`, while using a value of `0` for columns and lines will fall back
-  # to the window manager's recommended size
   dimensions:
     columns: 70
     lines: 22
 
   # Window position (changes require restart)
-  #
-  # Specified in number of pixels.
-  # If the position is not set, the window manager will handle the placement.
   #position:
   #  x: 0
   #  y: 0
 
   # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 0
     y: 0
@@ -70,7 +59,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0
+  opacity: 0.98
 
   # Startup Mode (changes require restart)
   #
@@ -81,10 +70,10 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -109,7 +98,7 @@ scrolling:
   history: 10000
 
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 5
 
 # Font configuration
 font:
@@ -139,6 +128,7 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
+    family: DejaVuSansMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -192,7 +182,7 @@ font:
   #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+#draw_bold_text_with_bright_colors: true
 
 # Colors (Solarized Dark)
 colors:
@@ -418,13 +408,13 @@ colors:
   #
   #command: None
 
-#selection:
+selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+  save_to_clipboard: false
 
 # cursor:
   # Cursor style
@@ -472,7 +462,7 @@ colors:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #

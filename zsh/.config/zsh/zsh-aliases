@@ -35,7 +35,7 @@ alias vrc='cd ~/.config/nvim'
 # confirm before overwriting something
 alias mv="mv -vi"
 alias cp="cp -vri"
-alias rm="rm -ri"
+alias rm="rm -vri"
 
 alias df=duf
 alias free='free -m' # show sizes in MB
