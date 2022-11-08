@@ -8,7 +8,8 @@ super + Escape
 
 # terminal emulator
 super + Return
-  bspc rule -a Alacritty -o state=fullscreen && alacritty  
+  alacritty
+  # bspc rule -a Alacritty -o state=fullscreen && alacritty  
 
 # float terminal emulator
 super + alt + Return

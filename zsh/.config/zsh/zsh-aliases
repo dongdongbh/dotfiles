@@ -20,16 +20,20 @@ alias lh="ls -hl"
 
 
 alias c="clear"
-alias nf="neofetch"
+alias nvimrc='nvim ~/.config/nvim/'
+alias vrc='cd ~/.config/nvim'
+
 alias vim=nvim
 alias vimdiff='nvim -d'
+alias vifm=vifmrun
 alias fd=fdfind
+alias du=dust
+alias nf="neofetch"
 # alias python=python2
 alias cat="bat --plain"
 alias lg='lazygit'
+
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-alias nvimrc='nvim ~/.config/nvim/'
-alias vrc='cd ~/.config/nvim'
 
 # alias ls="exa"
 # confirm before overwriting something

@@ -175,40 +175,40 @@ command! reload :write | restart
 " program.
 
 " work with vifmimg script
-fileviewer *.pdf
-    \ vifmimg pdf %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer *.pdf
+        \ vifmimg pdf %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer *.djvu
-    \ vifmimg djvu %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer *.djvu
+        \ vifmimg djvu %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer *.epub
-    \ vifmimg epub %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer *.epub
+        \ vifmimg epub %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer <video/*>
-    \ vifmimg video %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer <video/*>
+        \ vifmimg video %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer <image/*>
-    \ vifmimg draw %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer <image/*>
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer <audio/*>
-    \ vifmimg audio %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer <audio/*>
+        \ vifmimg audio %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-fileviewer <font/*>
-    \ vifmimg font %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
+    fileviewer <font/*>
+        \ vifmimg font %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " Pdf
 "filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
@@ -277,8 +277,9 @@ fileviewer *.[1-8] man ./%c | col -b
         "\ gpicview %c,
         "\ {View in shotwell}
         "\ shotwell,
-"fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         "\ identify %f
+        "\ identify %f
+" fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+"         \ feh -FZ %d --start-at %d/%c 2>/dev/null
 
 " OpenRaster
 "filextype *.ora
@@ -384,6 +385,7 @@ filextype */
 " Syntax highlighting in preview
 "
 " Explicitly set highlight type for some extensions
+fileviewer *.sh,*.py,*.lua,*.[ch],*.[ch]pp,*.[ch]xx,Makefile,Makefile.* bat --color always --wrap never --pager never %c -p
 "
 " 256-color terminal
 " fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
@@ -542,3 +544,4 @@ nnoremap <f8> :delete<cr>
 " let $VIFM_SERVER_NAME = v:servername
 colorscheme zenburn_1
 set grepprg='rg --color=never -Hn %i %a %s'
+set previewoptions+=graphicsdelay:0
