@@ -24,9 +24,12 @@ picom --config $HOME/.config/picom/picom.sample.conf -b
 # Start ibus daemon
 ibus-daemon -drx  &
 
+# open programs
+bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun
+bspc rule -a Google-chrome desktop='^1' && google-chrome
+
 # run polybar
 ~/.config/polybar/launch.sh &
 
-# open programs
-bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifm
-bspc rule -a Google-chrome desktop='^1' && google-chrome
+# Remove x cursor
+xsetroot -cursor_name left_ptr &

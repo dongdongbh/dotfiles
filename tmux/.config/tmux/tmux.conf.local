@@ -9,13 +9,23 @@ tmux_conf_theme_right_separator_sub='\uE0B3'
 
 # set copy mode with vi
 set-window-option -g mode-keys vi
+# Emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
 # set status-keys in vi mode, which means in prefex + :, hit esc, you will in vi mode in status line
-set -g status-keys vi
+# set -g status-keys vi
+
 # set longer history for me scroll up in copy mode
-set -g history-limit 10000
+set -g history-limit 50000
+# Address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+# Super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
 
 
 #set -g mouse on
+# Source .tmux.conf as suggested in `man tmux`
+bind R source-file '~/.config/tmux/tmux.conf'
 
 # use xclip (must install first) to copy tmux to system clipboard
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
@@ -40,4 +50,18 @@ bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-# set-option -sa terminal-overrides ',XXX:RGB'
+
+# plugins
+# plugin manager
+set -g @plugin 'tmux-plugins/tpm'
+# for save and restore tmux 
+# prefix + Ctrl-s - save; prefix + Ctrl-r - restore
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+# screen text picker for paste in tmux
+# prefix + Space
+set -g @plugin 'fcsonline/tmux-thumbs'
+
+# plugin settings
+set -g @resurrect-strategy-nvim 'session'
+
+

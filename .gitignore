@@ -3,3 +3,4 @@ vifm/.config/vifm/vifminfo
 
 vifm/.config/vifm/vifminfo.json
 lazygit/.config/lazygit/state.yml
+/tmux/.config/tmux/plugins/
