@@ -1,3 +1,5 @@
+#!/bin/sh
+# .xprofile is just for setting up the environment when logging in with an X session
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 

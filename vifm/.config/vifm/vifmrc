@@ -545,3 +545,9 @@ nnoremap <f8> :delete<cr>
 colorscheme zenburn_1
 set grepprg='rg --color=never -Hn %i %a %s'
 set previewoptions+=graphicsdelay:0
+" toggle preview mode
+nnoremap w :view<cr>
+
+" set ranger like pane
+set millerview
+set milleroptions=lsize:1,csize:2 

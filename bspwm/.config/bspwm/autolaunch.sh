@@ -26,3 +26,7 @@ ibus-daemon -drx  &
 
 # run polybar
 ~/.config/polybar/launch.sh &
+
+# open programs
+bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifm
+bspc rule -a Google-chrome desktop='^1' && google-chrome

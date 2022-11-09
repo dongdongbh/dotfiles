@@ -6,14 +6,17 @@ super + shift + r
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# terminal emulator
+# fullscreen terminal emulator
 super + Return
-  alacritty
-  # bspc rule -a Alacritty -o state=fullscreen && alacritty  
+  bspc rule -a Alacritty -o state=fullscreen && alacritty -e tmux 
 
 # float terminal emulator
 super + alt + Return
-  bspc rule -a Alacritty -o state=floating && alacritty  
+  bspc rule -a Alacritty -o state=floating && alacritty 
+
+# tiling terminal emulator
+super + ctrl + Return
+  bspc rule -a Alacritty -o state=tiled && alacritty 
 
 # browser
 super + shift + Return
@@ -29,7 +32,7 @@ super + n
 
 # open file explore
 super + e
-  nautilus
+  xdo activate -n vifm
 
 # Screenshot; Save to local storage. Should install maim
 super + Print
