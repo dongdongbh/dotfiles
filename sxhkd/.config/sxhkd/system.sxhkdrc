@@ -83,6 +83,10 @@ alt + l
 XF86Sleep
     systemctl suspend
 
+# reboot, shutdown
+super + control + alt + {Prior,Next}
+  systemctl {reboot,poweroff -i}
+
 # Show help
 super + slash
   sxhkd-help

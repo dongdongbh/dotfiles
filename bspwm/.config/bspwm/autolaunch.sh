@@ -12,7 +12,10 @@ blueman-applet &
 # screen locker
 # use random wallpaper from the folder
 # betterlockscreen -u ~/dotfiles/wallpapers/
+# set wallpaper with dim effect
 betterlockscreen -w dim
+# screen saver hook with betterlockscreen
+xss-lock -n dim-screen.sh -- betterlockscreen -l &
 
 # Run keybindings daemon.
 sxhkdrcgen pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
