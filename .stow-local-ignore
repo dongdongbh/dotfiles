@@ -24,3 +24,4 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+.*\.md       # mark down 

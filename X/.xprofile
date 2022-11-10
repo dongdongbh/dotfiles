@@ -3,6 +3,7 @@
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 
+
 # Speedy keys
 #  after 210ms of pressing 'R' the OS will put out 40 'R's a second
 xset r rate 210 40

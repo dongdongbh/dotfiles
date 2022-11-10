@@ -1,6 +1,37 @@
 ## dotfiles
 This is mydotfile repo. The dotfiles are managed by stow. 
 
+System startup procedure: 
+
+>bios->bootloader->X server (.xinitrc) with display manager -> login && window manager -> .xprofile 
+
+The tools I'm using:
+
+- display manager: [ lightdm ](https://github.com/canonical/lightdm)
+- greeter: unity-greeter. See [this](https://askubuntu.com/questions/64001/how-do-i-change-the-wallpaper-of-the-login-screen) to change the greeter background.
+- window manager: [ bspwm ](https://github.com/baskerville/bspwm)
+- key mapping: [ sxhkd ](https://github.com/baskerville/sxhkd)
+- bar: [ polybar ](https://github.com/polybar/polybar)
+- X wallpaper: [feh](https://github.com/derf/feh)
+- lockscreen: [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
+- X compositor: [picom](https://github.com/yshui/picom)
+- menu: [rofi](https://github.com/davatorium/rofi)
+- input method framework: [ibus](https://github.com/ibus/ibus)
+- terminal: [alacritty](https://github.com/alacritty/alacritty)
+- fuzzy finder: [fzf](https://github.com/junegunn/fzf)
+- editor: [nvim](https://github.com/neovim/neovim)
+- shell: [zsh](https://www.zsh.org/)
+- terminal session manager: [tmux](https://github.com/tmux/tmux/wiki) 
+- file manager: [vifm](https://vifm.info/)
+- filedinder: [ fdfind ](https://github.com/sharkdp/fd)
+- grep: [ ripgrep ](https://github.com/BurntSushi/ripgrep)
+- terminal text picker: [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)
+- filesystem tool: [ duf ](https://github.com/muesli/duf)
+- disk usage tool: [ dust ](https://github.com/muesli/duf)
+- git: [ lazygit ](https://github.com/jesseduffield/lazygit)
+- cat: [ bat ](https://github.com/sharkdp/bat)
+- ls: [exa](https://github.com/ogham/exa) 
+
 ### stow
 stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of ditfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.
 

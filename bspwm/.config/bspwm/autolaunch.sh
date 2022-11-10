@@ -6,6 +6,9 @@ nm-applet --indicator --sm-disable &
 # Bluetooth systray icon
 blueman-applet &
 
+# run polybar
+~/.config/polybar/launch.sh &
+
 # screen locker
 # use random wallpaper from the folder
 # betterlockscreen -u ~/dotfiles/wallpapers/
@@ -25,11 +28,9 @@ picom --config $HOME/.config/picom/picom.sample.conf -b
 ibus-daemon -drx  &
 
 # open programs
-bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun
-bspc rule -a Google-chrome desktop='^1' && google-chrome
+bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
+bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome &
 
-# run polybar
-~/.config/polybar/launch.sh &
 
 # Remove x cursor
 xsetroot -cursor_name left_ptr &

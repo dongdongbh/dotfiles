@@ -1,6 +1,7 @@
 vifm/.config/vifm/vifminfo
+vifm/.config/vifm/vifminfo.json
 *.log
 
-vifm/.config/vifm/vifminfo.json
 lazygit/.config/lazygit/state.yml
-/tmux/.config/tmux/plugins/
+tmux/.config/tmux/plugins/
+alacritty/.config/alacritty/alacritty-theme/

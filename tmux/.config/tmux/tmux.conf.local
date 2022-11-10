@@ -51,17 +51,5 @@ bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 
-# plugins
-# plugin manager
-set -g @plugin 'tmux-plugins/tpm'
-# for save and restore tmux 
-# prefix + Ctrl-s - save; prefix + Ctrl-r - restore
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-# screen text picker for paste in tmux
-# prefix + Space
-set -g @plugin 'fcsonline/tmux-thumbs'
-
-# plugin settings
-set -g @resurrect-strategy-nvim 'session'
-
+# plugin related setting must in tmux.conf but not tmux.conf.local, I guess due to the plugin manager tpm.
 

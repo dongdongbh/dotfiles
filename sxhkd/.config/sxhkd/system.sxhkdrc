@@ -75,6 +75,10 @@ XF86ScreenSaver
 ctrl + alt + l
     betterlockscreen -l dim
 
+# lock screen 
+alt + l
+  dm-tool lock
+
 # sleep
 XF86Sleep
     systemctl suspend
