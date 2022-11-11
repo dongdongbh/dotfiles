@@ -30,7 +30,9 @@ The tools I'm using:
 - disk usage tool: [ dust ](https://github.com/muesli/duf)
 - git: [ lazygit ](https://github.com/jesseduffield/lazygit)
 - cat: [ bat ](https://github.com/sharkdp/bat)
+- top: [htop-vim](https://github.com/KoffeinFlummi/htop-vim)
 - ls: [exa](https://github.com/ogham/exa) 
+- pomodoro: [pomotroid](https://github.com/Splode/pomotroid)
 
 ### stow
 stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of ditfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.

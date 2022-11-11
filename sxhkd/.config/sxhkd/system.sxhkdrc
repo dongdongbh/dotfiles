@@ -6,6 +6,11 @@ super + shift + r
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# Hide-show polybar
+super + shift + space
+	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
+    polybar-msg cmd toggle; bspc config top_padding 23 }
+
 # fullscreen terminal emulator
 super + Return
   bspc rule -a Alacritty -o state=fullscreen && alacritty -e tmux 
@@ -26,11 +31,11 @@ super + shift + Return
 super + shift + d
   gnome-control-center 
 
-# open control center.
+# open network control center.
 super + n
   gnome-control-center network
 
-# open file explore
+# open/focus file explore
 super + e
   xdo activate -n vifm
 
@@ -49,7 +54,7 @@ super + alt + Print
 # super + @space
 # 	dmenu_run
 
-# program launcher after key release
+# program launcher after key release (rifi)
 super + @space
 	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode 
 
@@ -71,11 +76,11 @@ XF86AudioMute
 XF86ScreenSaver
     betterlockscreen -l dim
 
-# lock screen 
+# lock screen with betterlockscreen
 ctrl + alt + l
     betterlockscreen -l dim
 
-# lock screen 
+# lock screen with lightdm
 alt + l
   dm-tool lock
 
@@ -84,8 +89,10 @@ XF86Sleep
     systemctl suspend
 
 # reboot, shutdown
-super + control + alt + {Prior,Next}
-  systemctl {reboot,poweroff -i}
+super + control + alt + Prior
+  dprompt "Are you sure you want reboot?" "systemctl reboot -i"
+super + control + alt + Next
+  dprompt "Are you sure you want poweroff?" "systemctl poweroff -i"
 
 # Show help
 super + slash

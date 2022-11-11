@@ -52,4 +52,3 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 
 # plugin related setting must in tmux.conf but not tmux.conf.local, I guess due to the plugin manager tpm.
-

@@ -1,4 +1,4 @@
-Refer [tmux-config](https://github.com/samoshkin/tmux-config#key-bindings) to see basic config.
+Refer [tmux-config](https://github.com/gpakosz/.tmux#bindings) to see basic config.
 `ctrl+b` is `prefix`
 `prefix + r` reload config
 ### [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)

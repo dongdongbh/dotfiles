@@ -17,6 +17,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
+# enable numlock keyboard
+# numlockx on
 
 # zsh config dir
 # export ZDOTDIR=$HOME/.config/zsh
