@@ -6,6 +6,8 @@ nm-applet --indicator --sm-disable &
 # Bluetooth systray icon
 blueman-applet &
 
+# value tray
+pa-applet &
 # screen locker
 # use random wallpaper from the folder
 # betterlockscreen -u ~/dotfiles/wallpapers/
@@ -25,15 +27,16 @@ feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
 picom --config $HOME/.config/picom/picom.sample.conf -b
 
 # Start ibus daemon
-ibus-daemon -drx  &
+ibus-daemon -drxR &
 
-# run polybar
-~/.config/polybar/launch.sh &
 
 # open programs
 bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
-bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid &
-bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome &
+bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid --no-sandbox &
+bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome-stable &
 
 # Remove x cursor
+# run polybar
+~/.config/polybar/launch.sh &
+
 xsetroot -cursor_name left_ptr &
