@@ -1,1 +1,1 @@
-/home/nvio/.zshrc
+/home/dd/.zshrc

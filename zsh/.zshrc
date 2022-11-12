@@ -61,7 +61,7 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
-zsh_add_file "envrc"
+# zsh_add_file "envrc"
 zsh_add_file ".zshenv"
 zsh_add_file "zsh-aliases"
 
