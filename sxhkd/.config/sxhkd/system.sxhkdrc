@@ -1,4 +1,4 @@
-# Reload sxhkdrc
+
 super + shift + r
   pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
@@ -21,7 +21,7 @@ super + alt + Return
 
 # tiling terminal emulator
 super + ctrl + Return
-  bspc rule -a Alacritty -o state=tiled && alacritty 
+  bspc rule -a Alacritty -o state=tiled && alacritty -e tmux
 
 # browser
 super + shift + Return
@@ -83,6 +83,10 @@ ctrl + alt + l
 # lock screen with lightdm
 alt + l
   dm-tool lock
+
+# Close screen and lock (with xss-lock)
+super + shift + Pause
+    sleep 0.5; xset dpms force standby
 
 # sleep
 XF86Sleep

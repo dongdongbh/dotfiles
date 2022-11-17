@@ -14,8 +14,10 @@ blueman-applet &
 # screen saver hook with betterlockscreen
 xss-lock -n dim-screen.sh -- betterlockscreen -l &
 
+# for clipmenud know X server $DISPLAY
+systemctl --user import-environment DISPLAY &
 # Run keybindings daemon.
-sxhkdrcgen pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
+pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
 $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 
 # Start X wallpaper.
