@@ -61,8 +61,12 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
-zsh_add_file "envrc"
-zsh_add_file ".zshenv"
+if [ -d "$HOME/.config/zsh/envrc" ] ; then
+    zsh_add_file "envrc"
+fi
+if [ -d "$HOME/.config/zsh/.zshenv" ] ; then
+    zsh_add_file ".zshenv"
+fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection

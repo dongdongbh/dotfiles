@@ -72,6 +72,14 @@ XF86Audio{RaiseVolume,LowerVolume}
 XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# light control
+XF86MonBrightnessDown
+  xbacklight -dec 10
+
+# light control
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
 # lock screen
 XF86ScreenSaver
     betterlockscreen -l dim

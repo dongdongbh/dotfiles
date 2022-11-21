@@ -1,3 +1,9 @@
+## usage
+```
+ln -s -f ~/.config/tmux_cfg/tmux.conf ~/.tmux.conf
+ln -s ~/.config/tmux_cfg/tmux.conf.local ~/.tmux.conf.local
+```
+
 Refer [tmux-config](https://github.com/gpakosz/.tmux#bindings) to see basic config.
 `ctrl+b` is `prefix`
 `prefix + r` reload config

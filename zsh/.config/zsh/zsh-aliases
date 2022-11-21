@@ -25,7 +25,7 @@ alias vrc='cd ~/.config/nvim'
 
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias vifm=vifmrun
+# alias vifm=vifmrun
 alias fd=fdfind
 alias du=dust
 alias nf="neofetch"

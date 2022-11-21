@@ -1,5 +1,7 @@
 #! /bin/sh
 
+# disbale internal monitor
+xrandr | grep -q 'HDMI-2 connected' && xrandr --output eDP-1 --off
 # start network manager applet 
 nm-applet --indicator --sm-disable &
 
