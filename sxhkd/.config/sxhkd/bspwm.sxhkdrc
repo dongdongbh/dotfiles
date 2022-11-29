@@ -2,7 +2,7 @@
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
+# quit/restart bspwm; quit means logout
 super + alt + {q,r}
 	bspc {quit,wm -r}
 

@@ -16,6 +16,7 @@ The tools I'm using:
 - lockscreen: [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
 - X compositor: [picom](https://github.com/yshui/picom)
 - menu: [rofi](https://github.com/davatorium/rofi)
+- notify: [dunst](https://github.com/dunst-project/dunst) and libnotify frontend
 - input method framework: [ibus](https://github.com/ibus/ibus)
 - terminal: [alacritty](https://github.com/alacritty/alacritty)
 - fuzzy finder: [fzf](https://github.com/junegunn/fzf)
