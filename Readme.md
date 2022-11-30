@@ -17,6 +17,7 @@ The tools I'm using:
 - X compositor: [picom](https://github.com/yshui/picom)
 - menu: [rofi](https://github.com/davatorium/rofi)
 - notify: [dunst](https://github.com/dunst-project/dunst) and libnotify frontend
+- screenshot: [main](https://github.com/naelstrof/maim)
 - input method framework: [ibus](https://github.com/ibus/ibus)
 - terminal: [alacritty](https://github.com/alacritty/alacritty)
 - fuzzy finder: [fzf](https://github.com/junegunn/fzf)
@@ -35,6 +36,7 @@ The tools I'm using:
 - top: [htop-vim](https://github.com/KoffeinFlummi/htop-vim)
 - ls: [exa](https://github.com/ogham/exa) 
 - pomodoro: [pomotroid](https://github.com/Splode/pomotroid)
+- windows app: [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu).
 
 ### stow
 stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of ditfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.

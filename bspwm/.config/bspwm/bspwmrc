@@ -20,11 +20,12 @@ bspc config bottom_padding 0
 bspc config top_padding 0
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Gnome-calculator sktop='^8' state=floating follow=on
+bspc rule -a Gnome-calculator desktop='^8' state=floating follow=on
+bspc rule -a Wechat desktop='^5' -o state=floating follow=on rectangle=1200x800+360+150
+bspc rule -a Microsoft\ Word desktop='^4'
 bspc rule -a Google-chrome desktop='^1'
 bspc rule -a netease-cloud-music desktop='^6' follow=on
 bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 
 bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100
