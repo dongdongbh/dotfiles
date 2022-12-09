@@ -3,9 +3,11 @@
 # set zdotdir
 export ZDOTDIR=$HOME/.config/zsh
 
-# History in cache directory:
+# History in cache directory, 
 HISTFILE=~/.cache/zsh/history 
+[ -f $HISTFILE ] || mkdir -p $(dirname $HISTFILE) && touch $HISTFILE
 setopt appendhistory
+
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete correctall
@@ -61,10 +63,10 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
-if [ -d "$HOME/.config/zsh/envrc" ] ; then
+if [ -f "$ZDOTDIR/envrc" ] ; then
     zsh_add_file "envrc"
 fi
-if [ -d "$HOME/.config/zsh/.zshenv" ] ; then
+if [ -f "$ZDOTDIR/.zshenv" ] ; then
     zsh_add_file ".zshenv"
 fi
 zsh_add_file "zsh-aliases"
@@ -123,3 +125,6 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="google-chrome"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+
+

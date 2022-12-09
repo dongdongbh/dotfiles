@@ -18,8 +18,12 @@ setxkbmap -option caps:escape
 
 # set up tapping and natural scrolling of touchpad
 # this can also be set in /etc/X11/xorg.conf.d/
+# set trackpoint use max sensitivity 
 xinput set-prop 15 304 1
 xinput set-prop 15 322 1
+xinput --set-prop 16 313 1.0
+# disable touchpad
+xinput set-prop 15 "Device Enabled" 0
 
 # swap escape and caps
 # setxkbmap -option caps:swapescape

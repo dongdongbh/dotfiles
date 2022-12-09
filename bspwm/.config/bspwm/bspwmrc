@@ -21,7 +21,8 @@ bspc config top_padding 0
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Gnome-calculator desktop='^8' state=floating follow=on
-bspc rule -a Wechat desktop='^7' -o state=floating follow=on rectangle=1200x800+360+150
+bspc rule -a Wechat desktop='^7' -o state=pseudo_tiled follow=on 
+bspc rule -a igoer desktop='^7' -o state=pseudo_tiled follow=on 
 bspc rule -a v2ray desktop='^6' -o state=floating follow=on rectangle=1200x800+360+150
 bspc rule -a Microsoft\ Word desktop='^8' follow=on 
 bspc rule -a Mendeley\ Desktop desktop='^9' follow=on 

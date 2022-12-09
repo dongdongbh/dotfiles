@@ -70,7 +70,7 @@ super + shift + {Left,Right}
 	bspc desktop -f {prev,next}.occupied.local
 
 # super + scroll mouse switch workspace
-super + button{4,5}
+super + button{5,4}
   bspc desktop {next,prev}.occupied.local -f
 
 # focus the last node/desktop

@@ -28,7 +28,7 @@ The tools I'm using:
 - filedinder: [ fdfind ](https://github.com/sharkdp/fd)
 - grep: [ ripgrep ](https://github.com/BurntSushi/ripgrep)
 - terminal text picker: [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)
-- clipmenu: [clipmenu](https://github.com/cdown/clipmenu)
+- clipboard manager: [clipmenu](https://github.com/cdown/clipmenu)
 - filesystem tool: [ duf ](https://github.com/muesli/duf)
 - disk usage tool: [ dust ](https://github.com/bootandy/dust)
 - git: [ lazygit ](https://github.com/jesseduffield/lazygit)
