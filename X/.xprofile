@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # .xprofile is just for setting up the environment when logging in with an X session
 export EDITOR="nvim"
 export TERMINAL="alacritty"
@@ -16,14 +16,22 @@ export XDG_DATA_HOME=$HOME/.local/share
 # remap caps to escape
 setxkbmap -option caps:escape
 
-# set up tapping and natural scrolling of touchpad
+
+declare -i TOUCHPAD_ID
+declare -i TRACKPOINT_ID
+TOUCHPAD_ID=`xinput list | grep -Eo 'TouchPad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
+TRACKPOINT_ID=`xinput list | grep -Eo 'TrackPoint\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
 # this can also be set in /etc/X11/xorg.conf.d/
-# set trackpoint use max sensitivity 
-xinput set-prop 15 304 1
-xinput set-prop 15 322 1
-xinput --set-prop 16 313 1.0
+# set up tapping and natural scrolling of touchpad
+xinput --set-prop $TOUCHPAD_ID 304 1
+# enabel touchpad tapping input
+# xinput set-prop $TOUCHPAD_ID 322 1
 # disable touchpad
-xinput set-prop 15 "Device Enabled" 0
+xinput --set-prop $TOUCHPAD_ID "Device Enabled" 0
+# xinput --set-prop $TOUCHPAD_ID "Device Enabled" 1
+# set trackpoint use max sensitivity 
+xinput --set-prop $TRACKPOINT_ID 313 1.0
+# xinput set-prop 15 "Device Enabled" 0
 
 # swap escape and caps
 # setxkbmap -option caps:swapescape
