@@ -31,3 +31,4 @@ if [ -d "$HOME/dotfiles/bin" ] ; then
   PATH="$HOME/dotfiles/bin:$PATH"
 fi
 export PATH="$PATH:/home/dd/.cargo/bin"
+export PATH=/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH

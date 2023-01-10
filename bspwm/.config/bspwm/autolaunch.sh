@@ -1,7 +1,5 @@
 #! /bin/sh
 
-# disbale internal monitor
-$HOME/.config/bspwm/screen_setup.sh
 # start network manager applet 
 nm-applet --indicator --sm-disable &
 
@@ -23,7 +21,8 @@ pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
 $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 
 # Start X wallpaper.
-feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
+# feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
+feh --no-fehbg -bg-fill /home/dd/dotfiles/wallpapers/debian.jpg --bg-fill /home/dd/dotfiles/wallpapers/vertical-jet.jpg
 
 # Start picom daemon
 picom --config $HOME/.config/picom/picom.sample.conf -b
