@@ -7,3 +7,4 @@ tmux/.config/tmux/plugins/
 alacritty/.config/alacritty/alacritty-theme/
 zsh/.config/zsh/envrc
 zsh/.config/zsh/.zshenv
+nvim/

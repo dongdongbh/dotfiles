@@ -21,6 +21,7 @@ super + Print
 	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
+# Screenshot selected area and save to local storage. 
 super + alt + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \

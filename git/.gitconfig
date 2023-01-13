@@ -9,6 +9,7 @@
 	email = 18310682633@163.com
 [alias]
   lg    = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  rmcache =  rm -r --cached .
   s     = status -s
   a     = add
   ca    = commit -a --verbose
