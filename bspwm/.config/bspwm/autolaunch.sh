@@ -40,3 +40,4 @@ ibus-daemon -drx  &
 
 # Remove x cursor
 xsetroot -cursor_name left_ptr &
+

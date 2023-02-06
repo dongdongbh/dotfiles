@@ -19,6 +19,9 @@ bspc config bottom_padding 0
 bspc config top_padding 0
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a rviz desktop='^4' follow=on
+bspc rule -a QGroundControl desktop='^3' follow=on
+bspc rule -a PlotJuggler-3 desktop='^5' follow=on
 bspc rule -a Gnome-calculator desktop='^8' state=floating follow=on
 bspc rule -a Wechat desktop='^7' -o state=pseudo_tiled follow=on 
 bspc rule -a igoer desktop='^7' -o state=pseudo_tiled follow=on 

@@ -410,6 +410,8 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 # screen text picker for paste in tmux
 # prefix + Space
 set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @plugin 'danyim/tmux-remote'
+
 
 # plugin settings
 # use lower letter to paste

@@ -12,3 +12,5 @@ Refer [tmux-config](https://github.com/gpakosz/.tmux#bindings) to see basic conf
 ### [Tmux Resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 `prefix + ctrl+s` to save session.
 `prefix + ctrl+r` to load session.
+### [tmux-remote](https://github.com/danyim/tmux-remote)
+`F12 Toggles the remote mode`
