@@ -38,9 +38,14 @@
 
   d     = diff
   dt    = difftool
-[diff]
-  tool = kdiff3
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+[difftool]
+  prompt = false
 [merge]
-  tool = kdiff3
-[mergetool]
+  tool = nvimdiff
+  conflictstyle = diff3
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
   keepBackup = false
+	prompt = false

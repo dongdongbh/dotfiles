@@ -76,3 +76,4 @@ alias sc="source $HOME/.zshrc"
 alias background_local='printf "\e]11;#282828\e\\"'
 alias background_server='printf "\e]11;#2E3440\e\\"'
 alias ssh_nuc="background_server; ssh gnvio ; background_local"
+alias planner='flatpak run com.github.alainm23.planner'
