@@ -20,6 +20,7 @@ bspc config top_padding 0
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a rviz desktop='^4' follow=on
+bspc rule -a Zathura state=tiled follow=on
 bspc rule -a QGroundControl desktop='^3' follow=on
 bspc rule -a PlotJuggler-3 desktop='^5' follow=on
 bspc rule -a Gnome-calculator desktop='^8' state=floating follow=on

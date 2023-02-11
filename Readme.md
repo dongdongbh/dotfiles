@@ -35,6 +35,9 @@ The tools I'm using:
 - cat: [ bat ](https://github.com/sharkdp/bat)
 - top: [htop-vim](https://github.com/KoffeinFlummi/htop-vim)
 - ls: [exa](https://github.com/ogham/exa) 
+- pdf reader: [zathura](https://github.com/pwmt/zathura) 
+- terminal browser: [w3m](https://w3m.sourceforge.net/) 
+- git cli diff: [delta](https://github.com/dandavison/delta) 
 - pomodoro: [pomotroid](https://github.com/Splode/pomotroid)
 - windows app: [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu).
 
