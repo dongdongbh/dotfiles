@@ -18,6 +18,9 @@ The tools I'm using:
 - menu: [rofi](https://github.com/davatorium/rofi)
 - notify: [dunst](https://github.com/dunst-project/dunst) and libnotify frontend
 - screenshot: [main](https://github.com/naelstrof/maim)
+- screecast: [simplescreenrecorder](https://www.maartenbaert.be/simplescreenrecorder/)
+- video player: [vlc](https://www.videolan.org/vlc/)
+- video editor: [kdenlive](https://kdenlive.org/en/)
 - input method framework: [ibus](https://github.com/ibus/ibus)
 - terminal: [alacritty](https://github.com/alacritty/alacritty)
 - fuzzy finder: [fzf](https://github.com/junegunn/fzf)
@@ -38,7 +41,7 @@ The tools I'm using:
 - pdf reader: [zathura](https://github.com/pwmt/zathura) 
 - terminal browser: [w3m](https://w3m.sourceforge.net/) 
 - git cli diff: [delta](https://github.com/dandavison/delta) 
-- pomodoro: [pomotroid](https://github.com/Splode/pomotroid)
+- timer: [pomotroid](https://github.com/Splode/pomotroid)
 - windows app: [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu).
 
 ### stow

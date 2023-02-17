@@ -16,13 +16,13 @@ if [[ "$1" == 0 ]]; then
     # close internal by default
     xrandr --output $INTERNAL_MONITOR --off
 
-    if [[ $(xrandr -q | grep -E "_${DP1_MONITOR} connected") ]]; then
+    if [[ $(xrandr -q | grep -E "${DP1_MONITOR} connected") ]]; then
       bspc monitor "$HDMI2_MONITOR" -d 1 2 3 4 5 6 7 8
-      bspc monitor "$DP1_MONITOR" -d 9 10
+      bspc monitor "$DP1_MONITOR" -d  9 10
       xrandr --output $HDMI2_MONITOR --auto
       xrandr --output $DP1_MONITOR --mode 2560x1440 --rotate left
-      xrandr --output $DP1_MONITOR --right-of $HDMI2_MONITOR
-      bspc wm -O "$HDMI2_MONITOR"  "$DP1_MONITOR"
+      xrandr --output $DP1_MONITOR --left-of $HDMI2_MONITOR
+      bspc wm -O "$HDMI2_MONITOR" "$DP1_MONITOR" 
     else 
       xrandr --output $HDMI2_MONITOR --auto
       bspc monitor "$HDMI2_MONITOR" -d 1 2 3 4 5 6 7 8 9 10 
@@ -96,28 +96,30 @@ monitor_remove() {
 # adjust in fly
 if [[ $(xrandr -q | grep "${HDMI2_MONITOR} connected") ]]; then
   # set xrandr rules for docked setup
-  if [[ $(xrandr -q | grep -E "_${DP1_MONITOR} connected") ]]; then
+  if [[ $(xrandr -q | grep -E "${DP1_MONITOR} connected") ]]; then
     xrandr --output "$DP1_MONITOR"  --pos 0x0 --rotate left --output "$HDMI2_MONITOR" --primary --rotate normal --right-of $DP1_MONITOR
     xrandr --output $HDMI2_MONITOR --auto
     xrandr --output $DP1_MONITOR --mode 2560x1440 --rotate left
-    xrandr --output $DP1_MONITOR --right-of $HDMI2_MONITOR
+    xrandr --output $DP1_MONITOR --left-of $HDMI2_MONITOR
     if [[ $(bspc query -D -m "${HDMI2_MONITOR}" | wc -l) -ne 8 ]]; then
       monitor_add_2
     fi
-    bspc wm -O "$HDMI2_MONITOR"  "$DP1_MONITOR"
+    bspc wm -O "$HDMI2_MONITOR" "$DP1_MONITOR" 
     xrandr --output $INTERNAL_MONITOR --off
+    echo dp1here
   else
     xrandr --output $HDMI2_MONITOR --auto
     if [[ $(bspc query -D -m "${HDMI2_MONITOR}" | wc -l) -ne 10 ]]; then
       monitor_add_1
       xrandr --output $INTERNAL_MONITOR --off
     fi
-  else
-    # set xrandr rules for mobile setup
-    xrandr --output "$INTERNAL_MONITOR" --primary --pos 0x0 --rotate normal --output "$HDMI2_MONITOR" --off --output "$DP1_MONITOR" --off
-    xrandr --output $INTERNAL_MONITOR --auto
-    if [[ $(bspc query -D -m "${INTERNAL_MONITOR}" | wc -l) -ne 10 ]]; then
-      monitor_remove
-    fi
   fi
+else
+  # set xrandr rules for mobile setup
+  xrandr --output "$INTERNAL_MONITOR" --primary --pos 0x0 --rotate normal --output "$HDMI2_MONITOR" --off --output "$DP1_MONITOR" --off
+  xrandr --output $INTERNAL_MONITOR --auto
+  if [[ $(bspc query -D -m "${INTERNAL_MONITOR}" | wc -l) -ne 10 ]]; then
+    monitor_remove
+  fi
+fi
 
