@@ -42,10 +42,12 @@ The tools I'm using:
 - terminal browser: [w3m](https://w3m.sourceforge.net/) 
 - git cli diff: [delta](https://github.com/dandavison/delta) 
 - timer: [pomotroid](https://github.com/Splode/pomotroid)
+- file share: [syncthing](https://github.com/syncthing/syncthing)
+- network overlay: [nebula](https://github.com/slackhq/nebula) constructing mash network by UDP punching.
 - windows app: [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu).
 
 ### stow
-stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of ditfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.
+stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of dotfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.
 
 Here is an exampled:
 ```
@@ -83,4 +85,7 @@ You should have the following in dotfiles by `mv ~/.config/nvim ~/dotfiles/nvim`
 ```
 Then just `stow nvim` in `~/dotfiles`.
 
-for tmux, you should use tmux version newer than 3.1 to use config file located in `.config/tmux/`.
+For tmux, you should use tmux version newer than 3.1 to use config file located in `.config/tmux/`.
+
+### other way to manage dotfiles
+use [ git bare repository ](https://www.atlassian.com/git/tutorials/dotfiles).
