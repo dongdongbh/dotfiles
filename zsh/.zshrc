@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# zmodload zsh/zprof
 # set zdotdir
 export ZDOTDIR=$HOME/.config/zsh
 
