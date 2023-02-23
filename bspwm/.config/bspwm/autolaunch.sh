@@ -24,7 +24,7 @@ $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
 
 # Start picom daemon
-picom --config $HOME/.config/picom/picom.sample.conf -b
+# picom --config $HOME/.config/picom/picom.sample.conf -b
 
 # Start ibus daemon
 ibus-daemon -drx  &
@@ -33,9 +33,9 @@ ibus-daemon -drx  &
 ~/.config/polybar/launch.sh &
 
 # open programs
-bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
-bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid &
-bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome &
+# bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
+# bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid &
+# bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome &
 
 # Remove x cursor
 xsetroot -cursor_name left_ptr &

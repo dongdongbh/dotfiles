@@ -1,11 +1,15 @@
 #!/bin/sh
 
+# zmodload zsh/zprof
 # set zdotdir
 export ZDOTDIR=$HOME/.config/zsh
 
-# History in cache directory:
+DISABLE_AUTO_UPDATE="true"
+# History in cache directory, 
 HISTFILE=~/.cache/zsh/history 
+[ -f $HISTFILE ] || mkdir -p $(dirname $HISTFILE) && touch $HISTFILE
 setopt appendhistory
+
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete correctall
@@ -23,10 +27,15 @@ unsetopt BEEP
 autoload -U colors && colors
 
 # tab completions
-autoload -Uz compinit
 zstyle ':completion:*' menu select
-# zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
+# load compinit every 24 hours
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C 
+# zstyle ':completion::complete:lsof:*' menu yes select
 # compinit
 _comp_options+=(globdots)		# Include hidden files.
 
@@ -61,8 +70,12 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
-zsh_add_file "envrc"
-zsh_add_file ".zshenv"
+if [ -f "$ZDOTDIR/envrc" ] ; then
+	zsh_add_file "envrc"
+fi
+if [ -f "$ZDOTDIR/.zshenv" ] ; then
+	zsh_add_file ".zshenv"
+fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection
@@ -90,7 +103,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # More completions https://github.com/zsh-users/zsh-completions
 
 
-compinit
 
 # Key-bindings
 # `showkey -a` to see the key code
@@ -119,3 +131,10 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="google-chrome"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+
+
+export ROS_MASTER_URI=http://10.212.143.3:11311
+export ROS_IP=10.212.143.3
+
+# zprof

@@ -18,6 +18,8 @@ bspc config bottom_padding 0
 bspc config top_padding 0
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a rviz desktop='^4' follow=on
+bspc rule -a plotjuggler desktop='^5' follow=on
 bspc rule -a Gnome-calculator sktop='^8' state=floating follow=on
 bspc rule -a Google-chrome desktop='^1'
 bspc rule -a netease-cloud-music desktop='^6' follow=on
