@@ -1,0 +1,5 @@
+#!/bin/sh
+# bt-device -c 88:C9:E8:02:A2:AA :q
+bluetoothctl connect 88:C9:E8:02:A2:AA
+
+
