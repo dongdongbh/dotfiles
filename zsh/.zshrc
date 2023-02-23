@@ -129,4 +129,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 
 export ROS_MASTER_URI=http://10.212.143.3:11311
-export ROS_IP=10.212.142.63
+export ROS_IP=10.212.143.3
+
+# zprof

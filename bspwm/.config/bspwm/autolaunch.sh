@@ -25,7 +25,7 @@ $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 feh --no-fehbg -bg-fill /home/dd/dotfiles/wallpapers/debian.jpg --bg-fill /home/dd/dotfiles/wallpapers/vertical-jet.jpg
 
 # Start picom daemon
-picom --config $HOME/.config/picom/picom.sample.conf -b
+# picom --config $HOME/.config/picom/picom.sample.conf -b
 
 # Start ibus daemon
 ibus-daemon -drx  &
