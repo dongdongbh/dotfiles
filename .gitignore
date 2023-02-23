@@ -5,3 +5,9 @@ vifm/.config/vifm/vifminfo.json
 lazygit/.config/lazygit/state.yml
 tmux/.config/tmux/plugins/
 alacritty/.config/alacritty/alacritty-theme/
+zsh/.config/zsh/envrc
+zsh/.config/zsh/.zshenv
+nvim/
+ranger/.config/ranger/__pycache__
+w3m/.w3m/cookie
+w3m/.w3m/history

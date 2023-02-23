@@ -25,7 +25,7 @@ alias vrc='cd ~/.config/nvim'
 
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias vifm=vifmrun
+# alias vifm=vifmrun
 alias fd=fdfind
 alias du=dust
 alias nf="neofetch"
@@ -45,11 +45,8 @@ alias rm="rm -vri"
 alias df=duf
 alias free='free -m' # show sizes in MB
 
-# get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4 | head -5'
-
-# get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
 
 # mkdir
 alias mk="mkdir -p"
@@ -76,3 +73,7 @@ alias ec="$EDITOR $HOME/.zshrc"
 # source ~/.zshrc
 alias sc="source $HOME/.zshrc"
 
+alias background_local='printf "\e]11;#282828\e\\"'
+alias background_server='printf "\e]11;#2E3440\e\\"'
+alias ssh_nuc="background_server; ssh gnvio ; background_local"
+alias planner='flatpak run com.github.alainm23.planner'

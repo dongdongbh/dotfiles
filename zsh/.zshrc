@@ -4,7 +4,6 @@
 # set zdotdir
 export ZDOTDIR=$HOME/.config/zsh
 
-DISABLE_AUTO_UPDATE="true"
 # History in cache directory, 
 HISTFILE=~/.cache/zsh/history 
 [ -f $HISTFILE ] || mkdir -p $(dirname $HISTFILE) && touch $HISTFILE
@@ -27,15 +26,10 @@ unsetopt BEEP
 autoload -U colors && colors
 
 # tab completions
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-# load compinit every 24 hours
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C 
+zstyle ':completion:*' menu select
 # zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
 # compinit
 _comp_options+=(globdots)		# Include hidden files.
 
@@ -71,10 +65,10 @@ zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
 if [ -f "$ZDOTDIR/envrc" ] ; then
-	zsh_add_file "envrc"
+    zsh_add_file "envrc"
 fi
 if [ -f "$ZDOTDIR/.zshenv" ] ; then
-	zsh_add_file ".zshenv"
+    zsh_add_file ".zshenv"
 fi
 zsh_add_file "zsh-aliases"
 
@@ -103,6 +97,7 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # More completions https://github.com/zsh-users/zsh-completions
 
 
+compinit
 
 # Key-bindings
 # `showkey -a` to see the key code
