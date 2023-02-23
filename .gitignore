@@ -8,3 +8,6 @@ alacritty/.config/alacritty/alacritty-theme/
 zsh/.config/zsh/envrc
 zsh/.config/zsh/.zshenv
 nvim/
+ranger/.config/ranger/__pycache__
+w3m/.w3m/cookie
+w3m/.w3m/history

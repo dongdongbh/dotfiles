@@ -27,6 +27,7 @@ The tools I'm using:
 - editor: [nvim](https://github.com/neovim/neovim)
 - shell: [zsh](https://www.zsh.org/)
 - terminal session manager: [tmux](https://github.com/tmux/tmux/wiki) 
+- file manager: [ranger](https://github.com/ranger/ranger)
 - file manager: [vifm](https://vifm.info/)
 - filedinder: [ fdfind ](https://github.com/sharkdp/fd)
 - grep: [ ripgrep ](https://github.com/BurntSushi/ripgrep)
