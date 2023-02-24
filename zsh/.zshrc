@@ -10,7 +10,8 @@ setopt appendhistory
 
 
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete correctall
+# setopt autocd
+setopt extendedglob nomatch menucomplete correctall
 setopt interactive_comments
 setopt histignorealldups sharehistory
 stty stop undef		# Disable ctrl-s to freeze terminal.
