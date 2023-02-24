@@ -10,7 +10,8 @@ setopt appendhistory
 
 
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete correctall
+# setopt autocd
+setopt extendedglob nomatch menucomplete correctall
 setopt interactive_comments
 setopt histignorealldups sharehistory
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -129,6 +130,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 
 export ROS_MASTER_URI=http://10.212.143.3:11311
-export ROS_IP=10.212.143.3
+export ROS_IP=10.212.142.63
 
 # zprof
