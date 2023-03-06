@@ -159,3 +159,4 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export PATH=$PATH:/usr/local/go/bin
 
+. "$HOME/.cargo/env"

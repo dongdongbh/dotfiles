@@ -66,7 +66,7 @@ ctrl + alt + l
     betterlockscreen -l dim
 
 # lock screen with lightdm
-alt + l
+super + alt + l
   dm-tool lock
 
 # Close screen and lock (with xss-lock)
