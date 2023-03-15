@@ -15,6 +15,10 @@ super + shift + d
 super + n
   gnome-control-center network
 
+# open rofi pass
+super + shift + p
+  rofi-pass
+
 # Screenshot; Save to local storage. Should install maim
 super + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \

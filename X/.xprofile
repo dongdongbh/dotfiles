@@ -2,16 +2,19 @@
 # .xprofile is just for setting up the environment when logging in with an X session
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-
+export READER="zathura"
+export VISUAL="nvim"
 
 # Speedy keys
 #  after 210ms of pressing 'R' the OS will put out 40 'R's a second
 xset r rate 210 40
 
 # XDG Paths
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # setup ibus for input
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -24,15 +27,15 @@ setxkbmap -option caps:escape
 
 declare -i TOUCHPAD_ID
 declare -i TRACKPOINT_ID
-TOUCHPAD_ID=`xinput list | grep -Eo 'TouchPad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
-TRACKPOINT_ID=`xinput list | grep -Eo 'TrackPoint\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
+TOUCHPAD_ID=`xinput list | grep -oP 'Synaptics.*id=\K\d+'`
+TRACKPOINT_ID=`xinput list | grep -oP 'TrackPoint.*id=\K\d+'`
 
 # import $DISPLAY so that clipmenud knows which X server to use
 systemctl --user import-environment DISPLAY
 
 # this can also be set in /etc/X11/xorg.conf.d/
 # set up tapping and natural scrolling of touchpad
-xinput --set-prop $TOUCHPAD_ID 304 1
+xinput --set-prop $TOUCHPAD_ID 323 1
 # enabel touchpad tapping input
 # xinput set-prop $TOUCHPAD_ID 322 1
 # disable touchpad
@@ -40,7 +43,7 @@ xinput --set-prop $TOUCHPAD_ID "Device Enabled" 0
 # xinput --set-prop $TOUCHPAD_ID "Device Enabled" 1
 # xinput --set-prop 15 "Device Enabled" 1
 # set trackpoint use max sensitivity 
-xinput --set-prop $TRACKPOINT_ID 313 1.0
+xinput --set-prop $TRACKPOINT_ID 332 1.0
 # xinput set-prop 15 "Device Enabled" 0
 
 # swap escape and caps

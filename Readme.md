@@ -7,45 +7,50 @@ System startup procedure:
 
 The tools I'm using:
 
-- display manager: [ lightdm ](https://github.com/canonical/lightdm)
-- greeter: unity-greeter. See [this](https://askubuntu.com/questions/64001/how-do-i-change-the-wallpaper-of-the-login-screen) to change the greeter background.
-- window manager: [ bspwm ](https://github.com/baskerville/bspwm)
-- key mapping: [ sxhkd ](https://github.com/baskerville/sxhkd)
-- bar: [ polybar ](https://github.com/polybar/polybar)
-- X wallpaper: [feh](https://github.com/derf/feh)
-- lockscreen: [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
-- X compositor: [picom](https://github.com/yshui/picom)
-- menu: [rofi](https://github.com/davatorium/rofi)
-- notify: [dunst](https://github.com/dunst-project/dunst) and libnotify frontend
-- screenshot: [main](https://github.com/naelstrof/maim)
-- screecast: [simplescreenrecorder](https://www.maartenbaert.be/simplescreenrecorder/)
-- video player: [vlc](https://www.videolan.org/vlc/)
-- video editor: [kdenlive](https://kdenlive.org/en/)
-- input method framework: [ibus](https://github.com/ibus/ibus)
-- terminal: [alacritty](https://github.com/alacritty/alacritty)
-- fuzzy finder: [fzf](https://github.com/junegunn/fzf)
-- editor: [nvim](https://github.com/neovim/neovim)
-- shell: [zsh](https://www.zsh.org/)
-- terminal session manager: [tmux](https://github.com/tmux/tmux/wiki) 
-- file manager: [ranger](https://github.com/ranger/ranger)
-- file manager: [vifm](https://vifm.info/)
-- filedinder: [ fdfind ](https://github.com/sharkdp/fd)
-- grep: [ ripgrep ](https://github.com/BurntSushi/ripgrep)
-- terminal text picker: [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)
-- clipboard manager: [clipmenu](https://github.com/cdown/clipmenu)
-- filesystem tool: [ duf ](https://github.com/muesli/duf)
-- disk usage tool: [ dust ](https://github.com/bootandy/dust)
-- git: [ lazygit ](https://github.com/jesseduffield/lazygit)
-- cat: [ bat ](https://github.com/sharkdp/bat)
-- top: [htop-vim](https://github.com/KoffeinFlummi/htop-vim)
-- ls: [exa](https://github.com/ogham/exa) 
-- pdf reader: [zathura](https://github.com/pwmt/zathura) 
-- terminal browser: [w3m](https://w3m.sourceforge.net/) 
-- git cli diff: [delta](https://github.com/dandavison/delta) 
-- timer: [pomotroid](https://github.com/Splode/pomotroid)
-- file share: [syncthing](https://github.com/syncthing/syncthing)
-- network overlay: [nebula](https://github.com/slackhq/nebula) constructing mash network by UDP punching.
-- windows app: [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu).
+| Tool                 | Link                                                        |
+|----------------------|-------------------------------------------------------------|
+| display manager          | [lightdm](https://github.com/canonical/lightdm)                                                                                                      |
+| greeter                  | unity-greeter. See [this](https://askubuntu.com/questions/64001/how-do-i-change-the-wallpaper-of-the-login-screen) to change the greeter background. |
+| window manager           | [bspwm](https://github.com/baskerville/bspwm)                                                                                                        |
+| key mapping              | [sxhkd](https://github.com/baskerville/sxhkd)                                                                                                        |
+| bar                      | [polybar](https://github.com/polybar/polybar)                                                                                                        |
+| X wallpaper              | [feh](https://github.com/derf/feh)                                                                                                                   |
+| Image Viewer | [nsxiv](https://nsxiv.codeberg.page/)                                                                                                                   |
+| lockscreen               | [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)                                                                             |
+| X compositor             | [picom](https://github.com/yshui/picom)                                                                                                              |
+| menu                     | [rofi](https://github.com/davatorium/rofi)                                                                                                           |
+| notify                   | [dunst](https://github.com/dunst-project/dunst) and libnotify frontend                                                                               |
+| screenshot               | [main](https://github.com/naelstrof/maim)                                                                                                            |
+| screecast                | [simplescreenrecorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                            |
+| video player             | [vlc](https://www.videolan.org/vlc/)                                                                                                                 |
+| video editor             | [kdenlive](https://kdenlive.org/en/)                                                                                                                 |
+| input method framework   | [ibus](https://github.com/ibus/ibus)                                                                                                                 |
+| terminal                 | [alacritty](https://github.com/alacritty/alacritty)                                                                                                  |
+| fuzzy finder             | [fzf](https://github.com/junegunn/fzf)                                                                                                               |
+| editor                   | [nvim](https://github.com/neovim/neovim)                                                                                                             |
+| shell                    | [zsh](https://www.zsh.org/)                                                                                                                          |
+| terminal session manager | [tmux](https://github.com/tmux/tmux/wiki)                                                                                                            |
+| file manager             | [ranger](https://github.com/ranger/ranger)                                                                                                           |
+| file manager             | [vifm](https://vifm.info/)                                                                                                                           |
+| password manager             | [pass](https://www.passwordstore.org) with [rofi-pass](https://github.com/carnager/rofi-pass), [browserpass-native](https://github.com/browserpass/browserpass-native/) with [extension](https://chrome.google.com/webstore/detail/browserpass/naepdomgkenhinolocfifgehidddafch?hl=en) on chrome and [Android-Password-Store](https://github.com/android-password-store/Android-Password-Store) on android      |
+| filedinder               | [fdfind](https://github.com/sharkdp/fd)                                                                                                              |
+| grep                     | [ripgrep](https://github.com/BurntSushi/ripgrep)                                                                                                     |
+| terminal text picker     | [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)                                                                                              |
+| clipboard manager        | [clipmenu](https://github.com/cdown/clipmenu)                                                                                                        |
+| filesystem tool          | [duf](https://github.com/muesli/duf)                                                                                                                 |
+| disk usage tool          | [dust](https://github.com/bootandy/dust)                                                                                                             |
+| git                      | [lazygit](https://github.com/jesseduffield/lazygit)                                                                                                  |
+| cat                      | [bat](https://github.com/sharkdp/bat)                                                                                                                |
+| top                      | [htop-vim](https://github.com/KoffeinFlummi/htop-vim)                                                                                                |
+| ls                       | [exa](https://github.com/ogham/exa)                                                                                                                  |
+| pdf reader               | [zathura](https://github.com/pwmt/zathura)
+| terminal browser         | [w3m](https://w3m.sourceforge.net/)                                                                                                                  |
+| git cli diff             | [delta](https://github.com/dandavison/delta)                                                                                                         |
+| timer                    | [pomotroid](https://github.com/Splode/pomotroid)                                                                                                     |
+| file share               | [syncthing](https://github.com/syncthing/syncthing)                                                                                                  |
+| network overlay          | [nebula](https://github.com/slackhq/nebula)                                                                                                          |
+| windows app              | [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu)                                                              |
+
 
 ### stow
 stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of dotfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.
