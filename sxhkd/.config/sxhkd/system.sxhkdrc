@@ -31,6 +31,10 @@ super + alt + Print
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
+# use flameshot for Screenshot
+Print 
+  flameshot gui
+
 # program launcher
 # super + @space
 # 	dmenu_run

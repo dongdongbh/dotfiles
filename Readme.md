@@ -21,6 +21,7 @@ The tools I'm using:
 | menu                     | [rofi](https://github.com/davatorium/rofi)                                                                                                           |
 | notify                   | [dunst](https://github.com/dunst-project/dunst) and libnotify frontend                                                                               |
 | screenshot               | [main](https://github.com/naelstrof/maim)                                                                                                            |
+| screenshot               | [Flameshot](https://github.com/flameshot-org/flameshot) for more featured screenshot                                                                 |
 | screecast                | [simplescreenrecorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                            |
 | video player             | [vlc](https://www.videolan.org/vlc/)                                                                                                                 |
 | video editor             | [kdenlive](https://kdenlive.org/en/)                                                                                                                 |
