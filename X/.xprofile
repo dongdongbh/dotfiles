@@ -29,6 +29,7 @@ declare -i TOUCHPAD_ID
 declare -i TRACKPOINT_ID
 TOUCHPAD_ID=`xinput list | grep -oP 'Synaptics.*id=\K\d+'`
 TRACKPOINT_ID=`xinput list | grep -oP 'TrackPoint.*id=\K\d+'`
+SPEED_PROP=$(xinput list-props $TRACKPOINT_ID | grep -oP 'libinput Accel Speed \(\K\d+(?=\))')
 
 # import $DISPLAY so that clipmenud knows which X server to use
 systemctl --user import-environment DISPLAY
@@ -43,7 +44,7 @@ xinput --set-prop $TOUCHPAD_ID "Device Enabled" 0
 # xinput --set-prop $TOUCHPAD_ID "Device Enabled" 1
 # xinput --set-prop 15 "Device Enabled" 1
 # set trackpoint use max sensitivity 
-xinput --set-prop $TRACKPOINT_ID 332 1.0
+xinput --set-prop $TRACKPOINT_ID $SPEED_PROP 1.0
 # xinput set-prop 15 "Device Enabled" 0
 
 # swap escape and caps

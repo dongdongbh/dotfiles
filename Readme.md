@@ -52,6 +52,58 @@ The tools I'm using:
 | network overlay          | [nebula](https://github.com/slackhq/nebula)                                                                                                          |
 | windows app              | [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu)                                                              |
 
+### speed up your linux
+
+#### using swap
+It is better to have more ram memory. 
+
+Using more swap memory is not a good idea, because it will slow down your system.
+by change the swappiness, you can make the system use swap memory less often.
+The default swappiness is 60, you can change it to 10 by `sudo sysctl vm.swappiness=25`
+Make this permanent by `sudo echo vm.swappiness=25 >> /etc/sysctl.conf`
+
+#### speed up linux by tmpfs
+Many Linux distro use tmpfs for /tmp, but debain/ubuntu currently don't.
+Enable tmpfs for /tmp by
+```bash
+echo "tmpfs /tmp tmpfs rw,noatime,nosuid,nodev" | sudo tee -a /etc/fstab
+sudo reboot
+```
+By default, a tmpfs partition has its maximum size set to half your total RAM.
+You can change this by adding a size parameter to the fstab entry, e.g. tmpfs /tmp tmpfs rw,size=2G 0 0
+Another method is enable it by systemd
+```bash
+sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system/
+sudo systemctl enable tmp.mount
+sudo reboot
+systemctl status tmp.mount
+```
+
+Note that you should do this only if your machine has enough ram available (generally at least 8GB)
+You can also change the size of the tmpfs partition by changing the value of the SizeMax parameter in /etc/systemd/system/tmp.mount
+
+make program use tmpfs for /tmp
+```bash
+#!/bin/bash 
+mkdir /tmp/chrome-cache-alw
+ln -sf /tmp/chrome-cache-alw ~/.cache/google-chrome
+```
+You can mount ~/.cache as tmpfs, but Some naughty programs store things there that they want later and assume it will be there after a reboot.
+Take you own risk.
+
+`/etc/fstab` can be
+```
+tmpfs       /tmp                    tmpfs   rw,noatime,nosuid,nodev                         0   0
+tmpfs       /var/cache/apt          tmpfs   noatime,mode=0755,uid=0,gid=0                   0   0
+tmpfs       /home/dd/.cache         tmpfs   size=4g,noatime,mode=0700,uid=1000,gid=1000     0   0
+tmpfs       /ram                    tmpfs   size=8g,noatime,mode=0700,uid=1000,gid=1000     0   0
+```
+
+* mounting /var/cache/apt as tmpfs, the apt package manager will be downloading all archives to RAM, and extracting them from RAM to disk. This speeds up installations and upgrades.
+* mounting /ram as tmpfs, gives us a general folder to use as RAM disk, with a size of 8GB. This can be used to download files, archives to extract to disk, etc., where the speed of RAM is desirable.
+* the size=[x] option will specify how much RAM can be used for each mountpoint.
+* the mode=[xxxx] option will set the directory permissions (who can read, write, and execute)
+* using the noatimeoption will eliminate needless disk operations, improving all disk performance.
 
 ### stow
 stow create symbolic link to files or directories automatically. The symbol link use same name as the original files. For management of dotfiles, you should first move your dot file to the dofiles dir, then use stow to create a symbol link.
