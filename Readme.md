@@ -28,7 +28,7 @@ The tools I'm using:
 | input method framework   | [ibus](https://github.com/ibus/ibus)                                                                                                                 |
 | terminal                 | [alacritty](https://github.com/alacritty/alacritty)                                                                                                  |
 | fuzzy finder             | [fzf](https://github.com/junegunn/fzf)                                                                                                               |
-| editor                   | [nvim](https://github.com/neovim/neovim)                                                                                                             |
+| editor                   | [nvim](https://github.com/neovim/neovim), my neovim config can be found [here](https://github.com/dongdongbh/nvim.conf)                               |
 | shell                    | [zsh](https://www.zsh.org/)                                                                                                                          |
 | terminal session manager | [tmux](https://github.com/tmux/tmux/wiki)                                                                                                            |
 | file manager             | [ranger](https://github.com/ranger/ranger)                                                                                                           |
