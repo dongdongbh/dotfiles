@@ -16,6 +16,7 @@
 
 
 # -- windows & pane creation ---------------------------------------------------
+set-option -g default-shell /usr/bin/zsh
 
 # new window retains current path, possible values are:
 #   - true

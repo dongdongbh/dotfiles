@@ -13,12 +13,13 @@ The tools I'm using:
 | greeter                  | unity-greeter. See [this](https://askubuntu.com/questions/64001/how-do-i-change-the-wallpaper-of-the-login-screen) to change the greeter background. |
 | window manager           | [bspwm](https://github.com/baskerville/bspwm)                                                                                                        |
 | key mapping              | [sxhkd](https://github.com/baskerville/sxhkd)                                                                                                        |
-| bar                      | [polybar](https://github.com/polybar/polybar)                                                                                                        |
+| bar                      | [polybar](https://github.com/polybar/polybar) 3.6.3-85                                                                                               |
 | X wallpaper              | [feh](https://github.com/derf/feh)                                                                                                                   |
 | Image Viewer | [nsxiv](https://nsxiv.codeberg.page/)                                                                                                                   |
-| lockscreen               | [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)                                                                             |
+| lockscreen               | [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen) depend on imagemagick and i3lock-color                                      |
 | X compositor             | [picom](https://github.com/yshui/picom)                                                                                                              |
 | menu                     | [rofi](https://github.com/davatorium/rofi)                                                                                                           |
+| menu                     | [dmenu](https://github.com/stilvoid/dmenu)  4.8                                                                                                      |
 | notify                   | [dunst](https://github.com/dunst-project/dunst) and libnotify frontend                                                                               |
 | screenshot               | [main](https://github.com/naelstrof/maim)                                                                                                            |
 | screenshot               | [Flameshot](https://github.com/flameshot-org/flameshot) for more featured screenshot                                                                 |
@@ -27,8 +28,8 @@ The tools I'm using:
 | video editor             | [kdenlive](https://kdenlive.org/en/)                                                                                                                 |
 | input method framework   | [ibus](https://github.com/ibus/ibus)                                                                                                                 |
 | terminal                 | [alacritty](https://github.com/alacritty/alacritty)                                                                                                  |
-| fuzzy finder             | [fzf](https://github.com/junegunn/fzf)                                                                                                               |
-| editor                   | [nvim](https://github.com/neovim/neovim), my neovim config can be found [here](https://github.com/dongdongbh/nvim.conf)                               |
+| fuzzy finder             | [fzf](https://github.com/junegunn/fzf) 0.35.1                                                                                                        |
+| editor                   | [nvim](https://github.com/neovim/neovim), my neovim config can be found [here](https://github.com/dongdongbh/nvim.conf)                              |
 | shell                    | [zsh](https://www.zsh.org/)                                                                                                                          |
 | terminal session manager | [tmux](https://github.com/tmux/tmux/wiki)                                                                                                            |
 | file manager             | [ranger](https://github.com/ranger/ranger)                                                                                                           |
@@ -37,6 +38,7 @@ The tools I'm using:
 | filedinder               | [fdfind](https://github.com/sharkdp/fd)                                                                                                              |
 | grep                     | [ripgrep](https://github.com/BurntSushi/ripgrep)                                                                                                     |
 | terminal text picker     | [tmux-thumbs](https://github.com/fcsonline/tmux-thumbs)                                                                                              |
+| clipboard                | [xclip](https://manpages.ubuntu.com/manpages/bionic/man1/xclip.1.html)                                                                               |
 | clipboard manager        | [clipmenu](https://github.com/cdown/clipmenu)                                                                                                        |
 | filesystem tool          | [duf](https://github.com/muesli/duf)                                                                                                                 |
 | disk usage tool          | [dust](https://github.com/bootandy/dust)                                                                                                             |

@@ -4,7 +4,7 @@ vifm/.config/vifm/vifminfo.json
 
 lazygit/.config/lazygit/state.yml
 tmux/.config/tmux/plugins/
-alacritty/.config/alacritty/alacritty-theme/
+alacritty/.config/alacritty/themes/
 zsh/.config/zsh/envrc
 zsh/.config/zsh/.zshenv
 nvim/
