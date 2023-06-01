@@ -7,7 +7,7 @@ export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 #export PATH="$HOME/.local/share/neovim/bin":$PATH
 #export PATH="$PATH:./node_modules/.bin"
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # C Programming
 export CC='clang'
@@ -32,4 +32,4 @@ export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export PYTHONPATH="${PYTHONPATH}:/usr/lib/python3/dist-packages"
-
+export PATH=$PATH:/usr/local/go/bin

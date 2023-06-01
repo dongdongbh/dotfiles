@@ -28,6 +28,8 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload mybar-side 2>&1 | tee -a /tmp/mybar-side.log & disown 
   elif [ "$m" = "$INTERNAL_MONITOR" ]; then
     MONITOR=$m polybar --reload mybar 2>&1 | tee -a /tmp/mybar.log & disown 
+  else 
+    MONITOR=$m polybar --reload mybar 2>&1 | tee -a /tmp/mybar.log & disown 
   fi 
 done
 
