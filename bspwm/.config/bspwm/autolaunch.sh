@@ -31,9 +31,9 @@ ibus-daemon -drxR &
 
 
 # open programs
-bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
-bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid --no-sandbox &
-bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome-stable &
+# bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
+# bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid --no-sandbox &
+# bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome-stable &
 
 # Remove x cursor
 # run polybar
