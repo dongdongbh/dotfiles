@@ -14,17 +14,21 @@ pa-applet &
 # set wallpaper with dim effect
 # betterlockscreen -w dim
 # screen saver hook with betterlockscreen
+# betterlockscreen -u ~/dotfiles/wallpapers/japan01.png --fx dim,pixel
 xss-lock -n dim-screen.sh -- betterlockscreen -l &
 
+# for clipmenud know X server $DISPLAY
+systemctl --user import-environment DISPLAY &
 # Run keybindings daemon.
-sxhkdrcgen pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
+pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
 $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 
 # Start X wallpaper.
-feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
+# feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
+feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg --bg-fill $HOME/dotfiles/wallpapers/vertical-jet.jpg &
 
 # Start picom daemon
-picom --config $HOME/.config/picom/picom.sample.conf -b
+# picom --config $HOME/.config/picom/picom.sample.conf -b
 
 # Start ibus daemon
 ibus-daemon -drxR &
@@ -40,3 +44,4 @@ ibus-daemon -drxR &
 ~/.config/polybar/launch.sh &
 
 xsetroot -cursor_name left_ptr &
+

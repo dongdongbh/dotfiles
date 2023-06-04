@@ -1,0 +1,19 @@
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == *~/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}~/.fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "~/.fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+<<<<<<< HEAD
+source "/home/dd/.fzf/shell/key-bindings.zsh"
+||||||| 6c73ad9
+source "/home/nvio/.fzf/shell/key-bindings.zsh"
+=======
+source "~/.fzf/shell/key-bindings.zsh"
+>>>>>>> master

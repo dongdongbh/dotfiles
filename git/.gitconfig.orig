@@ -1,0 +1,82 @@
+<<<<<<< HEAD
+||||||| 6c73ad9
+[http]
+  proxy = socks5://127.0.0.1:7891
+[https]
+  proxy = socks5://127.0.0.1:7891
+=======
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+
+; [http]
+; 	proxy = http://127.0.0.1:8118
+; [https]
+; 	proxy = http://127.0.0.1:8118
+>>>>>>> master
+[core]
+  editor = nvim
+[user]
+	name = dongdongbh
+	email = 18310682633@163.com
+[alias]
+  lg    = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  rmcache =  rm -r --cached .
+  s     = status -s
+  a     = add
+  ca    = commit -a --verbose
+  c     = commit 
+  cm    = commit -m
+  cam   = commit -a -m
+  amend = commit --amend --no-edit
+  am    = commit --amend --verbose
+
+  # list branches sorted by last modified
+  b     = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+  # list aliases
+  la    = !git config -l | grep alias | cut -c 7-
+  com   = checkout master
+  st    = stash
+  stl   = stash list
+  rl    = ref log
+
+  new   = checkout -b
+  up    = submodule update --init --recursive --remote
+  st    = status -sb
+
+  ll    = log --oneline
+  last  = log -1 HEAD --stat
+  rv    = remote -v
+
+  d     = diff
+  dt    = difftool
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+[difftool]
+  prompt = false
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
+  keepBackup = false
+	prompt = false
+

@@ -9,8 +9,9 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 # some good: taerminal nord tokyo night solarise
+# theme from https://github.com/alacritty/alacritty-theme
 import:
-  - ~/.config/alacritty/alacritty-theme/themes/nord.yaml
+  - ~/.config/alacritty/themes/themes/nord.yaml
 #  - /path/to/alacritty.yml
 
 # Any items in the `env` entry below will be added as
@@ -120,7 +121,7 @@ font:
       # family: DejaVuSansMono Nerd Font Mono
       # family: UbuntuMono Nerd Font
       # family: JetBrainsMono Nerd Font
-      family: FuraMono Nerd Font Mono
+      family: FiraMono Nerd Font Mono
     # The `style` can be specified to pick a specific face.
       style: Regular
 
@@ -131,7 +132,7 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: FuraMono Nerd Font Mono
+    family: FiraMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -143,7 +144,7 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: FuraMono Nerd Font Mono
+    family: FiraMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -155,7 +156,7 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: FuraMono Nerd Font Mono
+    family: FiraMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -447,10 +448,10 @@ live_config_reload: true
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /usr/bin/zsh
+  args:
+    - --login
 
 # Startup directory
 #

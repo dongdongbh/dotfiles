@@ -1,32 +1,13 @@
-# Reload sxhkdrc
-super + shift + r
-  pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
-
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 # Hide-show polybar
 super + shift + space
 	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
     polybar-msg cmd toggle; bspc config top_padding 23 }
 
-# fullscreen terminal emulator
-super + Return
-  bspc rule -a Alacritty -o state=fullscreen && alacritty -e tmux 
-
-# float terminal emulator
-super + alt + Return
-  bspc rule -a Alacritty -o state=floating && alacritty 
-
-# tiling terminal emulator
-super + ctrl + Return
-  bspc rule -a Alacritty -o state=tiled && alacritty 
-
-# browser
-super + shift + Return
   bspc rule -a Google-chrome -o state=fullscreen && google-chrome-stable
-
 # open control center.
 super + shift + d
   gnome-control-center 
@@ -35,20 +16,25 @@ super + shift + d
 super + n
   gnome-control-center network
 
-# open/focus file explore
-super + e
-  xdo activate -n vifm
+# open rofi pass
+super + shift + p
+  rofi-pass
 
 # Screenshot; Save to local storage. Should install maim
 super + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
-	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
+# Screenshot selected area and save to local storage. 
 super + alt + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
-	sh $HOME/dotfiles/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+
+# use flameshot for Screenshot
+Print 
+  flameshot gui
 
 # program launcher
 # super + @space
@@ -79,6 +65,7 @@ XF86MonBrightnessDown
 # light control
 XF86MonBrightnessUp
   xbacklight -inc 10
+
 # lock screen
 XF86ScreenSaver
     betterlockscreen -l dim
@@ -88,8 +75,12 @@ ctrl + alt + l
     betterlockscreen -l dim
 
 # lock screen with lightdm
-alt + l
+super + alt + l
   dm-tool lock
+
+# Close screen and lock (with xss-lock)
+super + shift + Pause
+    sleep 0.5; xset dpms force standby
 
 # sleep
 XF86Sleep

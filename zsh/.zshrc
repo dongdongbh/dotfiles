@@ -3,22 +3,15 @@
 # set zdotdir
 export ZDOTDIR=$HOME/.config/zsh
 
-#set history size
-export HISTSIZE=10000
-#save history after logout
-export SAVEHIST=10000
-#history file
+# History in cache directory, 
 HISTFILE=~/.cache/zsh/history 
-#append into history file
-setopt INC_APPEND_HISTORY
-#save only one command if 2 common are same and consistent
-setopt HIST_IGNORE_DUPS
-#add timestamp for each entry
-setopt EXTENDED_HISTORY   
+[ -f $HISTFILE ] || mkdir -p $(dirname $HISTFILE) && touch $HISTFILE
 setopt appendhistory
 
+
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete correctall
+# setopt autocd
+setopt extendedglob nomatch menucomplete correctall
 setopt interactive_comments
 setopt histignorealldups sharehistory
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -71,8 +64,12 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
 zsh_add_file "functions.zsh"
-# zsh_add_file "envrc"
-zsh_add_file ".zshenv"
+if [ -f "$ZDOTDIR/envrc" ] ; then
+    zsh_add_file "envrc"
+fi
+if [ -f "$ZDOTDIR/.zshenv" ] ; then
+    zsh_add_file ".zshenv"
+fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection

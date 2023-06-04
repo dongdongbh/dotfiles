@@ -140,12 +140,13 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+/* use vim keybinding */
+kb-row-up:                      "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+kb-row-down:                    "Down,Control+j";
+kb-accept-entry:                "Control+m,Return,KP_Enter";
+terminal:                       "mate-terminal";
+kb-remove-to-eol:               "Control+Shift+e";
+kb-mode-next:                   "Shift+Right,Control+Tab";
+kb-mode-previous:               "Shift+Left,Control+Shift+Tab,Control+h";
+kb-remove-char-back:            "BackSpace";
 }
