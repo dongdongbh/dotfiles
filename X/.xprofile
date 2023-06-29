@@ -20,6 +20,8 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# for alacritty by cargo
+export PATH=$PATH:/home/dd/.cargo/bin
 
 # remap caps to escape
 setxkbmap -option caps:escape

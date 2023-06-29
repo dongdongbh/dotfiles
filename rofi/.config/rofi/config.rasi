@@ -149,12 +149,4 @@ kb-remove-to-eol:               "Control+Shift+e";
 kb-mode-next:                   "Shift+Right,Control+Tab";
 kb-mode-previous:               "Shift+Left,Control+Shift+Tab,Control+h";
 kb-remove-char-back:            "BackSpace";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
 }

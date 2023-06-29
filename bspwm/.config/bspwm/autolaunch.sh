@@ -12,6 +12,7 @@ blueman-applet &
 # set wallpaper with dim effect
 # betterlockscreen -w dim
 # screen saver hook with betterlockscreen
+# betterlockscreen -u ~/dotfiles/wallpapers/japan01.png --fx dim,pixel
 xss-lock -n dim-screen.sh -- betterlockscreen -l &
 
 # for clipmenud know X server $DISPLAY
