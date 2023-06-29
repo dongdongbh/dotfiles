@@ -16,7 +16,7 @@ if [[ "$1" == 0 ]]; then
     # close internal by default
     xrandr --output $INTERNAL_MONITOR --off
 
-    if [[ $(xrandr -q | grep -E "${DP1_MONITOR} connected") ]]; then
+    if [[ $(xrandr -q | grep -E "^${DP1_MONITOR} connected") ]]; then
       bspc monitor "$HDMI2_MONITOR" -d 1 2 3 4 5 6 7 8
       bspc monitor "$DP1_MONITOR" -d  9 10
       xrandr --output $HDMI2_MONITOR --auto
@@ -60,9 +60,11 @@ monitor_add_1() {
     bspc desktop "$desktop" --to-monitor "$HDMI2_MONITOR"
   done
 
-  for desktop in $(bspc query -D -m "$DP1_MONITOR");	do
-    bspc desktop "$desktop" --to-monitor "$HDMI2_MONITOR"
-  done
+  if [[ $(xrandr -q | grep -E "^${DP1_MONITOR} connected") ]]; then
+    for desktop in $(bspc query -D -m "$DP1_MONITOR");	do
+      bspc desktop "$desktop" --to-monitor "$HDMI2_MONITOR"
+    done
+  fi
 
   # Remove default desktop created by bspwm
   bspc desktop Desktop --remove
@@ -77,9 +79,11 @@ monitor_remove() {
   # Add default temp desktop because a minimum of one desktop is required per monitor
   bspc monitor "$HDMI2_MONITOR" -a Desktop
 
-  for desktop in $(bspc query -D -m "$DP1_MONITOR");	do
-    bspc desktop "$desktop" --to-monitor "$INTERNAL_MONITOR"
-  done
+  if [[ $(xrandr -q | grep -E "^${DP1_MONITOR} connected") ]]; then
+    for desktop in $(bspc query -D -m "$DP1_MONITOR");	do
+      bspc desktop "$desktop" --to-monitor "$INTERNAL_MONITOR"
+    done
+  fi
 
   # Move all desktops except the last default desktop to internal monitor
   for desktop in $(bspc query -D -m "$HDMI2_MONITOR");	do
@@ -96,7 +100,7 @@ monitor_remove() {
 # adjust in fly
 if [[ $(xrandr -q | grep "${HDMI2_MONITOR} connected") ]]; then
   # set xrandr rules for docked setup
-  if [[ $(xrandr -q | grep -E "${DP1_MONITOR} connected") ]]; then
+  if [[ $(xrandr -q | grep -E "^${DP1_MONITOR} connected") ]]; then
     xrandr --output "$DP1_MONITOR"  --pos 0x0 --rotate left --output "$HDMI2_MONITOR" --primary --rotate normal --right-of $DP1_MONITOR
     xrandr --output $HDMI2_MONITOR --auto
     xrandr --output $DP1_MONITOR --mode 2560x1440 --rotate left
