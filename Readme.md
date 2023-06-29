@@ -12,6 +12,7 @@ The tools I'm using:
 | display manager          | [lightdm](https://github.com/canonical/lightdm)                                                                                                      |
 | greeter                  | unity-greeter. See [this](https://askubuntu.com/questions/64001/how-do-i-change-the-wallpaper-of-the-login-screen) to change the greeter background. |
 | window manager           | [bspwm](https://github.com/baskerville/bspwm)                                                                                                        |
+| screen manager           | [autoxrandr](https://github.com/phillipberndt/autorandr/)                                                                                            |
 | key mapping              | [sxhkd](https://github.com/baskerville/sxhkd)                                                                                                        |
 | bar                      | [polybar](https://github.com/polybar/polybar) 3.6.3-85                                                                                               |
 | X wallpaper              | [feh](https://github.com/derf/feh)                                                                                                                   |
