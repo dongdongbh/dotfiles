@@ -58,6 +58,10 @@ XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # light control
+# should enable writing to the balcklight file
+# 'bightnessctl -l' or 'xbacklight -list' to list devices
+# sudo chmod a+w /sys/class/backlight/intel_backlight/brightness`
+
 XF86MonBrightnessDown
   xbacklight -dec 10
 

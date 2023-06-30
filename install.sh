@@ -1,8 +1,10 @@
 #!/bin/bash
 sudo apt update
-sudo apt-get install stow ranger bspwm feh rofi fd-find ripgrep zathura maim gnome-session-canberra xlcip thefuck suckless-tools dunst autorandr
+sudo apt-get install zsh stow ranger bspwm feh rofi fd-find ripgrep zathura maim gnome-session-canberra xclip thefuck suckless-tools dunst autorandr
+sudo chsh -s $(which zsh)
 mkdir $HOME/Pictures/Screenshots/
-ln -s ~/.zshrc ~/.config/zsh/.zshrc 
+rm ~/.zshrc
+stow tmux_cfg zsh
 
 ln -s -f ~/.config/tmux_cfg/tmux.conf ~/.tmux.conf
 ln -s ~/.config/tmux_cfg/tmux.conf.local ~/.tmux.conf.local
