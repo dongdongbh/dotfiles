@@ -39,9 +39,10 @@ Print
 # super + @space
 # 	dmenu_run
 
-# program launcher after key release (rifi)
-super + @space
-	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode 
+# program launcher after key release (rofi)
+# super + @space
+super + space
+	rofi -m -1 -modi run,drun,window -show drun -show-icons -sidebar-mode 
 
 # Volume Control
 ctrl + {Up, Down}
@@ -56,6 +57,9 @@ XF86Audio{RaiseVolume,LowerVolume}
 # mute 
 XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
+# mic mute
+XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # light control
 # should enable writing to the balcklight file
@@ -63,11 +67,11 @@ XF86AudioMute
 # sudo chmod a+w /sys/class/backlight/intel_backlight/brightness`
 
 XF86MonBrightnessDown
-  xbacklight -dec 10
+  light -U 10
 
 # light control
 XF86MonBrightnessUp
-  xbacklight -inc 10
+  light -A 10
 
 # lock screen
 XF86ScreenSaver

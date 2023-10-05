@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt update
-sudo apt-get install zsh stow ranger bspwm feh rofi fd-find ripgrep zathura maim gnome-session-canberra xclip thefuck suckless-tools dunst autorandr imagemagick
+sudo apt-get install zsh stow ranger bspwm feh rofi fd-find ripgrep zathura maim gnome-session-canberra xclip thefuck suckless-tools dunst autorandr imagemagick xss-lock 
 sudo chsh -s $(which zsh)
 mkdir $HOME/Pictures/Screenshots/
 rm ~/.zshrc

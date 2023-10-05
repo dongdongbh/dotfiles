@@ -8,6 +8,9 @@ export VISUAL="nvim"
 # Speedy keys
 #  after 210ms of pressing 'R' the OS will put out 40 'R's a second
 xset r rate 210 40
+xset s 90
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 
 # XDG Paths
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -24,29 +27,31 @@ export QT_IM_MODULE=ibus
 export PATH=$PATH:/home/dd/.cargo/bin
 
 # remap caps to escape
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
+xinput | sed -n 's/.*AT Translated.*id=\([0-9]*\).*keyboard.*/\1/p' | xargs -I% setxkbmap -device % -option caps:escape
+xinput | sed -n 's/.*AT Translated.*id=\([0-9]*\).*keyboard.*/\1/p' | xargs -I% setxkbmap -device % -layout us,us -variant basic,engrammer -option grp:alt_space_toggle
 
 
 declare -i TOUCHPAD_ID
 declare -i TRACKPOINT_ID
-TOUCHPAD_ID=`xinput list | grep -oP 'Synaptics.*id=\K\d+'`
-TRACKPOINT_ID=`xinput list | grep -oP 'TrackPoint.*id=\K\d+'`
-SPEED_PROP=$(xinput list-props $TRACKPOINT_ID | grep -oP 'libinput Accel Speed \(\K\d+(?=\))')
+# TOUCHPAD_ID=`xinput list | grep -oP 'Synaptics.*id=\K\d+'`
+# TRACKPOINT_ID=`xinput list | grep -oP 'TrackPoint.*id=\K\d+'`
+# SPEED_PROP=$(xinput list-props $TRACKPOINT_ID | grep -oP 'libinput Accel Speed \(\K\d+(?=\))')
 
 # import $DISPLAY so that clipmenud knows which X server to use
 systemctl --user import-environment DISPLAY
 
 # this can also be set in /etc/X11/xorg.conf.d/
 # set up tapping and natural scrolling of touchpad
-xinput --set-prop $TOUCHPAD_ID 323 1
+# xinput --set-prop $TOUCHPAD_ID 323 1
 # enabel touchpad tapping input
 # xinput set-prop $TOUCHPAD_ID 322 1
 # disable touchpad
-xinput --set-prop $TOUCHPAD_ID "Device Enabled" 0
+# xinput --set-prop $TOUCHPAD_ID "Device Enabled" 0
 # xinput --set-prop $TOUCHPAD_ID "Device Enabled" 1
 # xinput --set-prop 15 "Device Enabled" 1
 # set trackpoint use max sensitivity 
-xinput --set-prop $TRACKPOINT_ID $SPEED_PROP 1.0
+# xinput --set-prop $TRACKPOINT_ID $SPEED_PROP 1.0
 # xinput set-prop 15 "Device Enabled" 0
 
 # swap escape and caps

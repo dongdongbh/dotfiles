@@ -72,3 +72,5 @@
   keepBackup = false
 	prompt = false
 
+[pull]
+	rebase = true

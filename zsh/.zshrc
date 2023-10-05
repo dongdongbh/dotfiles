@@ -73,7 +73,7 @@ fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection
-setproxy
+# setproxy
 
 # fzf
 [ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh  
@@ -149,3 +149,8 @@ export ROS_IP=10.212.142.63
 # unset __conda_setup
 # <<< conda initialize <<<
 
+
+#[ -f "/home/dd/.ghcup/env" ] && source "/home/dd/.ghcup/env" # ghcup-env
+#[ -f "/home/dd/.ghcup/env" ] && source "/home/dd/.ghcup/env" # ghcup-env
+#[ -f "/home/dd/.ghcup/env" ] && source "/home/dd/.ghcup/env" # ghcup-env
+[ -f "/home/dd/.ghcup/env" ] && source "/home/dd/.ghcup/env" # ghcup-env

@@ -31,3 +31,6 @@ alt + v
         -theme-str '* \{ font: 10px; \}' \
         -theme-str 'listview \{ spacing: 0; \}' \
         -theme-str 'window \{ width: 40em; \}'
+
+alt + space
+  toggle-kbvariant

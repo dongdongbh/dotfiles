@@ -1,5 +1,5 @@
-source /opt/ros/noetic/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
+# source /opt/ros/noetic/setup.zsh
+# source ~/catkin_ws/devel/setup.zsh
 # source /usr/lib/python3/dist-packages/catkin_tools/verbs/catkin_shell_verbs.bash
 # source ~/vins_fusion/devel/setup.zsh
 # source ~/catkin_ws/install/setup.zsh

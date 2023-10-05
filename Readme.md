@@ -17,7 +17,9 @@ The tools I'm using:
 | bar                      | [polybar](https://github.com/polybar/polybar) 3.6.3-85                                                                                               |
 | X wallpaper              | [feh](https://github.com/derf/feh)                                                                                                                   |
 | Image Viewer | [nsxiv](https://nsxiv.codeberg.page/)                                                                                                                   |
+| Image Viewer | [qimgv](https://github.com/easymodo/qimgv)                                                                                                                   |
 | lockscreen               | [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen) depend on imagemagick and i3lock-color                                      |
+| emoji font               | [noto-fonts-emoji ](https://packages.ubuntu.com/search?keywords=fonts-noto-color-emoji)                                       |
 | X compositor             | [picom](https://github.com/yshui/picom)                                                                                                              |
 | menu                     | [rofi](https://github.com/davatorium/rofi)                                                                                                           |
 | menu                     | [dmenu](https://github.com/stilvoid/dmenu)  4.8                                                                                                      |
@@ -27,7 +29,7 @@ The tools I'm using:
 | screecast                | [simplescreenrecorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                            |
 | video player             | [vlc](https://www.videolan.org/vlc/)                                                                                                                 |
 | video editor             | [kdenlive](https://kdenlive.org/en/)                                                                                                                 |
-| input method framework   | [ibus](https://github.com/ibus/ibus)                                                                                                                 |
+| input method framework   | [ibus](https://github.com/ibus/ibus) with ibus-libpinyin                                                                                                                 |
 | terminal                 | [alacritty](https://github.com/alacritty/alacritty)                                                                                                  |
 | fuzzy finder             | [fzf](https://github.com/junegunn/fzf) 0.35.1                                                                                                        |
 | editor                   | [nvim](https://github.com/neovim/neovim), my neovim config can be found [here](https://github.com/dongdongbh/nvim.conf)                              |
@@ -52,7 +54,7 @@ The tools I'm using:
 | git cli diff             | [delta](https://github.com/dandavison/delta)                                                                                                         |
 | timer                    | [pomotroid](https://github.com/Splode/pomotroid)                                                                                                     |
 | file share               | [syncthing](https://github.com/syncthing/syncthing)                                                                                                  |
-| network overlay          | [nebula](https://github.com/slackhq/nebula)                                                                                                          |
+| network overlay          | [nebula](https://github.com/slackhq/nebula) with [syncthingtray](https://github.com/Martchus/syncthingtray) as tray                                                                                                           |
 | windows app              | [winapps](https://github.com/Fmstrat/winapps) with [qemu](https://github.com/qemu/qemu)                                                              |
 
 ### speed up your linux

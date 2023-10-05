@@ -16,15 +16,15 @@ polybar-msg cmd quit
 # fi 
 
 INTERNAL_MONITOR="eDP-1"
-HDMI2_MONITOR="HDMI-2"
-DP1_MONITOR="DP-1"
+LEFT_MONITOR="HDMI-1"
+MAIN_MONITOR="DP-3"
 # Launch bar
 echo "---" | tee -a /tmp/mybar.log 
 # polybar mybar 2>&1 | tee -a /tmp/mybar.log & disown
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-  if [ "$m" = "$HDMI2_MONITOR" ]; then  
+  if [ "$m" = "$MAIN_MONITOR" ]; then  
     MONITOR=$m polybar --reload mybar-main 2>&1 | tee -a /tmp/mybar-main.log & disown 
-  elif [ "$m" = "$DP1_MONITOR" ]; then
+  elif [ "$m" = "$LEFT_MONITOR" ]; then
     MONITOR=$m polybar --reload mybar-side 2>&1 | tee -a /tmp/mybar-side.log & disown 
   elif [ "$m" = "$INTERNAL_MONITOR" ]; then
     MONITOR=$m polybar --reload mybar 2>&1 | tee -a /tmp/mybar.log & disown 
