@@ -786,6 +786,11 @@ key_bindings:
   - { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
+  - { key: Space, mods: Control, chars: "\u0000" }
+  - { key: Back, mods: Control, chars: "\u0017" }
+  - { key: Home, mods: Shift, chars: "\x1b[1;2H" }
+  - { key: End, mods: Shift, chars: "\x1b[1;2F" }
+
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }

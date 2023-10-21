@@ -5,4 +5,4 @@ new_variant="basic"
 if [ "$current_variant" = "basic" ]; then
   new_variant="engrammer"
 fi
-setxkbmap -layout us -variant "$new_variant"
+xinput | sed -n 's/.*AT Translated.*id=\([0-9]*\).*keyboard.*/\1/p' | xargs -I% setxkbmap -device % -layout us -variant "$new_variant"
