@@ -33,7 +33,10 @@ auto_set_dpms_time.sh &
 systemctl --user import-environment DISPLAY &
 
 # Start ibus daemon
-ibus-daemon -drx  &
+# ibus-daemon -drx  &
+# start fcitx daemon
+# fcitx -d &
+fcitx-autostart &
 # Run keybindings daemon.
 pgrep -x sxhkd > /dev/null || sxhkd -m -1 -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
 $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &

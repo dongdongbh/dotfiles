@@ -46,8 +46,7 @@ else
       echo "$LOG_PREFIX Launching side bar on $m" | tee -a /tmp/mybar-side.log
       MONITOR=$m polybar --reload mybar-side 2>&1 | tee -a /tmp/mybar-side.log & disown 
     else 
-      echo "$LOG_PREFIX Launching bar on $m" | tee -a /tmp/mybar.log
-      MONITOR=$m polybar --reload mybar 2>&1 | tee -a /tmp/mybar.log & disown 
+      echo "$LOG_PREFIX unknown monitor $m" | tee -a /tmp/mybar.log
     fi 
   done <<< "$connected_monitors"
 fi
