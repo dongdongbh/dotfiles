@@ -8,6 +8,8 @@ nm-applet --indicator --sm-disable &
 # Bluetooth systray icon
 blueman-applet &
 
+# start volumeicon
+pgrep -x pa-applet > /dev/null || pa-applet &
 # syncthing tray
 pgrep -x syncthingtray > /dev/null || syncthingtray --wait &
 
