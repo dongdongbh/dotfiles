@@ -45,6 +45,7 @@ The tools I'm using:
 | clipboard manager        | [clipmenu](https://github.com/cdown/clipmenu)                                                                                                        |
 | filesystem tool          | [duf](https://github.com/muesli/duf)                                                                                                                 |
 | disk usage tool          | [dust](https://github.com/bootandy/dust)                                                                                                             |
+| storage device manager   | [udisks](https://www.freedesktop.org/wiki/Software/udisks/) and [udiskie](https://github.com/coldfix/udiskie?tab=readme-ov-file) frontend                                                                               |
 | git                      | [lazygit](https://github.com/jesseduffield/lazygit)                                                                                                  |
 | cat                      | [bat](https://github.com/sharkdp/bat)                                                                                                                |
 | top                      | [htop-vim](https://github.com/KoffeinFlummi/htop-vim)                                                                                                |

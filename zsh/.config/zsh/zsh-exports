@@ -31,5 +31,6 @@ export ZSH_COMPDUMP=~/.cache/.zcompdump-$HOST
 # make bat show man page
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-export PYTHONPATH="${PYTHONPATH}:/usr/lib/python3/dist-packages"
+# export PYTHONPATH=/home/dd/.local/lib/python3.10/site-packages:/usr/lib/python3/dist-packages
+
 export PATH=$PATH:/usr/local/go/bin

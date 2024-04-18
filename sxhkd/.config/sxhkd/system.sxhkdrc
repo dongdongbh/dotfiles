@@ -1,32 +1,32 @@
 # make sxhkd reload its configuration files
-super + Escape
+alt + ctrl + Escape
 	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 # Hide-show polybar
-super + shift + space
+alt + ctrl + shift + space
 	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
     polybar-msg cmd toggle; bspc config top_padding 23 }
 
 # open control center.
-super + shift + d
+alt + ctrl + shift + d
   gnome-control-center 
 
 # open network control center.
-super + n
+alt + ctrl + n
   gnome-control-center network
 
 # open rofi pass
-super + shift + p
+alt + ctrl + shift + p
   rofi-pass
 
 # Screenshot; Save to local storage. Should install maim
-super + Print
+alt + ctrl + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
 # Screenshot selected area and save to local storage. 
-super + alt + Print
+alt + ctrl + shift + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
@@ -41,7 +41,7 @@ Print
 
 # program launcher after key release (rofi)
 # super + @space
-super + space
+alt + ctrl + space
 	rofi -m -1 -modi run,drun,window -show drun -show-icons -sidebar-mode 
 
 # Volume Control
@@ -67,11 +67,11 @@ XF86AudioMicMute
 # sudo chmod a+w /sys/class/backlight/intel_backlight/brightness`
 
 XF86MonBrightnessDown
-  light -U 10
+  light -U 5
 
 # light control
 XF86MonBrightnessUp
-  light -A 10
+  light -A 5
 
 # lock screen
 XF86ScreenSaver
@@ -79,7 +79,7 @@ XF86ScreenSaver
 
 # lock screen with betterlockscreen
 ctrl + alt + l
-    betterlockscreen -l dim
+    betterlockscreen -l dim --display 1
 
 # lock screen with lightdm
 super + alt + l
@@ -100,5 +100,5 @@ super + control + alt + Next
   dprompt "Are you sure you want poweroff?" "systemctl poweroff -i"
 
 # Show help
-super + slash
+alt + ctrl + slash
   sxhkd-help

@@ -422,6 +422,22 @@ set -g @thumbs-reverse enabled
 set -g @thumbs-unique enabled
 set -g @resurrect-strategy-nvim 'session'
 
+
+set -g @plugin 'sunaku/tmux-navigate'
+# For Engram keyboard
+set -g @navigate-back  '-n M-q'
+set -g @navigate-left  '-n M-h'
+set -g @navigate-up    '-n M-t'
+set -g @navigate-down  '-n M-s'
+set -g @navigate-right '-n M-n'
+
+# if you're using QWERTY layout
+# set -g @navigate-left  '-n M-h'
+# set -g @navigate-down  '-n M-j'
+# set -g @navigate-up    '-n M-k'
+# set -g @navigate-right '-n M-l'
+# set -g @navigate-back  '-n M-\'
+
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the

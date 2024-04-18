@@ -5,6 +5,7 @@ set selection-clipboard clipboard
 set synctex true
 # Open document in fit-width mode by default
 set adjust-open "best-fit"
+set sandbox none
 
 # One page per row by default
 set pages-per-row 1
