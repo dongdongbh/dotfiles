@@ -14,13 +14,10 @@ alt + ctrl + super + Return
 alt + ctrl + shift + Return
   bspc rule -a Google-chrome -o state=fullscreen && google-chrome
 
-# open/focus file explore
-alt + ctrl + e
-  xdo activate -n vifm
 
 # htop
 alt + t; h 
-  gnome-terminal -e htop
+  alacritty -e htop
 
 # Show clipmenu
 alt + v

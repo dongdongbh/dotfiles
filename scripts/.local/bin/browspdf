@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Loop over each PDF file in the current directory
+for file in *.pdf
+do
+  # Print the current file name
+  echo "Opening $file..."
+  
+  # Open the file with Zathura and wait for it to close
+  zathura "$file"
+done
+

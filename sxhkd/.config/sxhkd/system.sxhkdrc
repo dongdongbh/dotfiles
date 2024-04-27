@@ -7,13 +7,6 @@ alt + ctrl + shift + space
 	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
     polybar-msg cmd toggle; bspc config top_padding 23 }
 
-# open control center.
-alt + ctrl + shift + d
-  gnome-control-center 
-
-# open network control center.
-alt + ctrl + n
-  gnome-control-center network
 
 # open rofi pass
 alt + ctrl + shift + p

@@ -38,11 +38,11 @@ alt + ctrl + f
 	bspc node -t \~fullscreen
   
 # set the window state to {tiled, pseudo_tiled, floating}
-alt + ctrl + {t,shift + t,s}
+alt + ctrl + {v,shift + v,s}
 	bspc node -t {tiled,pseudo_tiled,floating}
 
 # set the node flags {marked,locked,sticky,private}
-alt + ctrl + {m,x,y,z}
+alt + ctrl + {m,w,x,y}
 	bspc node -g {marked,locked,sticky,private}
 
 #
@@ -50,8 +50,8 @@ alt + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-alt + ctrl+ {_,shift + }{h,t,s,n}
-	bspc node -{f,s} {west,south,north,east}
+alt + ctrl+ {h,t,s,n}
+	bspc node -f {west,south,north,east}
 
 # focus the node for the given path jump {parent,brother,first,second}
 alt + ctrl + {p,b,comma,period}
@@ -83,15 +83,26 @@ alt + ctrl + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-alt + ctrl + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# Focus or send to the given desktop (1-9)
+alt + ctrl + {_,shift + }{1-9}
+    bspc {desktop -f, node -d} '^{1-9}'
 
-# Send to desktop and follow
-alt + ctrl + {1-9,0}
-  bspc node -d '^{1-9,10}' --follow
+# # Focus previous monitor
+# alt + ctrl + Tab
+#     bspc monitor -f prev
 
-#
+# Send node to next monitor and possibly without following
+alt + ctrl + shift + 0
+    bspc node -m next
+
+# Send node to next monitor and follow
+alt + ctrl + super + 0
+    bspc node -m next --follow
+
+# Send to desktop and follow (1-9)
+alt + ctrl + super + {1-9}
+    bspc node -d '^{1-9}' --follow
+
 # preselect
 #
 
@@ -100,7 +111,7 @@ alt + ctrl + shift + m
     bspc node -n last.!automatic
 
 # preselect the direction
-alt + ctrl + shift + {h,n,t,s}
+alt + ctrl + shift + {h,t,s,n}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
@@ -134,7 +145,7 @@ alt + ctrl + shift + r : {h,t,s,n}
     bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
 
 # move a floating window
-alt + ctrl + super + {Left,Down,Up,Right}
+alt + ctrl + super + {h,t,s,n}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 

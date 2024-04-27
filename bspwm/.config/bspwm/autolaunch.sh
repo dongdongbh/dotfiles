@@ -60,6 +60,9 @@ if [[ $(xrandr -q | grep -E "^HDMI-1 connected") ]]; then
   betterlockscreen -u ~/dotfiles/wallpapers/dual --display 1 --fx dim,pixel &
   feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg --bg-fill $HOME/dotfiles/wallpapers/vertical-jet.jpg &
 
+  # set screen blank time to 10 minutes for dual monitor setup
+  xset dpms 600 900 1200
+
   bspc rule -a netease-cloud-music-gtk4 desktop='^6' -o state=tiled && flatpak run com.gitee.gmg137.NeteaseCloudMusicGtk4 &
 else
   echo $LOG_PREFIX "HDMI-1 disconnected"

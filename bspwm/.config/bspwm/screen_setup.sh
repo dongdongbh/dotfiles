@@ -27,8 +27,8 @@ if [[ "$1" == 0 ]]; then
       xrandr --output $MAIN_MONITOR --auto
       xrandr --output $LEFT_MONITOR --mode 3840x2160 --rotate left
       xrandr --output $LEFT_MONITOR --left-of $MAIN_MONITOR
-      bspc monitor "$MAIN_MONITOR" -d 1 2 3 4 5 6 7 8
-      bspc monitor "$LEFT_MONITOR" -d  9 10
+      bspc monitor "$MAIN_MONITOR" -d 1 2 3 4 5 6 7 8 9
+      bspc monitor "$LEFT_MONITOR" -d  10
       bspc wm -O "$MAIN_MONITOR" "$LEFT_MONITOR" 
     else 
       echo $LOG_PREFIX Only_main_monitor
@@ -52,11 +52,11 @@ monitor_add_2() {
   # Move all desktops to external monitor
 
   echo $LOG_PREFIX monitor_add_2
-  for desktop in $(bspc query -D --names -m "$INTERNAL_MONITOR" | sed 8q); do
+  for desktop in $(bspc query -D --names -m "$INTERNAL_MONITOR" | sed 9q); do
     bspc desktop "$desktop" --to-monitor "$MAIN_MONITOR"
   done
 
-  for desktop in $(bspc query -D --names -m "$INTERNAL_MONITOR" | tail -n 2); do
+  for desktop in $(bspc query -D --names -m "$INTERNAL_MONITOR" | tail -n 1); do
     bspc desktop "$desktop" --to-monitor "$LEFT_MONITOR"
   done
   # Remove default desktop created by bspwm
@@ -117,7 +117,8 @@ if [[ "$1" != 0 ]]; then
       xrandr --output $MAIN_MONITOR --auto
       xrandr --output $LEFT_MONITOR --mode 3840x2160 --rotate left
       xrandr --output $LEFT_MONITOR --left-of $MAIN_MONITOR
-      if [[ $(bspc query -D -m "${MAIN_MONITOR}" | wc -l) -ne 8 ]]; then
+      if [[ $(bspc query -D -m "${MAIN_MONITOR}" | wc -l) -ne 9 ]]; then
+      echo $LOG_PREFIX "add 2 monitors"
         monitor_add_2
       fi
       bspc wm -O "$MAIN_MONITOR" "$LEFT_MONITOR" 
@@ -126,6 +127,7 @@ if [[ "$1" != 0 ]]; then
     else
       xrandr --output $MAIN_MONITOR --auto
       if [[ $(bspc query -D -m "${MAIN_MONITOR}" | wc -l) -ne 10 ]]; then
+        echo $LOG_PREFIX "add 1 monitors"
         monitor_add_1
         xrandr --output $INTERNAL_MONITOR --off
       fi
@@ -136,6 +138,7 @@ if [[ "$1" != 0 ]]; then
     echo $LOG_PREFIX Only_internal_monitor_here
     xrandr --output $INTERNAL_MONITOR --auto
     if [[ $(bspc query -D -m "${INTERNAL_MONITOR}" | wc -l) -ne 10 ]]; then
+      echo $LOG_PREFIX "move to internal monitor"
       monitor_remove
     fi
   fi
