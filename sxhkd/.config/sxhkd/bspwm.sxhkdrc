@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # bspwm hotkeys
 #
@@ -85,7 +86,7 @@ alt + ctrl + {o,i}
 
 # Focus or send to the given desktop (1-9)
 alt + ctrl + {_,shift + }{1-9}
-    bspc {desktop -f, node -d} '^{1-9}'
+    bspc {desktop -f, node -d} "primary:^{1-9}"
 
 # # Focus previous monitor
 # alt + ctrl + Tab
@@ -101,7 +102,7 @@ alt + ctrl + super + 0
 
 # Send to desktop and follow (1-9)
 alt + ctrl + super + {1-9}
-    bspc node -d '^{1-9}' --follow
+    bspc node -d 'primary:^{1-9}' --follow
 
 # preselect
 #

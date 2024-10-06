@@ -39,7 +39,8 @@ if [ "$num_monitors" -eq 1 ]; then
 else
   while IFS= read -r m; do
     echo current monitor $m---
-    if [ "$m" = "$MAIN_MONITOR" ]; then  
+    # Check if the current monitor is either MAIN_MONITOR or INTERNAL_MONITOR to launch the main bar
+    if [ "$m" = "$MAIN_MONITOR" ] || [ "$m" = "$INTERNAL_MONITOR" ]; then  
       echo "$LOG_PREFIX Launching main bar on $m" | tee -a /tmp/mybar-main.log 
       MONITOR=$m polybar --reload mybar-main 2>&1 | tee -a /tmp/mybar-main.log & disown 
     elif [ "$m" = "$LEFT_MONITOR" ]; then

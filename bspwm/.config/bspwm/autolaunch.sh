@@ -1,6 +1,11 @@
 ! /usr/bin/zsh
 
 LOG_PREFIX="[autostart.sh]"
+
+INTERNAL_MONITOR="eDP-1"
+RIGHT_MONITOR="HDMI-1"
+MAIN_MONITOR="DP-3"
+
 echo $LOG_PREFIX "Starting auto launch..."
 # start network manager applet 
 nm-applet --indicator --sm-disable &
@@ -50,8 +55,8 @@ $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 
 # Start X wallpaper.
 # feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
-if [[ $(xrandr -q | grep -E "^HDMI-1 connected") ]]; then
-  echo $LOG_PREFIX "HDMI-1 connected"
+if [[ $(xrandr -q | grep -E "^${RIGHT_MONITOR} connected") && $(xrandr -q | grep "^${MAIN_MONITOR} connected") ]]; then
+  echo $LOG_PREFIX "Main and HDMI-1 connected"
   if [[ "$1" == 0 ]]; then
   # wait screen setup done 
   sleep 4
@@ -63,18 +68,23 @@ if [[ $(xrandr -q | grep -E "^HDMI-1 connected") ]]; then
   # set screen blank time to 10 minutes for dual monitor setup
   xset dpms 600 900 1200
 
+  # view list by `pactl list short sinks`
+  pactl set-default-sink alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_3__sink
+
   bspc rule -a netease-cloud-music-gtk4 desktop='^6' -o state=tiled && flatpak run com.gitee.gmg137.NeteaseCloudMusicGtk4 &
+  bspc desktop -f 'primary:^1'
 else
   echo $LOG_PREFIX "HDMI-1 disconnected"
   betterlockscreen -u ~/dotfiles/wallpapers/japan01.png --fx dim,pixel &
   feh --no-fehbg --bg-fill $HOME/dotfiles/wallpapers/debian.jpg &
 fi
 
-bspc desktop -f '^1'
 # open programs
 # bspc rule -a vifm desktop='^4' follow=off locked=on -o state=floating rectangle=1200x800+360+150 && alacritty --class vifm -e vifmrun &
 # bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100 && pomotroid &
 # bspc rule -a Google-chrome desktop='^1' -o state=fullscreen && google-chrome &
+
+bspc desktop -f 'primary:^1'
 
 # Remove x cursor
 xsetroot -cursor_name left_ptr &

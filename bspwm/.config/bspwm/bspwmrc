@@ -21,6 +21,10 @@ bspc config gapless_monocle      true
 bspc config bottom_padding 0
 bspc config top_padding 0
 
+
+bspc config remove_disabled_monitors  true
+bspc config remove_unplugged_monitors true
+
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a rviz desktop='^4' follow=on
 bspc rule -a Zathura state=tiled follow=on
