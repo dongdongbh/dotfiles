@@ -18,7 +18,7 @@ alt + ctrl + Print
 	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
-# Screenshot selected area and save to local storage. 
+# Screenshot selected area and save to local storage. I mapped this as a macro to my glove80 keyboard as one key.
 alt + ctrl + shift + Print
 	DATE=$(date '+%b%d-%H-%M:%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
