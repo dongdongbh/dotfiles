@@ -49,6 +49,8 @@ udiskie &
 pgrep -x sxhkd > /dev/null || sxhkd -m -1 -c $HOME/.config/sxhkd/bspwm.sxhkdrc \
 $HOME/.config/sxhkd/system.sxhkdrc $HOME/.config/sxhkd/user.sxhkdrc  &
 
+# for zoom screen sharing
+xcompmgr -c -l0 -t0 -r0 -o.00 &
 
 # Start picom daemon
 # picom --config $HOME/.config/picom/picom.sample.conf -b

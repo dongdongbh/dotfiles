@@ -39,7 +39,7 @@ alt + ctrl + f
 	bspc node -t \~fullscreen
   
 # set the window state to {tiled, pseudo_tiled, floating}
-alt + ctrl + {v,shift + v,s}
+alt + ctrl + {v,shift + v,w}
 	bspc node -t {tiled,pseudo_tiled,floating}
 
 # set the node flags {marked,locked,sticky,private}
@@ -86,7 +86,8 @@ alt + ctrl + {o,i}
 
 # Focus or send to the given desktop (1-9)
 alt + ctrl + {_,shift + }{1-9}
-    bspc {desktop -f, node -d} "primary:^{1-9}"
+    bspc {desktop -f, node -d} "^{1-9}"
+
 
 # # Focus previous monitor
 # alt + ctrl + Tab
@@ -102,7 +103,7 @@ alt + ctrl + super + 0
 
 # Send to desktop and follow (1-9)
 alt + ctrl + super + {1-9}
-    bspc node -d 'primary:^{1-9}' --follow
+    bspc node -d '^{1-9}' --follow
 
 # preselect
 #
