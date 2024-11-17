@@ -12,7 +12,7 @@ super + ctrl + Return
 
 # browser
 super + shift + Return
-  bspc rule -a Google-chrome -o state=fullscreen && google-chrome
+  bspc rule -a Google-chrome -o state=fullscreen && google-chrome-stable
 
 # open/focus file explore
 super + e

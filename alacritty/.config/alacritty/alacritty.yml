@@ -10,8 +10,11 @@
 # to the user's home directory starting with `~/`.
 # some good: taerminal nord tokyo night solarise
 # theme from https://github.com/alacritty/alacritty-theme
-import:
-  - ~/.config/alacritty/themes/themes/nord.yaml
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/nord.toml"
+]
+
 #  - /path/to/alacritty.yml
 
 # Any items in the `env` entry below will be added as
@@ -162,7 +165,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

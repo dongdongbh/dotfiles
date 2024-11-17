@@ -73,7 +73,7 @@ fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection
-setproxy
+# setproxy
 
 # fzf
 [ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh  

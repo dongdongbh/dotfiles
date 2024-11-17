@@ -4,10 +4,10 @@
 nm-applet --indicator --sm-disable &
 
 # Bluetooth systray icon
-blueman-applet &
+pgrep -x blueman-applet > /dev/null || blueman-applet &
 
 # value tray
-pa-applet &
+pgrep -x pa-applet > /dev/null || pa-applet &
 # screen locker
 # use random wallpaper from the folder
 # betterlockscreen -u ~/dotfiles/wallpapers/
@@ -15,7 +15,7 @@ pa-applet &
 # betterlockscreen -w dim
 # screen saver hook with betterlockscreen
 # betterlockscreen -u ~/dotfiles/wallpapers/japan01.png --fx dim,pixel
-xss-lock -n dim-screen.sh -- betterlockscreen -l &
+# xss-lock -n dim-screen.sh -- betterlockscreen -l &
 
 # for clipmenud know X server $DISPLAY
 systemctl --user import-environment DISPLAY &
