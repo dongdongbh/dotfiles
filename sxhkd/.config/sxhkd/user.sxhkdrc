@@ -1,26 +1,23 @@
 # fullscreen terminal emulator
-super + Return
+alt + ctrl + Return
   bspc rule -a Alacritty -o state=fullscreen && alacritty -e tmux 
 
 # float terminal emulator
-super + alt + Return
+alt + ctrl + super + shift + Return
   bspc rule -a Alacritty -o state=floating && alacritty 
 
 # tiling terminal emulator
-super + ctrl + Return
+alt + ctrl + super + Return
   bspc rule -a Alacritty -o state=tiled && alacritty -e tmux
 
 # browser
-super + shift + Return
-  bspc rule -a Google-chrome -o state=fullscreen && google-chrome-stable
+alt + ctrl + shift + Return
+  bspc rule -a Google-chrome -o state=fullscreen && google-chrome
 
-# open/focus file explore
-super + e
-  xdo activate -n vifm
 
 # htop
 alt + t; h 
-  gnome-terminal -e htop
+  alacritty -e htop
 
 # Show clipmenu
 alt + v
@@ -31,3 +28,6 @@ alt + v
         -theme-str '* \{ font: 10px; \}' \
         -theme-str 'listview \{ spacing: 0; \}' \
         -theme-str 'window \{ width: 40em; \}'
+
+alt + space
+  toggle-kbvariant
