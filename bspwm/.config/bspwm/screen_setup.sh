@@ -6,8 +6,8 @@
 # xrandr --output eDP-1 --primary --left-of HDMI-2
 
 INTERNAL_MONITOR="eDP-1"
-MAIN_MONITOR="DP-1"
-DP1_MONITOR="HDMI-2"
+MAIN_MONITOR="HDMI-2"
+DP1_MONITOR="DP-1"
 
 
 # init with only one monitor, first passed parameter is the reload time
@@ -24,7 +24,7 @@ if [[ "$1" == 0 ]]; then
       xrandr --output $DP1_MONITOR --left-of $MAIN_MONITOR
       bspc wm -O "$MAIN_MONITOR" "$DP1_MONITOR" 
     else 
-      xrandr --output $MAIN_MONITOR  --mode 3840x2160 --auto
+      xrandr --output $MAIN_MONITOR  --mode 2560x1440 --auto
       bspc monitor "$MAIN_MONITOR" -d 1 2 3 4 5 6 7 8 9 10 
     fi
   else
@@ -108,7 +108,7 @@ if [[ $(xrandr -q | grep "^${MAIN_MONITOR} connected") ]]; then
     xrandr --output $INTERNAL_MONITOR --off
     echo dp1here
   else
-    xrandr --output $MAIN_MONITOR --mode 3840x2160 --auto
+    xrandr --output $MAIN_MONITOR --mode 2560x1440 --auto
     if [[ $(bspc query -D -m "^${MAIN_MONITOR}" | wc -l) -ne 10 ]]; then
       monitor_add_1
       xrandr --output $INTERNAL_MONITOR --off

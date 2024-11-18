@@ -16,8 +16,8 @@ polybar-msg cmd quit
 # fi 
 
 INTERNAL_MONITOR="eDP-1"
-MAIN_MONITOR="DP-1"
-LEFT_MONITOR="HDMI-2"
+MAIN_MONITOR="HDMI-2"
+LEFT_MONITOR="DP-2"
 # Launch bar
 echo "---" | tee -a /tmp/mybar.log 
 # polybar mybar 2>&1 | tee -a /tmp/mybar.log & disown

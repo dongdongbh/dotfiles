@@ -31,6 +31,7 @@ fade_step_time=0.05
 get_brightness() {
     if [[ -z $sysfs_path ]]; then
         xbacklight -get
+        light -G
     else
         cat $sysfs_path
     fi
