@@ -29,18 +29,14 @@ bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a rviz desktop='^4' follow=on
 bspc rule -a Zathura state=tiled follow=on
 bspc rule -a SimpleScreenRecorder state=floating follow=on
-bspc rule -a QGroundControl desktop='^3' follow=on
 bspc rule -a PlotJuggler-3 desktop='^5' follow=on
-bspc rule -a Chat-gpt desktop='^7' state=floating follow=on center=true rectangle=1200x800+0+0 
+# bspc rule -a Chat-gpt desktop='^7' state=floating follow=on center=true rectangle=1200x800+0+0 
 bspc rule -a Gnome-calculator desktop='^8' state=floating follow=on
-bspc rule -a Wechat desktop='^7' -o state=pseudo_tiled follow=on 
-bspc rule -a igoer desktop='^7' -o state=pseudo_tiled follow=on 
-bspc rule -a v2ray desktop='^6' -o state=floating follow=on rectangle=1200x800+360+150
-bspc rule -a Microsoft\ Word desktop='^8' follow=on 
 bspc rule -a Mendeley\ Desktop desktop='^9' follow=on 
 # bspc rule -a Google-chrome desktop='^1'
 bspc rule -a netease-cloud-music desktop='^6' state=floating follow=on center=true rectangle=1200x800+0+0 
 bspc rule -a pomotroid desktop='^3' follow=off locked=on -o state=floating rectangle=350x470+1500+100
+bspc rule -a wechat desktop='^7' follow=on locked=on -o state=floating  rectangle=1800x1300+960+600
 
 
 #### BSPWM coloring ####

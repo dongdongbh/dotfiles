@@ -76,3 +76,5 @@
 	rebase = true
 [init]
 	defaultBranch = master
+[safe]
+	directory = /srv/git/website.git

@@ -67,9 +67,6 @@ zsh_add_file "functions.zsh"
 if [ -f "$ZDOTDIR/envrc" ] ; then
     zsh_add_file "envrc"
 fi
-if [ -f "$ZDOTDIR/.zshenv" ] ; then
-    zsh_add_file ".zshenv"
-fi
 zsh_add_file "zsh-aliases"
 
 # start proxy redirection
@@ -81,7 +78,7 @@ zsh_add_file "zsh-aliases"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fuck
-eval $(thefuck --alias fuck)
+# eval $(thefuck --alias fuck)
 
 # source ~/.config/zsh/theme/powerlevel10k/powerlevel10k.zsh-theme
 
