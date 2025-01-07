@@ -15,12 +15,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias vim=nvim
+# alias vim=nvim
 alias vifm=vifmrun
 alias vimdiff='nvim -d'
-alias du=dust
-alias fd=fdfind
-alias python=python2
+# alias du=dust
+# alias fd=fdfind
 alias ..='cd ..'
 alias ...='cd ./../..'
 alias vrc='cd ~/.config/nvim'

@@ -78,3 +78,4 @@
 	defaultBranch = master
 [safe]
 	directory = /srv/git/website.git
+	directory = /srv/git/website.git

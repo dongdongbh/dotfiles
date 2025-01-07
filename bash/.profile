@@ -26,11 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# add my scripts
-if [ -d "$HOME/dotfiles/bin" ] ; then
-  PATH="$HOME/dotfiles/bin:$PATH"
-fi
-
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:/home/dd/.cargo/bin"
 export PATH=/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH
