@@ -68,6 +68,7 @@ if [ -f "$ZDOTDIR/envrc" ] ; then
     zsh_add_file "envrc"
 fi
 zsh_add_file "zsh-aliases"
+zsh_add_file "api_keys"
 
 # start proxy redirection
 # setproxy

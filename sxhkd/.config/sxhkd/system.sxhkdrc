@@ -9,20 +9,26 @@ alt + ctrl + shift + space
 
 
 # open rofi pass
-alt + ctrl + shift + p
+alt + ctrl + shift + u
   rofi-pass
 
 # Screenshot; Save to local storage. Should install maim
 alt + ctrl + Print
-	DATE=$(date '+%b%d-%H-%M:%S.png'); \
+	DATE=$(date '+%Y-%m-%d_%H-%M-%S.png'); \
 	maim -u "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
 
 # Screenshot selected area and save to local storage. I mapped this as a macro to my glove80 keyboard as one key.
 alt + ctrl + shift + Print
-	DATE=$(date '+%b%d-%H-%M:%S.png'); \
+	DATE=$(date '+%Y-%m-%d_%H-%M-%S.png'); \
 	maim -us "$HOME/Pictures/Screenshots/$DATE"; \
 	sh $HOME/.local/bin/viewscr $HOME/Pictures/Screenshots/$DATE
+
+# Screenshot area without save to clipboard.
+alt + ctrl + shift + p
+	DATE=$(date '+%Y-%m-%d_%H-%M-%S.png'); \
+	maim -us -b 0 "$HOME/Pictures/Screenshots/$DATE"; \
+	sh $HOME/.local/bin/viewsr $HOME/Pictures/Screenshots/$DATE
 
 # use flameshot for Screenshot
 Print 

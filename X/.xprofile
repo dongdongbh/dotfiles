@@ -31,6 +31,8 @@ export PATH=$PATH:/home/dd/.cargo/bin
 xinput | sed -n 's/.*AT Translated.*id=\([0-9]*\).*keyboard.*/\1/p' | xargs -I% setxkbmap -device % -option caps:escape
 xinput | sed -n 's/.*AT Translated.*id=\([0-9]*\).*keyboard.*/\1/p' | xargs -I% setxkbmap -device % -layout us,us -variant basic,engrammer -option grp:alt_space_toggle
 
+xbindkeys &
+
 
 declare -i TOUCHPAD_ID
 declare -i TRACKPOINT_ID
