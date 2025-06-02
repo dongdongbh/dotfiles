@@ -102,7 +102,7 @@ if [[ "$1" != 0 ]]; then
   if [[ $(xrandr -q | grep -E "^${RIGHT_MONITOR} connected") && ! $(xrandr -q | grep "^${MAIN_MONITOR} connected") ]]; then
     present_mode
   elif [[ $(xrandr -q | grep "^${MAIN_MONITOR} connected") ]]; then
-    # close internal by default
+  # close internal by default
     xrandr --output $INTERNAL_MONITOR --off
     if [[ $(xrandr -q | grep -E "^${RIGHT_MONITOR} connected") ]]; then
       main_side_mode
