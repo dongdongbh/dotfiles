@@ -1,2 +1,5 @@
-#!/bin/sh 
-[ "$(echo 'No\nYes' | dmenu -i -p "$1")" = "Yes" ] && $2
+#!/bin/sh
+response=$(echo -e 'n\ny' | dmenu -i -p "$1" | tr -d '[:space:]')
+if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
+    eval "$2"
+fi

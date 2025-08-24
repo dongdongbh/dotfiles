@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 
 # Terminate already running bar instances
 # If all your bars have ipc enabled, you can use 
@@ -23,6 +23,9 @@ LOG_PREFIX="[launch-polybar]"
 
 # Launch bar
 echo "---" | tee -a /tmp/mybar.log 
+
+# This line prepends your local bin directory to the existing PATH.
+export PATH="$HOME/.local/bin:$PATH"
 
 # polybar mybar 2>&1 | tee -a /tmp/mybar.log & disown
 
