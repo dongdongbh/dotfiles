@@ -157,5 +157,3 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # unset __conda_setup
 # <<< conda initialize <<<
 
-
-. "$HOME/.local/share/../bin/env"

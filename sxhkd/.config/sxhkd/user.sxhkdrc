@@ -12,7 +12,7 @@ alt + ctrl + super + Return
 
 # browser
 alt + ctrl + shift + Return
-  bspc rule -a Google-chrome -o state=fullscreen && google-chrome
+  bspc rule -a Google-chrome-stable -o state=fullscreen && google-chrome-stable
 
 
 # htop

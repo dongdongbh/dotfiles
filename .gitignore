@@ -12,3 +12,5 @@ ranger/.config/ranger/__pycache__
 w3m/.w3m/cookie
 w3m/.w3m/history
 zsh/.config/zsh/api_keys
+zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/completions/fzf.zsh

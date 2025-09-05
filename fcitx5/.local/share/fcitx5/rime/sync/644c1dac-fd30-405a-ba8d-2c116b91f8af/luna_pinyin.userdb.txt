@@ -1,0 +1,9 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.12.0
+#@/tick	3
+#@/user_id	644c1dac-fd30-405a-ba8d-2c116b91f8af
+ming yue 	明月	c=1 d=0.995012 t=3
+ni hao 	你好	c=1 d=0.99005 t=3
+pin yin 	拼音	c=1 d=1 t=3
