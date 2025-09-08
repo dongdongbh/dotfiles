@@ -450,9 +450,9 @@ binds {
     // --- Window Focus  ---
 
     Ctrl+Alt+Left  { focus-column-left; }
-    Ctrl+Alt+Down  { focus-window-down; }
+    Ctrl+Alt+Down  { focus-window-or-workspace-down; }
     Ctrl+Alt+Up    { focus-window-or-workspace-up; }
-    Ctrl+Alt+Right { focus-window-or-workspace-down; }
+    Ctrl+Alt+Right { focus-column-right; }
 
     // Focus column left/right
     Ctrl+Alt+H { focus-column-left; }
@@ -466,9 +466,9 @@ binds {
 
 
     Ctrl+Alt+Shift+Left  { move-column-left; }
-    Ctrl+Alt+Shift+Down  { move-window-down; }
+    Ctrl+Alt+Shift+Down  { move-window-down-or-to-workspace-down; }
     Ctrl+Alt+Shift+Up    { move-window-up-or-to-workspace-up; }
-    Ctrl+Alt+Shift+Right { move-window-down-or-to-workspace-down; }
+    Ctrl+Alt+Shift+Right { move-column-right; }
 
     // Move column left/right
     Ctrl+Alt+Shift+H { move-column-left; }
