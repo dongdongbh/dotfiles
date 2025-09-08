@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swaybg -o DP-3 -i %h/dotfiles/wallpapers/Kath.png -o HDMI-A-1 -i %h/dotfiles/wallpapers/vertical-jet.jpg -o eDP-1 -i %h/dotfiles/wallpapers/Kath.png -m fill
+ExecStart=/usr/bin/swaybg -o HDMI-A-2 -i %h/dotfiles/wallpapers/Kath.png -o DP-3 -i %h/dotfiles/wallpapers/Kath.png -o HDMI-A-1 -i %h/dotfiles/wallpapers/vertical-jet.jpg -o eDP-1 -i %h/dotfiles/wallpapers/Kath.png -m fill
 Restart=on-failure
