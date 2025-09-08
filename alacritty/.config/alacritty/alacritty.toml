@@ -138,6 +138,8 @@ dynamic_padding = false
 dynamic_title = true
 opacity = 0.98
 title = "Alacritty"
+decorations = "none"
+
 
 [window.dimensions]
 columns = 70

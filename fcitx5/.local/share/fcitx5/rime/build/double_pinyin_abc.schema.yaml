@@ -3,8 +3,8 @@ __build_info:
   timestamps:
     default: 1756842505
     default.custom: 1757296197
-    double_pinyin_flypy.custom: 0
-    double_pinyin_flypy.schema: 1757295033
+    double_pinyin_abc.custom: 0
+    double_pinyin_abc.schema: 1757295033
     key_bindings: 1756842505
     key_bindings.custom: 0
     punctuation: 1756842505
@@ -21,7 +21,7 @@ cn_en:
   enable_completion: true
   enable_sentence: false
   initial_quality: 0.5
-  user_dict: "en_dicts/cn_en_flypy"
+  user_dict: "en_dicts/cn_en_abc"
 custom_phrase:
   db_class: stabledb
   dictionary: ""
@@ -713,44 +713,41 @@ schema:
     - melt_eng
     - radical_pinyin
   description: |
-    雾凇拼音 - 小鹤双拼
+    雾凇拼音 - 智能 ABC 双拼
     https://github.com/iDvel/rime-ice
 
-  name: "小鹤双拼"
-  schema_id: double_pinyin_flypy
+  name: "智能 ABC 双拼"
+  schema_id: double_pinyin_abc
   version: 1
 speller:
   algebra:
     - "erase/^xx$/"
-    - "derive/^([jqxy])u$/$1v/"
-    - "derive/^([aoe])([ioun])$/$1$1$2/"
-    - "xform/^([aoe])(ng)?$/$1$1$2/"
-    - "xform/iu$/Ⓠ/"
-    - "xform/(.)ei$/$1Ⓦ/"
-    - "xform/uan$/Ⓡ/"
-    - "xform/[uv]e$/Ⓣ/"
-    - "xform/un$/Ⓨ/"
-    - "xform/^sh/Ⓤ/"
-    - "xform/^ch/Ⓘ/"
-    - "xform/^zh/Ⓥ/"
+    - "xform/^zh/Ⓐ/"
+    - "xform/^ch/Ⓔ/"
+    - "xform/^sh/Ⓥ/"
+    - "xform/^([aoe].*)$/Ⓞ$1/"
+    - "xform/ei$/Ⓠ/"
+    - "xform/ian$/Ⓦ/"
+    - "xform/er$|iu$/Ⓡ/"
+    - "xform/[iu]ang$/Ⓣ/"
+    - "xform/ing$/Ⓨ/"
     - "xform/uo$/Ⓞ/"
-    - "xform/ie$/Ⓟ/"
+    - "xform/uan$/Ⓟ/"
     - "xform/(.)i?ong$/$1Ⓢ/"
-    - "xform/ing$|uai$/Ⓚ/"
-    - "xform/(.)ai$/$1Ⓓ/"
-    - "xform/(.)en$/$1Ⓕ/"
-    - "xform/(.)eng$/$1Ⓖ/"
-    - "xform/[iu]ang$/Ⓛ/"
-    - "xform/(.)ang$/$1Ⓗ/"
-    - "xform/ian$/Ⓜ/"
-    - "xform/(.)an$/$1Ⓙ/"
-    - "xform/(.)ou$/$1Ⓩ/"
-    - "xform/[iu]a$/Ⓧ/"
-    - "xform/iao$/Ⓝ/"
-    - "xform/(.)ao$/$1Ⓒ/"
-    - "xform/ui$/Ⓥ/"
-    - "xform/in$/Ⓑ/"
-    - "xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/"
+    - "xform/[iu]a$/Ⓓ/"
+    - "xform/en$/Ⓕ/"
+    - "xform/eng$/Ⓖ/"
+    - "xform/ang$/Ⓗ/"
+    - "xform/an$/Ⓙ/"
+    - "xform/iao$/Ⓩ/"
+    - "xform/ao$/Ⓚ/"
+    - "xform/in$|uai$/Ⓒ/"
+    - "xform/ai$/Ⓛ/"
+    - "xform/ie$/Ⓧ/"
+    - "xform/ou$/Ⓑ/"
+    - "xform/un$/Ⓝ/"
+    - "xform/[uv]e$|ui$/Ⓜ/"
+    - "xlit/ⓆⓌⒺⓇⓉⓎⓄⓅⒶⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwertyopasdfghjklzxcvbnm/"
   alphabet: "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`"
   delimiter: " '"
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
@@ -786,42 +783,42 @@ translator:
   enable_word_completion: true
   initial_quality: 1.2
   preedit_format:
-    - "xform/(^|[ '])aa/$1a/"
-    - "xform/(^|[ '])ee/$1e/"
-    - "xform/(^|[ '])oo/$1o/"
-    - "xform/([bpmfdtnljqx])n/$1iao/"
+    - "xform/o(\\w)/0$1/"
+    - "xform/(\\w)q/$1ei/"
+    - "xform/(\\w)n/$1un/"
     - "xform/(\\w)g/$1eng/"
-    - "xform/(\\w)q/$1iu/"
-    - "xform/(\\w)w/$1ei/"
-    - "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/"
-    - "xform/(\\w)t/$1ve/"
-    - "xform/(\\w)y/$1un/"
-    - "xform/([dtnlgkhvuirzcs])o/$1uo/"
-    - "xform/(\\w)p/$1ie/"
+    - "xform/(\\w)w/$1ian/"
+    - "xform/([dtnljqx])r/$1iu/"
+    - "xform/0r/0er/"
+    - "xform/([nljqxb])t/$1iang/"
+    - "xform/(\\w)t/$1uang/"
+    - "xform/(\\w)y/$1ing/"
+    - "xform/([dtnlgkhaevrzcs])o/$1uo/"
+    - "xform/(\\w)p/$1uan/"
     - "xform/([jqx])s/$1iong/"
     - "xform/(\\w)s/$1ong/"
-    - "xform/(\\w)d/$1ai/"
+    - "xform/([gkhaevrzcs])d/$1ua/"
+    - "xform/(\\w)d/$1ia/"
     - "xform/(\\w)f/$1en/"
     - "xform/(\\w)h/$1ang/"
     - "xform/(\\w)j/$1an/"
-    - "xform/([gkhvuirzcs])k/$1uai/"
-    - "xform/(\\w)k/$1ing/"
-    - "xform/([jqxnlb])l/$1iang/"
-    - "xform/(\\w)l/$1uang/"
-    - "xform/(\\w)z/$1ou/"
-    - "xform/([gkhvuirzcs])x/$1ua/"
-    - "xform/(\\w)x/$1ia/"
-    - "xform/(\\w)c/$1ao/"
-    - "xform/([dtgkhvuirzcs])v/$1ui/"
-    - "xform/(\\w)b/$1in/"
-    - "xform/(\\w)m/$1ian/"
-    - "xform/([aoe])\\1(\\w)/$1$2/"
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - "xform/([jqxy])v/$1u/"
+    - "xform/(\\w)k/$1ao/"
+    - "xform/(\\w)l/$1ai/"
+    - "xform/(\\w)z/$1iao/"
+    - "xform/(\\w)x/$1ie/"
+    - "xform/([gkhaev])c/$1uai/"
+    - "xform/(\\w)c/$1in/"
+    - "xform/(\\w)b/$1ou/"
+    - "xform/([nl])m/$1ve/"
+    - "xform/([jqxy])m/$1ue/"
+    - "xform/(\\w)m/$1ui/"
+    - "xform/(^|[ '])a/$1zh/"
+    - "xform/(^|[ '])e/$1ch/"
+    - "xform/(^|[ '])v/$1sh/"
+    - "xform/0(\\w)/$1/"
     - "xform/([nl])v/$1ü/"
+    - "xform/([jqxy])v/$1u/"
     - "xform/ü/v/"
     - "xform/(?<=[A-Z])\\s(?=[A-Z])//"
-  prism: double_pinyin_flypy
+  prism: double_pinyin_abc
   spelling_hints: 8

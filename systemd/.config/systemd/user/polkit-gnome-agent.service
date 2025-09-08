@@ -1,0 +1,15 @@
+[Unit]
+Description=Polkit GNOME Authentication Agent
+# Ensures it's part of and cleaned up with the graphical session
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+# The full path to the agent's executable
+ExecStart=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+Restart=on-failure
+
+[Install]
+# This line is not strictly necessary when using the 'add-wants' method,
+# but it's good practice for defining how the service would be enabled.
+WantedBy=graphical-session.target

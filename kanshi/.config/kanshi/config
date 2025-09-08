@@ -1,0 +1,20 @@
+# This is the profile for when you are docked with one or more external monitors.
+# Kanshi reads from top to bottom and applies the FIRST profile that matches.
+# This profile matches as long as your Dell monitor (DP-3) is connected.
+profile docked {
+    # The outputs you want to enable
+    output "DP-3" enable resolution 3840x2160@59.997Hz position 0,0 scale 2
+    output "HDMI-A-1" enable resolution 3840x2160@60Hz position 1920,0 scale 2 transform 90
+
+    # The output you want to disable
+    output "eDP-1" disable
+    exec "systemctl --user restart waybar.service"
+}
+
+# This is the fallback profile for when you are undocked (laptop only).
+# It will only be used if the "docked" profile above does not match.
+profile laptop_only {
+    output "eDP-1" enable resolution 3840*2160@60Hz position 0,0 scale 2
+    # Simply restart the waybar service
+    exec "systemctl --user restart waybar.service"
+}

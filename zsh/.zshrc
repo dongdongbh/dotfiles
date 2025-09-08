@@ -74,9 +74,8 @@ zsh_add_file "api_keys"
 # setproxy
 
 # fzf
-[ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh  
-[ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 # fuck
 # eval $(thefuck --alias fuck)

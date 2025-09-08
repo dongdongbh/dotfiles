@@ -4,14 +4,19 @@ pacman -S sudo
 sudo pacman -S vim 
 sudo pacman -S mesa vulkan-intel libva-intel-driver
 sudo pacman -S pipewire pipewire-pulse wireplumber
-sudo pacman -S hyprland xorg-xwayland alacritty rofi waybar mako thunar hyprpaper hyprlock hypridle swaybg xdg-desktop-portal-hyprland hypridle wl-clipboard cliphist grim slurp
+# sudo pacman -S hyprland xorg-xwayland alacritty rofi waybar mako thunar hyprpaper hyprlock hypridle swaybg xdg-desktop-portal-hyprland hypridle wl-clipboard cliphist grim slurp
 sudo pacman -S zsh git stow zsthura ripgrep feh rofi neovim
 sudo pacman -S openssh nebula udisks2 udiskie git-delta fd yazi duf dust dunst flameshot
+sudo pacman -S niri mako waybar swaybg swayidle hyprlock
 
 sudo pacman -S sddm
 sudo systemctl enable sddm
 sudo pacman -S noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd
 
+sudo timedatectl set-timezone America/New_York
+sudo systemctl enable --now systemd-timesyncd
+
+sudo pacman -S nodejs npm unzip wget tree fastfetch tldr
 
 
 sudo pacman -S --needed base-devel git

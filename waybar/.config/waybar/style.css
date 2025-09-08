@@ -1,19 +1,29 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "CaskaydiaCove NF", monospace;
     font-size: 13px;
+    transition: color 0.3s ease-out;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background: transparent;
+    color: #c0caf5;
+    border-radius: 0;
+    padding: 2px 4px;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: #000000;
+    margin: 3px 6px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid #111111;
 }
 
 /*
@@ -24,6 +34,10 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
+
+window#waybar.empty {
+    background-color: transparent;
+}
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -55,16 +69,6 @@ button:hover {
 
 /* User custom styles */
 
-#workspaces {
-    background-color: #313244; /* A dark, neutral background for the container */
-}
-
-#workspaces button.active {
-    background-color: #89b4fa; /* A bright, obvious blue for the ACTIVE workspace */
-    color: #1e1e2e; /* A contrasting dark color for the icon */
-    font-weight: bold;
-}
-
 #workspaces button.persistent {
     color: #a6adc8; /* A muted color for empty, persistent workspaces */
 }
@@ -75,17 +79,46 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 5px;
-    color: #cdd6f4; /* Default color for INACTIVE workspaces */
-    background-color: transparent;
+    background: transparent;
+    font-weight: bold;
+    font-size: 12px;
+    color: #c0caf5;
+    border: none;
+    border-radius: 0;
+    padding: 0 8px;
+    margin: 0 2px;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    box-shadow: none;
 }
+
+#workspaces button.active {
+    color: #89dceb;
+    border-bottom: 2px solid #89dceb;
+}
+
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    color: inherit;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    box-shadow: none;
 }
 
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+
+#custom-arch {
+    margin-left: 4px;
+    padding: 0 5px;
+    font-size: 13px;
+    color: #7dcfff;
+}
+
+#custom-arch:hover {
+    color: #1793d1;
 }
 
 #mode {
@@ -129,19 +162,9 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    background-color: #64727D;
-}
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
 
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
+
 
 @keyframes blink {
     to {
@@ -161,58 +184,21 @@ button:hover {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    padding-right: 15px;
-}
 
-#power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
-}
 
 label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
 
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
 
 #backlight {
     background-color: #90b1b1;
 }
 
-#network {
-    background-color: #2980b9;
-}
 
-#network.disconnected {
-    background-color: #f53c3c;
-}
 
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
+
 
 #pulseaudio.muted {
     background-color: #90b1b1;
@@ -242,17 +228,17 @@ label:focus {
     background-color: #ffa000;
 }
 
-#temperature {
-    background-color: #f0932b;
+
+
+#temperature:hover {
+    color: #89b4fa;
 }
 
 #temperature.critical {
     background-color: #eb4d4b;
 }
 
-#tray {
-    background-color: #2980b9;
-}
+
 
 #tray > .passive {
     -gtk-icon-effect: dim;
