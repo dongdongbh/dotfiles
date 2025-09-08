@@ -16,7 +16,7 @@ sudo pacman -S noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd
 sudo timedatectl set-timezone America/New_York
 sudo systemctl enable --now systemd-timesyncd
 
-sudo pacman -S nodejs npm unzip wget tree fastfetch tldr
+sudo pacman -S nodejs npm unzip wget tree fastfetch tldr git-delta
 
 
 sudo pacman -S --needed base-devel git
