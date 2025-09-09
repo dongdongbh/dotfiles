@@ -278,6 +278,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "kanshi"
+spawn-at-startup "udiskie &"
 spawn-sh-at-startup "fcitx5 -d &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -462,8 +463,16 @@ binds {
     Ctrl+Alt+S { focus-window-or-workspace-up; }   
     Ctrl+Alt+T { focus-window-or-workspace-down; }
 
-    // --- Window Movement ) ---
+    Ctrl+Alt+Super+Left  { focus-monitor-left; }
+    Ctrl+Alt+Super+Down  { focus-monitor-down; }
+    Ctrl+Alt+Super+Up    { focus-monitor-up; }
+    Ctrl+Alt+Super+Right { focus-monitor-right; }
+    Ctrl+Alt+Super+H     { focus-monitor-left; }
+    Ctrl+Alt+Super+S     { focus-monitor-down; }
+    Ctrl+Alt+Super+T     { focus-monitor-up; }
+    Ctrl+Alt+Super+N     { focus-monitor-right; }
 
+    // --- Window Movement ) ---
 
     Ctrl+Alt+Shift+Left  { move-column-left; }
     Ctrl+Alt+Shift+Down  { move-window-down-or-to-workspace-down; }
@@ -482,11 +491,6 @@ binds {
     Ctrl+Alt+Shift+D  { move-column-to-monitor-left; }
     Ctrl+Alt+Shift+W { move-column-to-monitor-right; }
 
-    // --- Workspace Focus & Movement ---
-
-    // Focus workspace up/down
-    Ctrl+Alt+Super+S  { focus-workspace-up; }
-    Ctrl+Alt+Super+T { focus-workspace-down; }
 
     // Focus specific workspace by number
     Ctrl+Alt+1 { focus-workspace 1; }
