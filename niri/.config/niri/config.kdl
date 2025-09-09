@@ -116,7 +116,7 @@ switch-events {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 0
 
     background-color "transparent"
 
@@ -169,7 +169,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -207,7 +207,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 2
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -315,7 +315,7 @@ screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
@@ -360,11 +360,12 @@ window-rule {
     open-maximized true
 }
 
-// Then, for Alacritty, set open-maximized back to false.
+// Then, for Alacritty ONLY, set open-maximized back to false.
 window-rule {
-    match app-id="Alacritty"
-    default-column-width { proportion 0.7; }
-    open-maximized false
+    // This now matches the app-id that is *exactly* "Alacritty"
+    match app-id=r#"^Alacritty$"#
+    default-column-width { proportion 0.7; }
+    open-maximized false
 }
 
 // Indicate screencasted windows with red colors.
@@ -406,6 +407,7 @@ window-rule {
   // open-maximized true
 }
 
+
 // Put swaybg inside the overview backdrop.
 layer-rule {
     match namespace="^wallpaper$"
@@ -419,7 +421,7 @@ binds {
     Ctrl+Alt+Tab repeat=false { toggle-overview; }
     // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
-    Ctrl+Alt+Return { spawn "alacritty"; }
+    Ctrl+Alt+Return { spawn-sh "~/.local/bin/smart-alacritty.sh"; }
     Ctrl+Alt+Super+Return { spawn-sh "alacritty --class Alacritty-Fullscreen,alacritty -e tmux"; }
     Ctrl+Alt+Shift+Return { spawn "google-chrome-stable"; }
 

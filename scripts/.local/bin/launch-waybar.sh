@@ -12,4 +12,5 @@ else
 fi
 
 # Launch Waybar using the selected configuration file
-exec waybar -c "$CONFIG_FILE"
+exec waybar -c "$CONFIG_FILE" 
+
