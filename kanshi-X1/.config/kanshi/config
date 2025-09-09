@@ -1,0 +1,37 @@
+profile presentation_mode {
+    # Match these specific outputs
+    output "eDP-1"
+    output "HDMI-A-1"
+
+    # Configure your laptop display as the primary at 0,0
+    # The logical width is 3840 / 2 = 1920px because of the scale.
+    output "eDP-1" enable resolution 3840x2160@60Hz position 0,0 scale 2
+
+    # Enable the external display to the right of the laptop screen.
+    # By omitting the 'resolution' keyword, kanshi will use its preferred mode automatically.
+    output "HDMI-A-1" enable position 1920,0
+
+    # Explicitly disable any other monitor to be safe.
+    output "DP-3" disable
+
+    # Restart waybar to adapt to the new layout.
+    exec "systemctl --user restart waybar.service"
+}
+
+profile docked {
+    # The outputs you want to enable
+    output "DP-3" enable resolution 3840x2160@59.997Hz position 0,0 scale 2
+    output "HDMI-A-1" enable resolution 3840x2160@60Hz position 1920,0 scale 2 transform 90
+
+    # The output you want to disable
+    output "eDP-1" disable
+    exec "systemctl --user restart waybar.service"
+}
+
+# This is the fallback profile for when you are undocked (laptop only).
+# It will only be used if the "docked" profile above does not match.
+profile laptop_only {
+    output "eDP-1" enable resolution 3840*2160@60Hz position 0,0 scale 2
+    # Simply restart the waybar service
+    exec "systemctl --user restart waybar.service"
+}
