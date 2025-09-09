@@ -463,8 +463,8 @@ binds {
     Ctrl+Alt+N { focus-column-right; } 
 
     // Focus window up/down (within a column)
-    Ctrl+Alt+S { focus-window-or-workspace-up; }   
-    Ctrl+Alt+T { focus-window-or-workspace-down; }
+    Ctrl+Alt+T { focus-window-or-workspace-up; }   
+    Ctrl+Alt+S { focus-window-or-workspace-down; }
 
     Ctrl+Alt+Super+Left  { focus-monitor-left; }
     Ctrl+Alt+Super+Down  { focus-monitor-down; }
@@ -487,8 +487,8 @@ binds {
     Ctrl+Alt+Shift+N { move-column-right; }
 
     // Move window up/down (within a column)
-    Ctrl+Alt+Shift+S { move-window-up-or-to-workspace-up; }
-    Ctrl+Alt+Shift+T { move-window-down-or-to-workspace-down; }
+    Ctrl+Alt+Shift+T { move-window-up-or-to-workspace-up; }
+    Ctrl+Alt+Shift+S { move-window-down-or-to-workspace-down; }
 
     // Move the entire focused column to the monitor
     Ctrl+Alt+Shift+D  { move-column-to-monitor-left; }
