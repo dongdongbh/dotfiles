@@ -416,7 +416,8 @@ layer-rule {
 
 binds {
     Ctrl+Alt+Slash { show-hotkey-overlay; }
-    Ctrl+Alt+O repeat=false { toggle-overview; }
+    Ctrl+Alt+Tab repeat=false { toggle-overview; }
+    // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
     Ctrl+Alt+Return { spawn "alacritty"; }
     Ctrl+Alt+Super+Return { spawn-sh "alacritty --class Alacritty-Fullscreen,alacritty -e tmux"; }
@@ -531,7 +532,7 @@ binds {
     Ctrl+Alt+Shift+Home { move-column-to-first; }
     Ctrl+Alt+Shift+End  { move-column-to-last; }
 
-    Ctrl+Alt+Tab { focus-workspace-previous; }
+    Ctrl+Alt+Shift+Tab { focus-workspace-previous; }
 
 
     Ctrl+Alt+R { switch-preset-column-width; }
