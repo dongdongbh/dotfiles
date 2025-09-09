@@ -278,8 +278,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "kanshi"
-spawn-at-startup "udiskie &"
+spawn-sh-at-startup "udiskie &"
 spawn-sh-at-startup "fcitx5 -d &"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -441,10 +442,11 @@ binds {
     Ctrl+Alt+F { maximize-column; }
     Ctrl+Alt+Super+F { toggle-windowed-fullscreen; }
 
+    Ctrl+Alt+Shift+V { spawn-sh "cliphist list | fuzzel -d | cliphist decode | wl-copy"; }
     // Toggle floating for the focused window
     Ctrl+Alt+V { toggle-window-floating; }
-    Ctrl+Alt+Shift+V { switch-focus-between-floating-and-tiling; }
-    Ctrl+Alt+Super+V { toggle-column-tabbed-display; }
+    Ctrl+Alt+Super+V { switch-focus-between-floating-and-tiling; }
+    // Ctrl+Alt+Super+V { toggle-column-tabbed-display; }
 
     // Quit niri (shows a confirmation)
     Ctrl+Alt+Q { quit; }
