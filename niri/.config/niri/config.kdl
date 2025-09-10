@@ -430,7 +430,7 @@ binds {
     Ctrl+Alt+Space {spawn-sh "fuzzel";}
 
     // Toggle Waybar's visibility (show/hide)
-    Alt+Ctrl+Shift+Space { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Alt+Ctrl+W { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // --- Core Window and WM Management ---
 
@@ -442,7 +442,7 @@ binds {
     Ctrl+Alt+F { maximize-column; }
     Ctrl+Alt+Super+F { toggle-windowed-fullscreen; }
 
-    Ctrl+Alt+Shift+V { spawn-sh "cliphist list | fuzzel -d  --width=70 | cliphist decode | wl-copy"; }
+    Ctrl+Alt+Shift+Space { spawn-sh "cliphist list | fuzzel -d  --width=70 | cliphist decode | wl-copy"; }
     // Toggle floating for the focused window
     Ctrl+Alt+V { toggle-window-floating; }
     Ctrl+Alt+Super+V { switch-focus-between-floating-and-tiling; }
