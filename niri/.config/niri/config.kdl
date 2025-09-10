@@ -361,14 +361,6 @@ window-rule {
     open-maximized true
 }
 
-// Then, for Alacritty ONLY, set open-maximized back to false.
-window-rule {
-    // This now matches the app-id that is *exactly* "Alacritty"
-    match app-id=r#"^Alacritty$"#
-    default-column-width { proportion 0.7; }
-    open-maximized false
-}
-
 // Indicate screencasted windows with red colors.
 window-rule {
     match is-window-cast-target=true
