@@ -422,7 +422,7 @@ binds {
     Ctrl+Alt+Space {spawn-sh "fuzzel";}
 
     // Toggle Waybar's visibility (show/hide)
-    Alt+Ctrl+W { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Alt+Ctrl+B { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // --- Core Window and WM Management ---
 
@@ -454,20 +454,20 @@ binds {
 
     // Focus column left/right
     Ctrl+Alt+H { focus-column-left; }
-    Ctrl+Alt+N { focus-column-right; } 
+    Ctrl+Alt+S { focus-column-right; } 
 
     // Focus window up/down (within a column)
     Ctrl+Alt+T { focus-window-or-workspace-up; }   
-    Ctrl+Alt+S { focus-window-or-workspace-down; }
+    Ctrl+Alt+N { focus-window-or-workspace-down; }
 
     Ctrl+Alt+Super+Left  { focus-monitor-left; }
     Ctrl+Alt+Super+Down  { focus-monitor-down; }
     Ctrl+Alt+Super+Up    { focus-monitor-up; }
     Ctrl+Alt+Super+Right { focus-monitor-right; }
     Ctrl+Alt+Super+H     { focus-monitor-left; }
-    Ctrl+Alt+Super+S     { focus-monitor-down; }
+    Ctrl+Alt+Super+N     { focus-monitor-down; }
     Ctrl+Alt+Super+T     { focus-monitor-up; }
-    Ctrl+Alt+Super+N     { focus-monitor-right; }
+    Ctrl+Alt+Super+S     { focus-monitor-right; }
 
     // --- Window Movement ) ---
 
@@ -478,15 +478,15 @@ binds {
 
     // Move column left/right
     Ctrl+Alt+Shift+H { move-column-left; }
-    Ctrl+Alt+Shift+N { move-column-right; }
+    Ctrl+Alt+Shift+S { move-column-right; }
 
     // Move window up/down (within a column)
     Ctrl+Alt+Shift+T { move-window-up-or-to-workspace-up; }
-    Ctrl+Alt+Shift+S { move-window-down-or-to-workspace-down; }
+    Ctrl+Alt+Shift+N { move-window-down-or-to-workspace-down; }
 
     // Move the entire focused column to the monitor
-    Ctrl+Alt+Shift+D  { move-column-to-monitor-left; }
-    Ctrl+Alt+Shift+W { move-column-to-monitor-right; }
+    Ctrl+Alt+D  { move-column-to-monitor-left; }
+    Ctrl+Alt+P { move-column-to-monitor-right; }
 
 
     // Focus specific workspace by number
@@ -561,7 +561,7 @@ binds {
     // These replace your maim/flameshot binds.
     Print  { screenshot-window; }  // Capture the focused window
     Ctrl+Alt+Print { screenshot-screen; }  // Capture the whole screen
-    Ctrl+Alt+SHIFT+Print    { screenshot; }          // Capture a region
+    SHIFT+Print    { screenshot; }          // Capture a region
 
 
     // --- Media and Hardware Keys (Modern equivalents from default config) ---
