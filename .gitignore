@@ -14,3 +14,7 @@ w3m/.w3m/history
 zsh/.config/zsh/api_keys
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/completions/fzf.zsh
+scripts/.local/bin/aider
+scripts/.local/bin/uv
+scripts/.local/bin/uvx
+

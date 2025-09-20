@@ -4,10 +4,12 @@ profile docked {
 
     # The output you want to disable
     output "eDP-1" disable
+    exec "systemctl --user restart waybar.service"
 }
 
 # This is the fallback profile for when you are undocked (laptop only).
 # It will only be used if the "docked" profile above does not match.
 profile laptop_only {
     output "eDP-1" enable resolution 1920x1080@60Hz position 0,0 scale 1
+    exec "systemctl --user restart waybar.service"
 }

@@ -277,10 +277,12 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+
 spawn-at-startup "kanshi"
 spawn-sh-at-startup "udiskie &"
 spawn-sh-at-startup "fcitx5 -d &"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
