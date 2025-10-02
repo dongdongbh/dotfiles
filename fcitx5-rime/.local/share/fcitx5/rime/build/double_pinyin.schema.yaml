@@ -1,17 +1,17 @@
 __build_info:
   rime_version: 1.12.0
   timestamps:
-    default: 1756842505
+    default: 1758176996
     default.custom: 1757296197
     double_pinyin.custom: 0
-    double_pinyin.schema: 1757295033
-    key_bindings: 1756842505
+    double_pinyin.schema: 1757968450
+    key_bindings: 1758176996
     key_bindings.custom: 0
-    punctuation: 1756842505
+    punctuation: 1758176996
     punctuation.custom: 0
-    rime_ice_suggestion: 1757295033
+    rime_ice_suggestion: 1757968450
     rime_ice_suggestion.custom: 0
-    symbols_caps_v: 1757295033
+    symbols_caps_v: 1757968450
     symbols_caps_v.custom: 0
 cn_en:
   comment_format:

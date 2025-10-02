@@ -823,6 +823,11 @@ Description="Keyboard - Albanian"
 Language=sq
 Label=sq
 
+[keyboard-al-enthium]
+Description="Keyboard - Albanian - English (Enthium)"
+Language=sq
+Label="al (enthium)"
+
 [keyboard-al-plisi]
 Description="Keyboard - Albanian - Albanian (Plisi)"
 Language=sq

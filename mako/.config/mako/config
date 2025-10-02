@@ -1,0 +1,35 @@
+# This is a default configuration file for Mako.
+# For a full list of options, see the mako.5 man page.
+
+# Appearance
+font=Noto Sans 10
+width=300
+height=100
+padding=10
+margin=15
+border-size=2
+border-radius=8
+anchor=top-right
+sort=+time
+
+# --- Your Requested Settings ---
+# Make notifications disappear after 5000 milliseconds (5 seconds).
+default-timeout=5000
+
+# Force ALL notifications to time out, even if they request to be sticky.
+ignore-timeout=true
+# -----------------------------
+
+# Colors
+background-color=#282a36FF
+text-color=#f8f8f2FF
+border-color=#bd93f9FF
+
+# Different colors for different notification priorities
+[urgency=low]
+border-color=#44475aFF
+default-timeout=2000
+
+[urgency=high]
+border-color=#ff5555FF
+default-timeout=10000
