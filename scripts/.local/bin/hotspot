@@ -1,0 +1,115 @@
+#!/bin/bash
+#
+# Manual control script for starting and stopping a Wi-Fi hotspot.
+# This script requires root privileges to manage network interfaces and services.
+#
+# Usage:
+#   sudo hotspot on       - Starts the hotspot if Ethernet is connected.
+#   sudo hotspot off      - Stops the hotspot and restores normal networking.
+#
+
+# --- User Configuration ---
+# Your network interface names from the `ip a` command.
+ETH_INTERFACE="enp0s20f0u1"
+WIFI_INTERFACE="wlp0s20f3"
+WIFI_IP="192.168.42.1"
+
+
+# --- Script Functions ---
+
+# Function to turn the hotspot ON
+start_hotspot() {
+    echo "INFO: Starting Wi-Fi hotspot..."
+
+    # Safety Check: Ensure Ethernet is actually connected and has an IP
+    if ! ip addr show "$ETH_INTERFACE" | grep -q "inet "; then
+        echo "ERROR: Ethernet interface '$ETH_INTERFACE' is not connected or has no IP address."
+        echo "       Please connect to Ethernet before starting the hotspot."
+        exit 1
+    fi
+
+    echo "INFO: Asking NetworkManager to release control of $WIFI_INTERFACE..."
+    nmcli device set "$WIFI_INTERFACE" managed no
+    
+    # Crucial Pause: Give NetworkManager a generous moment to fully release control.
+    sleep 4
+
+    echo "INFO: Configuring Wi-Fi interface '$WIFI_INTERFACE'..."
+    rfkill unblock wifi
+    ip addr flush dev "$WIFI_INTERFACE"
+    ip link set "$WIFI_INTERFACE" down
+    sleep 1
+    ip link set "$WIFI_INTERFACE" up
+    ip addr add "$WIFI_IP/24" dev "$WIFI_INTERFACE"
+
+    echo "INFO: Enabling kernel IP forwarding..."
+    sysctl -w net.ipv4.ip_forward=1 > /dev/null
+
+    echo "INFO: Setting up firewall (NAT) rules..."
+    # Add rules only if they don't already exist to prevent duplicates
+    iptables -t nat -C POSTROUTING -o "$ETH_INTERFACE" -j MASQUERADE &>/dev/null || iptables -t nat -A POSTROUTING -o "$ETH_INTERFACE" -j MASQUERADE
+    iptables -C FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT &>/dev/null || iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+    iptables -C FORWARD -i "$WIFI_INTERFACE" -o "$ETH_INTERFACE" -j ACCEPT &>/dev/null || iptables -A FORWARD -i "$WIFI_INTERFACE" -o "$ETH_INTERFACE" -j ACCEPT
+
+    echo "INFO: Starting hotspot and DHCP services..."
+    systemctl start hostapd
+    systemctl start dnsmasq
+
+    echo "SUCCESS: Hotspot is now active on '$WIFI_INTERFACE'."
+}
+
+# Function to turn the hotspot OFF
+stop_hotspot() {
+    echo "INFO: Stopping Wi-Fi hotspot..."
+
+    echo "INFO: Stopping hotspot and DHCP services..."
+    systemctl stop hostapd
+    systemctl stop dnsmasq
+    
+    # Crucial Pause: Give the services time to fully shut down and release the interface.
+    sleep 2
+
+    echo "INFO: Removing firewall (NAT) rules..."
+    # Silence errors in case the rules were never added or already removed
+    iptables -t nat -D POSTROUTING -o "$ETH_INTERFACE" -j MASQUERADE &>/dev/null
+    iptables -D FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT &>/dev/null
+    iptables -D FORWARD -i "$WIFI_INTERFACE" -o "$ETH_INTERFACE" -j ACCEPT &>/dev/null
+
+    echo "INFO: Disabling kernel IP forwarding..."
+    sysctl -w net.ipv4.ip_forward=0 > /dev/null
+
+    echo "INFO: Resetting Wi-Fi interface '$WIFI_INTERFACE'..."
+    ip addr flush dev "$WIFI_INTERFACE"
+    ip link set "$WIFI_INTERFACE" down
+
+    echo "INFO: Returning control of '$WIFI_INTERFACE' to NetworkManager..."
+    nmcli device set "$WIFI_INTERFACE" managed yes
+
+    echo "SUCCESS: Hotspot stopped. Normal network functions restored."
+}
+
+
+# --- Main Logic ---
+
+# Check for root privileges
+if [ "$(id -u)" -ne 0 ]; then
+  echo "ERROR: This script must be run as root. Please use 'sudo'." >&2
+  exit 1
+fi
+
+# Parse command-line arguments
+case "$1" in
+    on)
+        start_hotspot
+        ;;
+    off)
+        stop_hotspot
+        ;;
+    *)
+        echo "Usage: $0 {on|off}"
+        exit 1
+        ;;
+esac
+
+exit 0
+

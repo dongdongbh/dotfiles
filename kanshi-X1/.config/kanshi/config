@@ -1,23 +1,27 @@
-# Profile 1: Full Dock (Highest Priority)
+# Profile 1: Clamshell Dock (Highest Priority)
+profile clamshell_dock {
+    output "DP-3" enable mode 3840x2160@59.997Hz position 0,0 scale 2
+    output "HDMI-A-1" enable mode 3840x2160@60Hz position 1920,0 scale 2 transform 90
+    exec /usr/bin/systemctl --user restart waybar.service
+}
+
+# Profile 2: Full Dock (Lid Open)
 profile full_dock {
     output "eDP-1" disable
     output "DP-3" enable mode 3840x2160@59.997Hz position 0,0 scale 2
     output "HDMI-A-1" enable mode 3840x2160@60Hz position 1920,0 scale 2 transform 90
-    # CORRECTED: Removed the quotes around the command
     exec /usr/bin/systemctl --user restart waybar.service
 }
 
-# Profile 2: Presentation Mode
+# Profile 3: Presentation Mode
 profile presentation_mode {
     output "eDP-1" enable mode 2880x1800@90.001Hz position 0,0 scale 1.5
     output "HDMI-A-1" enable position 1920,0
-    # CORRECTED: Removed the quotes around the command
     exec /usr/bin/systemctl --user restart waybar.service
 }
 
-# Profile 3: Laptop Only (Fallback)
+# Profile 4: Laptop Only (Fallback)
 profile laptop_only {
     output "eDP-1" enable mode 2880x1800@90.001Hz position 0,0 scale 1.5
-    # CORRECTED: Removed the quotes around the command
     exec /usr/bin/systemctl --user restart waybar.service
 }
