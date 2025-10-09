@@ -277,13 +277,11 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
-
 spawn-at-startup "kanshi"
 spawn-sh-at-startup "udiskie &"
 spawn-sh-at-startup "fcitx5 -d &"
-spawn-sh-at-startup "pgrep -x syncthingtray-qt6 > /dev/null || syncthingtray-qt6 --wait &"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "pgrep -x syncthingtray > /dev/null || syncthingtray-qt6 --wait &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -417,7 +415,7 @@ binds {
     Ctrl+Alt+Tab repeat=false { toggle-overview; }
     // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
-    Ctrl+Alt+Return { spawn-sh "alacritty -e tmux"; }
+    Ctrl+Alt+Return { spawn-sh "~/.local/bin/smart-alacritty.sh"; }
     Ctrl+Alt+Super+Return { spawn-sh "alacritty --class Alacritty-Fullscreen,alacritty -e tmux"; }
     Ctrl+Alt+Shift+Return { spawn "google-chrome-stable"; }
 
@@ -445,6 +443,8 @@ binds {
 
     // Quit niri (shows a confirmation)
     Ctrl+Alt+Q { quit; }
+
+
 
     // --- Window Focus  ---
 

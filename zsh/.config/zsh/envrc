@@ -8,4 +8,4 @@
 # export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4_Firmware/Tools/sitl_gazebo
 export CARLA_ROOT=/home/dd/code/carla
 export PYTHONPATH=$CARLA_ROOT/PythonAPI/carla:$PYTHONPATH
-
+export PATH=~/.npm-global/bin:$PATH
