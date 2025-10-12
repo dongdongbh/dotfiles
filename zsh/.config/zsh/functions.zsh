@@ -15,3 +15,9 @@ function unsetproxy() {
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
+
+jssh() {
+    ssh -J condor_jumper "$@"
+}
+
+compdef jssh=ssh
