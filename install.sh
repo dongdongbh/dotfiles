@@ -1,29 +1,5 @@
 #!/bin/bash
-<<<<<<< HEAD
-pacman -Syu
-pacman -S sudo 
-sudo pacman -S vim 
-sudo pacman -S mesa vulkan-intel libva-intel-driver
-sudo pacman -S pipewire pipewire-pulse wireplumber
-# sudo pacman -S hyprland xorg-xwayland rofi waybar mako thunar hyprpaper hyprlock hypridle swaybg xdg-desktop-portal-hyprland hypridle  grim slurp
-sudo pacman -S zsh git stow zathura zathura-pdf-mupdf ripgrep feh rofi neovim
-sudo pacman -S openssh nebula udisks2 udiskie git-delta fd yazi duf dust dunst flameshot
-sudo pacman -S niri mako waybar swaybg swayidle hyprlock
-sudo pacman -S alacritty wl-clipboard cliphist
-||||||| parent of 59978e1 (Improve Waybar helpers and lazy-load nvm)
-pacman -Syu
-pacman -S sudo 
-sudo pacman -S vim 
-sudo pacman -S mesa vulkan-intel libva-intel-driver
-sudo pacman -S pipewire pipewire-pulse wireplumber
-# sudo pacman -S hyprland xorg-xwayland rofi waybar mako thunar hyprpaper hyprlock hypridle swaybg xdg-desktop-portal-hyprland hypridle  grim slurp
-sudo pacman -S zsh git stow zathura ripgrep feh rofi neovim
-sudo pacman -S openssh nebula udisks2 udiskie git-delta fd yazi duf dust dunst flameshot
-sudo pacman -S niri mako waybar swaybg swayidle hyprlock
-sudo pacman -S alacritty wl-clipboard cliphist
-=======
 set -euo pipefail
->>>>>>> 59978e1 (Improve Waybar helpers and lazy-load nvm)
 
 sudo pacman -Syu
 
@@ -32,7 +8,7 @@ sudo pacman -S --needed vim
 sudo pacman -S --needed mesa vulkan-intel libva-intel-driver
 sudo pacman -S --needed pipewire pipewire-pulse wireplumber
 # sudo pacman -S hyprland xorg-xwayland rofi waybar mako thunar hyprpaper hyprlock hypridle swaybg xdg-desktop-portal-hyprland hypridle  grim slurp
-sudo pacman -S --needed zsh git stow zathura ripgrep feh rofi neovim
+sudo pacman -S --needed zsh git stow zathura zathura-pdf-mupdf ripgrep feh rofi neovim
 sudo pacman -S --needed openssh nebula udisks2 udiskie git-delta fd yazi duf dust dunst flameshot
 sudo pacman -S --needed niri mako waybar swaybg swayidle hyprlock
 sudo pacman -S --needed alacritty wl-clipboard cliphist
@@ -44,13 +20,7 @@ sudo pacman -S --needed noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd
 sudo timedatectl set-timezone America/New_York
 sudo systemctl enable --now systemd-timesyncd
 
-<<<<<<< HEAD
-sudo pacman -S nodejs npm unzip wget tree fastfetch tldr git-delta imv
-||||||| parent of 59978e1 (Improve Waybar helpers and lazy-load nvm)
-sudo pacman -S nodejs npm unzip wget tree fastfetch tldr git-delta man-db
-=======
-sudo pacman -S --needed nodejs npm unzip wget tree fastfetch tldr git-delta man-db
->>>>>>> 59978e1 (Improve Waybar helpers and lazy-load nvm)
+sudo pacman -S --needed nodejs npm unzip wget tree fastfetch tldr git-delta man-db imv
 
 
 sudo pacman -S --needed base-devel git
