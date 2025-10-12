@@ -16,19 +16,42 @@ function zsh_add_plugin() {
 }
 
 function zsh_add_completion() {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
-        # For completions
-		completion_file_path=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-		fpath+="$(dirname "${completion_file_path}")"
-        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
+    local repo="$1"
+    local initialize="${2:-false}"
+    local plugin_name="${repo##*/}"
+    local plugin_dir="$ZDOTDIR/plugins/$plugin_name"
+    local completion_file
+    local completion_dirs=()
+
+    if [ -d "$plugin_dir/.git" ]; then
+        git -C "$plugin_dir" pull --ff-only >/dev/null 2>&1 || true
+    elif [ -d "$plugin_dir" ]; then
+        :
     else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-		fpath+=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-        [ -f $ZDOTDIR/.zccompdump ] && $ZDOTDIR/.zccompdump
+        git clone "https://github.com/$repo.git" "$plugin_dir"
     fi
-	completion_file="$(basename "${completion_file_path}")"
-	if [ "$2" = true ] && compinit "${completion_file:1}"
+
+    for completion_file in "$plugin_dir"/_*; do
+        [ -e "$completion_file" ] || continue
+        local completion_dir
+        completion_dir=$(dirname "$completion_file")
+        case " ${fpath[*]} " in
+            *" $completion_dir "*) ;;
+            *) completion_dirs+=("$completion_dir") ;;
+        esac
+    done
+
+    if [ "${#completion_dirs[@]}" -gt 0 ]; then
+        fpath=("${completion_dirs[@]}" "${fpath[@]}")
+    fi
+
+    zsh_add_file "plugins/$plugin_name/$plugin_name.plugin.zsh"
+
+    rm -f "$ZDOTDIR/.zccompdump"
+
+    if [ "$initialize" = true ]; then
+        compinit -i
+    fi
 }
 
 function y() {

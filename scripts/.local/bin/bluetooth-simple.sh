@@ -1,14 +1,19 @@
 #!/bin/sh
 
-# Check if a device is connected by bluetooth using bluetoothctl
-info=$(bluetoothctl info | grep Device)
+# Basic connectivity indicator for Waybar: show a connected/disconnected glyph.
 
-# Show some output when it is
-if echo "$info" | grep -q "Device"; 
-then
-    # Connected to a device
+if ! systemctl is-active --quiet bluetooth.service; then
+    echo '  '
+    exit 0
+fi
+
+if bluetoothctl show | grep -q "Powered: no"; then
+    echo '  '
+    exit 0
+fi
+
+if bluetoothctl devices Connected | grep -q "^Device"; then
     echo '  '
-else 
-    # Not connected to a device, hide label
+else
     echo '  '
 fi

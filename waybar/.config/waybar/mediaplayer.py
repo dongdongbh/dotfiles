@@ -7,10 +7,9 @@ import argparse
 import logging
 import sys
 import signal
-import gi
 import json
 import os
-from typing import List
+from typing import List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +22,7 @@ def signal_handler(sig, frame):
 
 
 class PlayerManager:
-    def __init__(self, selected_player=None, excluded_player=[]):
+    def __init__(self, selected_player: Optional[str] = None, excluded_player: Optional[str] = None):
         self.manager = Playerctl.PlayerManager()
         self.loop = GLib.MainLoop()
         self.manager.connect(
@@ -35,26 +34,28 @@ class PlayerManager:
         signal.signal(signal.SIGTERM, signal_handler)
         signal.signal(signal.SIGPIPE, signal.SIG_DFL)
         self.selected_player = selected_player
-        self.excluded_player = excluded_player.split(',') if excluded_player else []
+        self.excluded_player = tuple(
+            player.strip() for player in excluded_player.split(',') if player.strip()
+        ) if excluded_player else ()
 
         self.init_players()
 
     def init_players(self):
-        for player in self.manager.props.player_names:
-            if player.name in self.excluded_player:
+        for player_name in self.manager.props.player_names:
+            if player_name in self.excluded_player:
                 continue
-            if self.selected_player is not None and self.selected_player != player.name:
-                logger.debug(f"{player.name} is not the filtered player, skipping it")
+            if self.selected_player is not None and self.selected_player != player_name:
+                logger.debug(f"{player_name} is not the filtered player, skipping it")
                 continue
-            self.init_player(player)
+            self.init_player(player_name)
 
     def run(self):
         logger.info("Starting main loop")
         self.loop.run()
 
-    def init_player(self, player):
-        logger.info(f"Initialize new player: {player.name}")
-        player = Playerctl.Player.new_from_name(player)
+    def init_player(self, player_name: str):
+        logger.info(f"Initialize new player: {player_name}")
+        player = Playerctl.Player.new_from_name(player_name)
         player.connect("playback-status",
                        self.on_playback_status_changed, None)
         player.connect("metadata", self.on_metadata_changed, None)
@@ -143,7 +144,7 @@ class PlayerManager:
                 "New player appeared, but it's in exclude player list, skipping")
             return
         if player is not None and (self.selected_player is None or player.name == self.selected_player):
-            self.init_player(player)
+            self.init_player(player.name)
         else:
             logger.debug(
                 "New player appeared, but it's not the selected player, skipping")
@@ -158,7 +159,11 @@ def parse_arguments():
     # Increase verbosity with every occurrence of -v
     parser.add_argument("-v", "--verbose", action="count", default=0)
 
-    parser.add_argument("-x", "--exclude", "- Comma-separated list of excluded player")
+    parser.add_argument(
+        "-x",
+        "--exclude",
+        help="Comma-separated list of players to ignore"
+    )
 
     # Define for which player we"re listening
     parser.add_argument("--player")

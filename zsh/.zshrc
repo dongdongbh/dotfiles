@@ -63,7 +63,6 @@ source "$ZDOTDIR/zsh-functions"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-prompt"
-zsh_add_file "functions.zsh"
 if [ -f "$ZDOTDIR/envrc" ] ; then
     zsh_add_file "envrc"
 fi
@@ -95,6 +94,8 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 
 compinit
+
+zsh_add_file "functions.zsh"
 
 # Key-bindings
 # `showkey -a` to see the key code
@@ -158,5 +159,17 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_AUTO_USE=0
+_nvm_lazy_load() {
+    if [ -n "${_NVM_LAZY_LOADED:-}" ]; then
+        return
+    fi
+    unset -f nvm node npm npx corepack
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use
+    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+    export _NVM_LAZY_LOADED=1
+}
+for _nvm_cmd in nvm node npm npx corepack; do
+    eval "function ${_nvm_cmd}() { _nvm_lazy_load; ${_nvm_cmd} \"\$@\"; }"
+done
+unset _nvm_cmd

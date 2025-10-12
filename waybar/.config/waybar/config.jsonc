@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-  "style": "/home/dd/.config/waybar/style.css",
+  "style": "~/.config/waybar/style.css",
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)

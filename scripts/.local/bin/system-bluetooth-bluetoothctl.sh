@@ -1,52 +1,48 @@
 #!/usr/bin/env bash
 
 bluetooth_print() {
-    bluetoothctl | while read -r; do
-        if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
-            printf '#1'
+    if ! systemctl is-active --quiet bluetooth.service; then
+        echo "#2"
+        return
+    fi
 
-            devices_paired=$(bluetoothctl devices Paired | grep Device | cut -d ' ' -f 2)
-            counter=0
+    if ! bluetoothctl show | grep -q "Powered: yes"; then
+        echo "#2"
+        return
+    fi
 
-            for device in $devices_paired; do
-                device_info=$(bluetoothctl info "$device")
+    mapfile -t connected_devices < <(bluetoothctl devices Connected | awk '{print $2}')
+    if [ "${#connected_devices[@]}" -eq 0 ]; then
+        echo "#1"
+        return
+    fi
 
-                if echo "$device_info" | grep -q "Connected: yes"; then
-                    device_alias=$(echo "$device_info" | grep "Alias" | cut -d ' ' -f 2-)
-
-                    if [ $counter -gt 0 ]; then
-                        printf ", %s" "$device_alias"
-                    else
-                        printf " %s" "$device_alias"
-                    fi
-
-                    counter=$((counter + 1))
-                fi
-            done
-
-            printf '\n'
-        else
-            echo "#2"
-        fi
+    local aliases=()
+    for device in "${connected_devices[@]}"; do
+        local alias_name
+        alias_name=$(bluetoothctl info "$device" | awk -F ': ' '/Alias:/{print $2; exit}')
+        aliases+=("${alias_name:-$device}")
     done
+
+    printf '#1 %s\n' "$(IFS=", " ; echo "${aliases[*]}")"
 }
 
 bluetooth_toggle() {
     if bluetoothctl show | grep -q "Powered: no"; then
-        bluetoothctl power on >> /dev/null
+        bluetoothctl power on > /dev/null
         sleep 1
 
-        devices_paired=$(bluetoothctl devices Paired | grep Device | cut -d ' ' -f 2)
-        echo "$devices_paired" | while read -r line; do
-            bluetoothctl connect "$line" >> /dev/null
+        mapfile -t paired < <(bluetoothctl devices Paired | awk '{print $2}')
+        for device in "${paired[@]}"; do
+            bluetoothctl connect "$device" > /dev/null 2>&1
         done
     else
-        devices_paired=$(bluetoothctl devices Paired | grep Device | cut -d ' ' -f 2)
-        echo "$devices_paired" | while read -r line; do
-            bluetoothctl disconnect "$line" >> /dev/null
+        mapfile -t connected < <(bluetoothctl devices Connected | awk '{print $2}')
+        for device in "${connected[@]}"; do
+            bluetoothctl disconnect "$device" > /dev/null 2>&1
         done
 
-        bluetoothctl power off >> /dev/null
+        bluetoothctl power off > /dev/null
     fi
 }
 
