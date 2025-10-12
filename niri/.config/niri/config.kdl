@@ -415,7 +415,7 @@ binds {
     Ctrl+Alt+Tab repeat=false { toggle-overview; }
     // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
-    Ctrl+Alt+Return { spawn-sh "~/.local/bin/smart-alacritty.sh"; }
+    Ctrl+Alt+Return { spawn-sh "alacritty -e tmux"; }
     Ctrl+Alt+Super+Return { spawn-sh "alacritty --class Alacritty-Fullscreen,alacritty -e tmux"; }
     Ctrl+Alt+Shift+Return { spawn "google-chrome-stable"; }
 
