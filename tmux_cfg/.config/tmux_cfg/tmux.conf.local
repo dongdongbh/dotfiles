@@ -371,6 +371,7 @@ tmux_conf_theme_clock_style="24"
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=false
+set-option -g set-clipboard on
 
 
 # -- urlscan -------------------------------------------------------------------

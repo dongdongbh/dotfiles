@@ -75,7 +75,7 @@
 [pull]
 	rebase = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [safe]
 	directory = /srv/git/website.git
 	directory = /srv/git/website.git

@@ -3,7 +3,7 @@ MPD_CMD="mpc -q toggle"
 NOTIFY_CMD="notify-send"
 SPEAK_CMD="&>/dev/null espeak-ng"
 
-DEFAULT_WORK_LENGTH=25
+DEFAULT_WORK_LENGTH=45
 NOTIFY_WORK="\"Get things done.\""
 NOTIFY_BREAK="\"Take a break.\""
 SPEAK_WORK="$NOTIFY_WORK"

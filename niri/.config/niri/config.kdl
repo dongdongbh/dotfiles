@@ -392,15 +392,6 @@ window-rule {
     clip-to-geometry true
 }
 
-// This rule will catch a specific type of Alacritty window and make it fullscreen
-window-rule {
-  // We'll match any window where the instance name is "Alacritty-Fullscreen"
-  match app-id="Alacritty-Fullscreen"
-  // And we'll tell niri to open it in fullscreen mode automatically
-  open-fullscreen true
-  // open-maximized true
-}
-
 
 // Put swaybg inside the overview backdrop.
 layer-rule {
@@ -416,7 +407,7 @@ binds {
     // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
     Ctrl+Alt+Return { spawn-sh "alacritty -e tmux"; }
-    Ctrl+Alt+Super+Return { spawn-sh "alacritty --class Alacritty-Fullscreen,alacritty -e tmux"; }
+    Ctrl+Alt+Super+Return { spawn-sh "alacritty"; }
     Ctrl+Alt+Shift+Return { spawn "google-chrome-stable"; }
 
     // Application Launcher (Rofi)
