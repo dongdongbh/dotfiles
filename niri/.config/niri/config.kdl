@@ -427,6 +427,7 @@ binds {
     Ctrl+Alt+Super+F { toggle-windowed-fullscreen; }
 
     Ctrl+Alt+Shift+Space { spawn-sh "cliphist list | fuzzel -d  --width=70 | cliphist decode | wl-copy"; }
+    Ctrl+Alt+Y { spawn-sh "voxd --trigger-record"; }
     // Toggle floating for the focused window
     Ctrl+Alt+V { toggle-window-floating; }
     Ctrl+Alt+Super+V { switch-focus-between-floating-and-tiling; }

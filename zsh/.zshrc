@@ -173,3 +173,5 @@ for _nvm_cmd in nvm node npm npx corepack; do
     eval "function ${_nvm_cmd}() { _nvm_lazy_load; ${_nvm_cmd} \"\$@\"; }"
 done
 unset _nvm_cmd
+
+export YDOTOOL_SOCKET="$HOME/.ydotool_socket"

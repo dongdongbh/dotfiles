@@ -10,7 +10,7 @@
 
 # --- User Configuration ---
 # Your network interface names from the `ip a` command.
-ETH_INTERFACE="enp0s20f0u1"
+ETH_INTERFACE="usbeth"
 WIFI_INTERFACE="wlp0s20f3"
 WIFI_IP="192.168.42.1"
 
