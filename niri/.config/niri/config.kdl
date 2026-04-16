@@ -34,12 +34,12 @@ input {
         // dwt
         // dwtp
         // drag false
-        // drag-lock
+        drag-lock
         natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
-        // disabled-on-external-mouse
+        disabled-on-external-mouse
     }
 
     mouse {
@@ -68,6 +68,7 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="10%"
+    workspace-auto-back-and-forth
 }
 
 // You can configure outputs by their name, which you can find
@@ -76,7 +77,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+/-output "DP-2" {
     // Uncomment this line to disable this output.
     // off
 
@@ -107,6 +108,18 @@ input {
     position x=0 y=0
 }
 
+workspace "web1" {
+    open-on-output "DP-2"
+}
+
+workspace "term" {
+    open-on-output "DP-2"
+}
+
+workspace "web2" {
+    open-on-output "HDMI-A-3"
+}
+
 switch-events {
     lid-close { spawn "notify-send" "The laptop lid is closed!"; }
     lid-open { spawn "notify-send" "The laptop lid is open!"; }
@@ -126,7 +139,8 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -143,8 +157,10 @@ layout {
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     preset-window-heights {
-      proportion 0.5
-      // fixed 1080
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        // fixed 1080
     }
 
     // You can change the default width of the new windows.
@@ -259,6 +275,11 @@ layout {
         color "#0007"
     }
 
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+    }
+
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
     // Left and right struts will cause the next window to the side to always be visible.
@@ -277,11 +298,13 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+spawn-at-startup "systemctl --user start xdg-desktop-portal"
 spawn-at-startup "kanshi"
 spawn-sh-at-startup "udiskie &"
 spawn-sh-at-startup "fcitx5 -d &"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
-spawn-sh-at-startup "pgrep -x syncthingtray > /dev/null || syncthingtray-qt6 --wait &"
+spawn-sh-at-startup "while ! pgrep -x waybar > /dev/null; do sleep 0.5; done; if command -v syncthingtray-qt6 >/dev/null; then pgrep -x syncthingtray-qt6 >/dev/null || syncthingtray-qt6 --wait & elif command -v syncthingtray >/dev/null; then pgrep -x syncthingtray >/dev/null || syncthingtray --wait & fi"
+
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -289,6 +312,15 @@ spawn-sh-at-startup "pgrep -x syncthingtray > /dev/null || syncthingtray-qt6 --w
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
+}
+
+recent-windows {
+    binds {
+        Alt+Tab         { next-window scope="output"; }
+        Alt+Shift+Tab   { previous-window scope="output"; }
+        Alt+grave       { next-window scope="output" filter="app-id"; }
+        Alt+Shift+grave { previous-window scope="output" filter="app-id"; }
+    }
 }
 
 // Disable the hot corners.
@@ -362,6 +394,7 @@ window-rule {
     open-maximized true
 }
 
+
 // Indicate screencasted windows with red colors.
 window-rule {
     match is-window-cast-target=true
@@ -392,6 +425,17 @@ window-rule {
     clip-to-geometry true
 }
 
+// 1. Make the main settings dialog float so it doesn't disrupt your tiling
+window-rule {
+    match app-id="one.alynx.showmethekey"
+    open-floating true
+}
+
+// 2. Make the keystroke overlay float
+window-rule {
+    match app-id="showmethekey-gtk"
+    open-floating true
+}
 
 // Put swaybg inside the overview backdrop.
 layer-rule {
@@ -404,17 +448,16 @@ layer-rule {
 binds {
     Ctrl+Alt+Slash { show-hotkey-overlay; }
     Ctrl+Alt+Tab repeat=false { toggle-overview; }
-    // Ctrl+Alt+O repeat=false { toggle-overview; }
     // Terminal and Browser
-    Ctrl+Alt+Return { spawn-sh "alacritty -e tmux"; }
-    Ctrl+Alt+Super+Return { spawn-sh "alacritty"; }
+    Ctrl+Alt+Return { spawn "alacritty" "-e" "tmux"; }
+    Ctrl+Alt+Super+Return { spawn "alacritty"; }
     Ctrl+Alt+Shift+Return { spawn "google-chrome-stable"; }
 
-    // Application Launcher (Rofi)
-    Ctrl+Alt+Space {spawn-sh "fuzzel";}
+    // Application Launcher
+    Ctrl+Alt+Space { spawn "fuzzel"; }
 
     // Toggle Waybar's visibility (show/hide)
-    Alt+Ctrl+B { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Ctrl+Alt+B { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // --- Core Window and WM Management ---
 
@@ -426,12 +469,12 @@ binds {
     Ctrl+Alt+F { maximize-column; }
     Ctrl+Alt+Super+F { toggle-windowed-fullscreen; }
 
-    Ctrl+Alt+Shift+Space { spawn-sh "cliphist list | fuzzel -d  --width=70 | cliphist decode | wl-copy"; }
+    Ctrl+Alt+Shift+Space { spawn-sh "cliphist list | fuzzel -d --width=70 | cliphist decode | wl-copy"; }
     Ctrl+Alt+Y { spawn-sh "voxd --trigger-record"; }
     // Toggle floating for the focused window
     Ctrl+Alt+V { toggle-window-floating; }
     Ctrl+Alt+Super+V { switch-focus-between-floating-and-tiling; }
-    // Ctrl+Alt+Super+V { toggle-column-tabbed-display; }
+    Ctrl+Alt+W { toggle-column-tabbed-display; }
 
     // Quit niri (shows a confirmation)
     Ctrl+Alt+Q { quit; }
@@ -447,10 +490,10 @@ binds {
 
     // Focus column left/right
     Ctrl+Alt+H { focus-column-left; }
-    Ctrl+Alt+S { focus-column-right; } 
+    Ctrl+Alt+S { focus-column-right; }
 
     // Focus window up/down (within a column)
-    Ctrl+Alt+T { focus-window-or-workspace-up; }   
+    Ctrl+Alt+T { focus-window-or-workspace-up; }
     Ctrl+Alt+N { focus-window-or-workspace-down; }
 
     Ctrl+Alt+Super+Left  { focus-monitor-left; }
@@ -462,7 +505,7 @@ binds {
     Ctrl+Alt+Super+T     { focus-monitor-up; }
     Ctrl+Alt+Super+S     { focus-monitor-right; }
 
-    // --- Window Movement ) ---
+    // --- Window Movement ---
 
     Ctrl+Alt+Shift+Left  { move-column-left; }
     Ctrl+Alt+Shift+Down  { move-window-down-or-to-workspace-down; }
@@ -477,8 +520,20 @@ binds {
     Ctrl+Alt+Shift+T { move-window-up-or-to-workspace-up; }
     Ctrl+Alt+Shift+N { move-window-down-or-to-workspace-down; }
 
+    // Move the focused floating window.
+    // Use Ctrl+Alt+Super+V first to switch focus to the floating layout.
+    Ctrl+Alt+Super+Shift+Left  { spawn "niri" "msg" "action" "move-floating-window" "-x" "-50"; }
+    Ctrl+Alt+Super+Shift+Down  { spawn "niri" "msg" "action" "move-floating-window" "-y" "+50"; }
+    Ctrl+Alt+Super+Shift+Up    { spawn "niri" "msg" "action" "move-floating-window" "-y" "-50"; }
+    Ctrl+Alt+Super+Shift+Right { spawn "niri" "msg" "action" "move-floating-window" "-x" "+50"; }
+    Ctrl+Alt+Super+Shift+H     { spawn "niri" "msg" "action" "move-floating-window" "-x" "-50"; }
+    Ctrl+Alt+Super+Shift+S     { spawn "niri" "msg" "action" "move-floating-window" "-x" "+50"; }
+    Ctrl+Alt+Super+Shift+T     { spawn "niri" "msg" "action" "move-floating-window" "-y" "-50"; }
+    Ctrl+Alt+Super+Shift+N     { spawn "niri" "msg" "action" "move-floating-window" "-y" "+50"; }
+    Ctrl+Alt+Super+Z           { center-window; }
+
     // Move the entire focused column to the monitor
-    Ctrl+Alt+D  { move-column-to-monitor-left; }
+    Ctrl+Alt+D { move-column-to-monitor-left; }
     Ctrl+Alt+P { move-column-to-monitor-right; }
 
 
@@ -510,8 +565,8 @@ binds {
     Ctrl+Alt+Shift+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Ctrl+Alt+Shift+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Ctrl+Alt+WheelScrollRight      { focus-column-right; }
-    Ctrl+Alt+WheelScrollLeft       { focus-column-left; }
+    Ctrl+Alt+WheelScrollRight       { focus-column-right; }
+    Ctrl+Alt+WheelScrollLeft        { focus-column-left; }
     Ctrl+Alt+Shift+WheelScrollRight { move-column-right; }
     Ctrl+Alt+Shift+WheelScrollLeft  { move-column-left; }
 
