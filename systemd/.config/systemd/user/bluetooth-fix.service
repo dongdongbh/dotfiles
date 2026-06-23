@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart Bluetooth for audio fix
+After=wireplumber.service pipewire.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/systemctl restart bluetooth
+
+[Install]
+WantedBy=default.target

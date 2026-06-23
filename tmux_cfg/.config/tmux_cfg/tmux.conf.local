@@ -384,8 +384,8 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # this is the place to override or undo settings
 
-# increase history size
-#set -g history-limit 10000
+# increase scrollback history size
+set -g history-limit 1000000
 
 # start with mouse mode enabled
 #set -g mouse on
@@ -393,7 +393,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
-#set -g mode-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
@@ -401,6 +401,11 @@ unbind C-a
 unbind C-b
 set -g prefix C-b
 bind C-b send-prefix
+
+# for image preview
+set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
 
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important

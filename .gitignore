@@ -17,4 +17,16 @@ zsh/.config/zsh/completions/fzf.zsh
 scripts/.local/bin/aider
 scripts/.local/bin/uv
 scripts/.local/bin/uvx
+fonts/
+scripts/.local/bin/claude
+scripts/.local/bin/codegraph
+scripts/.local/bin/fdroid
+scripts/.local/bin/headroom
+scripts/.local/bin/yazi
+scripts/.local/bin/ueberzugpp
+scripts/.local/bin/ueberzug
+scripts/.local/bin/bunx
+scripts/.local/bin/bt-mic
+scripts/.local/bin/bt-music
+fonts/.local/share/webkitgtk-4.1/
 

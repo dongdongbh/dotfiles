@@ -109,16 +109,17 @@ input {
 }
 
 workspace "web1" {
-    open-on-output "DP-2"
+    open-on-output "LG Electronics LG HDR 4K 0x0006A00C"
 }
 
 workspace "term" {
-    open-on-output "DP-2"
+    open-on-output "LG Electronics LG HDR 4K 0x0006A00C"
 }
 
 workspace "web2" {
-    open-on-output "HDMI-A-3"
+    open-on-output "Dell Inc. DELL S2725QC 37L8S84"
 }
+
 
 switch-events {
     lid-close { spawn "notify-send" "The laptop lid is closed!"; }

@@ -175,3 +175,17 @@ done
 unset _nvm_cmd
 
 export YDOTOOL_SOCKET="$HOME/.ydotool_socket"
+
+# bun completions
+[ -s "/home/dd/.bun/_bun" ] && source "/home/dd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# smux
+export PATH="$HOME/.smux/bin:$PATH"
