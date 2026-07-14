@@ -160,19 +160,20 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export NVM_DIR="$HOME/.nvm"
 export NVM_AUTO_USE=0
-_nvm_lazy_load() {
-    if [ -n "${_NVM_LAZY_LOADED:-}" ]; then
-        return
-    fi
-    unset -f nvm node npm npx corepack
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use
-    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-    export _NVM_LAZY_LOADED=1
-}
-for _nvm_cmd in nvm node npm npx corepack; do
-    eval "function ${_nvm_cmd}() { _nvm_lazy_load; ${_nvm_cmd} \"\$@\"; }"
-done
-unset _nvm_cmd
+# Lazy-load nvm only if it is actually installed; otherwise these wrappers would
+# shadow the system node. Each wrapper is self-contained (no helper function) so
+# tools that snapshot shell functions can't capture the wrapper without its body.
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    for _nvm_cmd in nvm node npm npx corepack; do
+        eval "function ${_nvm_cmd}() {
+            unset -f nvm node npm npx corepack 2>/dev/null
+            [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\" --no-use
+            [ -s \"\$NVM_DIR/bash_completion\" ] && . \"\$NVM_DIR/bash_completion\"
+            ${_nvm_cmd} \"\$@\"
+        }"
+    done
+    unset _nvm_cmd
+fi
 
 export YDOTOOL_SOCKET="$HOME/.ydotool_socket"
 
