@@ -48,7 +48,7 @@ if [ -e "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
 fi
 rm -f "$HOME/.zshrc"
 
-for package in waybar niri hypr-common scripts tmux_cfg zsh fonts git rofi vim; do
+for package in waybar niri hypr-common scripts tmux_cfg zsh fonts git agents rofi vim; do
     [ -d "$package" ] && stow "$package"
 done
 
