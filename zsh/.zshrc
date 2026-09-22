@@ -198,4 +198,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # smux
 export PATH="$HOME/.smux/bin:$PATH"
 
-
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
