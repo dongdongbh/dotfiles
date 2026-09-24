@@ -132,10 +132,6 @@ multiplier = 5
 save_to_clipboard = false
 semantic_escape_chars = ''',│`|:"' ()[]{}<>	'''
 
-[terminal.shell]
-args = ["--login"]
-program = "/usr/bin/zsh"
-
 [window]
 dynamic_padding = false
 dynamic_title = true

@@ -16,8 +16,8 @@ export CC='clang'
 export ARCHFLAGS="-arch x86_64"
 
 # Locale/Langs
-export LANG='en_US.utf8'
-export LC_ALL='en_US.utf8'
+export LANG='en_US.UTF-8'
+unset LC_ALL
 
 # Programs
 export EDITOR="nvim"

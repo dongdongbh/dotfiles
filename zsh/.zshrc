@@ -43,7 +43,11 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+if command -v dircolors >/dev/null 2>&1; then
+    eval "$(dircolors -b)"
+elif command -v gdircolors >/dev/null 2>&1; then
+    eval "$(gdircolors -b)"
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -73,8 +77,11 @@ zsh_add_file "api_keys"
 # setproxy
 
 # fzf
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+if command -v brew >/dev/null 2>&1; then
+    FZF_BASE="$(brew --prefix fzf 2>/dev/null)"
+    [[ -f "$FZF_BASE/shell/completion.zsh" ]] && source "$FZF_BASE/shell/completion.zsh"
+    [[ -f "$FZF_BASE/shell/key-bindings.zsh" ]] && source "$FZF_BASE/shell/key-bindings.zsh"
+fi
 
 # fuck
 # eval $(thefuck --alias fuck)
@@ -190,6 +197,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # smux
 export PATH="$HOME/.smux/bin:$PATH"
+
 export PATH=$PATH:$HOME/.maestro/bin
 
 # pnpm
@@ -199,3 +207,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
