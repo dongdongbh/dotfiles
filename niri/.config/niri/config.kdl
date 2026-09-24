@@ -140,8 +140,8 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "on-overflow"
-    always-center-single-column
+    center-focused-column "never"
+    // always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -395,6 +395,12 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id="^wechat$"
+    open-maximized false
+    open-floating true
+}
+
 
 // Indicate screencasted windows with red colors.
 window-rule {
@@ -605,6 +611,17 @@ binds {
 
 
     // --- Screenshotting (using niri's built-in tools) ---
+
+    // codingscreen: capture focused window to the configured inbox.
+    Super+Shift+C repeat=false { spawn "/home/dd/code/coding_screen/scripts/capture.sh"; }
+
+    // codingscreen response navigation: T/N match the directional convention above.
+    // Keep focus in the coding window; these shortcuts only scroll the companion.
+    Super+Alt+T repeat=false { spawn "/home/dd/code/coding_screen/scripts/scroll.sh" "up"; }
+    Super+Alt+N repeat=false { spawn "/home/dd/code/coding_screen/scripts/scroll.sh" "down"; }
+    Super+Alt+Home repeat=false { spawn "/home/dd/code/coding_screen/scripts/scroll.sh" "top"; }
+    Super+Alt+End repeat=false { spawn "/home/dd/code/coding_screen/scripts/scroll.sh" "bottom"; }
+    Super+Alt+C repeat=false { spawn "/home/dd/code/coding_screen/scripts/scroll.sh" "code"; }
 
     // Niri has better, Wayland-native screenshot tools.
     // These replace your maim/flameshot binds.

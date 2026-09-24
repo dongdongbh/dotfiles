@@ -266,6 +266,259 @@
       "skillFolderHash": "3943c7eb8106e9352f9b164ec81f9bb262d2951b",
       "installedAt": "2026-07-15T18:29:15.572Z",
       "updatedAt": "2026-07-15T18:29:15.572Z"
+    },
+    "archify": {
+      "source": "tt-a1i/archify",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/tt-a1i/archify.git",
+      "skillPath": "archify/SKILL.md",
+      "skillFolderHash": "cff24583cbdc3b7c7313580f3fa0636ade2e5279",
+      "installedAt": "2026-09-03T01:39:12.585Z",
+      "updatedAt": "2026-09-03T01:40:18.914Z"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "skillFolderHash": "91850bd6e671ab085a0a6259cd0fc7b77ecc1b52",
+      "installedAt": "2026-09-06T18:11:50.582Z",
+      "updatedAt": "2026-09-06T18:12:20.399Z"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "skillFolderHash": "d8755465e1468fd6bd3eb723c7df06eeec4a5cc4",
+      "installedAt": "2026-09-06T18:11:50.588Z",
+      "updatedAt": "2026-09-06T18:12:20.404Z"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "skillFolderHash": "dbe18ba9303c0538e10e1488a4c5cacd9fd01578",
+      "installedAt": "2026-09-06T18:11:50.591Z",
+      "updatedAt": "2026-09-06T18:12:20.407Z"
+    },
+    "remotion-docs": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-docs/SKILL.md",
+      "skillFolderHash": "6fa853271e116701766ad6f8ba42fd9ae7bd120e",
+      "installedAt": "2026-09-06T18:11:50.594Z",
+      "updatedAt": "2026-09-06T18:12:20.409Z"
+    },
+    "remotion-interactivity": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-interactivity/SKILL.md",
+      "skillFolderHash": "8b4fab24bea3d8c28733e7c722ee84d20dc1ceb6",
+      "installedAt": "2026-09-06T18:11:50.597Z",
+      "updatedAt": "2026-09-06T18:12:20.412Z"
+    },
+    "remotion-maps": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-maps/SKILL.md",
+      "skillFolderHash": "67217307ed6731be47c2601a78ecc4b51d08cd56",
+      "installedAt": "2026-09-06T18:11:50.600Z",
+      "updatedAt": "2026-09-06T18:12:20.414Z"
+    },
+    "remotion-markup": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-markup/SKILL.md",
+      "skillFolderHash": "e783d81b1c7ffb20bcc8af1f909216099afa96e0",
+      "installedAt": "2026-09-06T18:11:50.602Z",
+      "updatedAt": "2026-09-06T18:12:20.417Z"
+    },
+    "remotion-multimedia": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-multimedia/SKILL.md",
+      "skillFolderHash": "f6a01ee7b1d9344bbe157312edfc62d2939553b6",
+      "installedAt": "2026-09-06T18:11:50.603Z",
+      "updatedAt": "2026-09-06T18:12:20.420Z"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "skillFolderHash": "694843b9b8a650e8ea74cc1a2cb0d9ebb1091911",
+      "installedAt": "2026-09-06T18:11:50.605Z",
+      "updatedAt": "2026-09-06T18:12:20.423Z"
+    },
+    "remotion-saas": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-saas/SKILL.md",
+      "skillFolderHash": "54129a31214ba7e695236d68848a62cdcb4a58bd",
+      "installedAt": "2026-09-06T18:11:50.607Z",
+      "updatedAt": "2026-09-06T18:12:20.426Z"
+    },
+    "remotion-studio": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-studio/SKILL.md",
+      "skillFolderHash": "906463062db8916a1a871a0c81e3c1cc32f3379c",
+      "installedAt": "2026-09-06T18:11:50.609Z",
+      "updatedAt": "2026-09-06T18:12:20.428Z"
+    },
+    "remotion-upgrade": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion-upgrade/SKILL.md",
+      "skillFolderHash": "9e61bb1506dcfef939ffc6c1f55ff5ba63b286d1",
+      "installedAt": "2026-09-06T18:11:50.610Z",
+      "updatedAt": "2026-09-06T18:12:20.430Z"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/blader/humanizer.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "pluginName": "humanizer",
+      "installedAt": "2026-09-10T23:35:03.698Z",
+      "updatedAt": "2026-09-10T23:35:03.698Z"
+    },
+    "agents-sdk": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/agents-sdk/SKILL.md",
+      "skillFolderHash": "6960162efc4b6fea7bae6963a45527a7783901c2",
+      "installedAt": "2026-09-18T03:33:43.289Z",
+      "updatedAt": "2026-09-18T03:33:43.289Z"
+    },
+    "cloudflare": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/cloudflare/SKILL.md",
+      "skillFolderHash": "34386215892a8255fba7112d1a2a3e5ff40150e8",
+      "installedAt": "2026-09-18T03:33:43.291Z",
+      "updatedAt": "2026-09-18T03:33:43.291Z"
+    },
+    "cloudflare-email-service": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/cloudflare-email-service/SKILL.md",
+      "skillFolderHash": "8b632c63261e4658200960df9be24080660ab3e3",
+      "installedAt": "2026-09-18T03:33:43.291Z",
+      "updatedAt": "2026-09-18T03:33:43.291Z"
+    },
+    "cloudflare-one": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/cloudflare-one/SKILL.md",
+      "skillFolderHash": "a8a51a262e27978faa5bf754d2b3529adcac7008",
+      "installedAt": "2026-09-18T03:33:43.292Z",
+      "updatedAt": "2026-09-18T03:33:43.292Z"
+    },
+    "cloudflare-one-migrations": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/cloudflare-one-migrations/SKILL.md",
+      "skillFolderHash": "096965163ff9024abb4f179290fd446249be64e6",
+      "installedAt": "2026-09-18T03:33:43.292Z",
+      "updatedAt": "2026-09-18T03:33:43.292Z"
+    },
+    "durable-objects": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/durable-objects/SKILL.md",
+      "skillFolderHash": "ca4497e4bfa069d2d06e14440b78c81eccd8c5f0",
+      "installedAt": "2026-09-18T03:33:43.293Z",
+      "updatedAt": "2026-09-18T03:33:43.293Z"
+    },
+    "nextjs-on-cloudflare": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/nextjs-on-cloudflare/SKILL.md",
+      "skillFolderHash": "228295b091bc4908e008988b5350ac40892d78be",
+      "installedAt": "2026-09-18T03:33:43.293Z",
+      "updatedAt": "2026-09-18T03:33:43.293Z"
+    },
+    "sandbox-migrate-to-next": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/sandbox-migrate-to-next/SKILL.md",
+      "skillFolderHash": "6537d349eebd2c5737d556eb333b2a1a679ca94d",
+      "installedAt": "2026-09-18T03:33:43.294Z",
+      "updatedAt": "2026-09-18T03:33:43.294Z"
+    },
+    "sandbox-next": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/sandbox-next/SKILL.md",
+      "skillFolderHash": "3ef863c36388638fb7823f8735049f8b326f5199",
+      "installedAt": "2026-09-18T03:33:43.294Z",
+      "updatedAt": "2026-09-18T03:33:43.294Z"
+    },
+    "sandbox-stable": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/sandbox-stable/SKILL.md",
+      "skillFolderHash": "44b3c4a6c6bad22c10a7c15f5ff9810a62fd45cc",
+      "installedAt": "2026-09-18T03:33:43.295Z",
+      "updatedAt": "2026-09-18T03:33:43.295Z"
+    },
+    "turnstile-spin": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/turnstile-spin/SKILL.md",
+      "skillFolderHash": "e7caf01b8e769234af3e3d4750726aac30b4a624",
+      "installedAt": "2026-09-18T03:33:43.296Z",
+      "updatedAt": "2026-09-18T03:33:43.296Z"
+    },
+    "web-perf": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/web-perf/SKILL.md",
+      "skillFolderHash": "c4c15a909ae86c00d4fbf841238bbf56eb505ac8",
+      "installedAt": "2026-09-18T03:33:43.296Z",
+      "updatedAt": "2026-09-18T03:33:43.296Z"
+    },
+    "workers-best-practices": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/workers-best-practices/SKILL.md",
+      "skillFolderHash": "2b353123539948ca95c757166437c1fc5eefc208",
+      "installedAt": "2026-09-18T03:33:43.297Z",
+      "updatedAt": "2026-09-18T03:33:43.297Z"
+    },
+    "wrangler": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/wrangler/SKILL.md",
+      "skillFolderHash": "d87d80a0c3f0a3c2d38222b02d459ef85af60320",
+      "installedAt": "2026-09-18T03:33:43.297Z",
+      "updatedAt": "2026-09-18T03:33:43.297Z"
     }
   },
   "dismissed": {
@@ -273,14 +526,13 @@
   },
   "lastSelectedAgents": [
     "amp",
-    "antigravity",
-    "antigravity-cli",
     "cline",
     "codex",
     "cursor",
-    "deepagents",
+    "droid",
     "gemini-cli",
     "github-copilot",
+    "kilo",
     "kimi-code-cli",
     "opencode",
     "warp",

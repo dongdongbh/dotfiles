@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# One owner at a time for a test phone. Every adb call of a delegated job goes
+# through this script, so waking a finished worker cannot touch a phone that
+# another job owns.
+#
+#   phone-lock acquire <owner> [serial]   take the phone; saves its settings
+#   phone-lock release <owner> [serial]   restore the saved settings; free it
+#   phone-lock status  [serial]           who owns it
+#   phone-lock adb <owner> <adb args...>  run adb only while <owner> holds it
+#   phone-lock run <owner> -- <command>   run any command (a harness script)
+#                                         only while <owner> holds it
+set -uo pipefail
+SERIAL_DEFAULT=44882663
+DIR=/home/dd/.cache/mindwtr-phone-locks
+cmd=${1:-status}; shift || true
+lockdir() { echo "$DIR/$1.lock"; }
+holder() { cat "$(lockdir "$1")/owner" 2>/dev/null || true; }
+need() { # <owner> <serial>
+  local h; h=$(holder "$2")
+  [ "$h" = "$1" ] && return 0
+  echo "phone-lock: '$1' does not own phone $2 (owner: ${h:-nobody}). Do not use adb. Ask the coordinator." >&2
+  return 1
+}
+case "$cmd" in
+  acquire)
+    owner=$1; serial=${2:-$SERIAL_DEFAULT}; L=$(lockdir "$serial")
+    if mkdir "$L" 2>/dev/null; then   # mkdir is atomic: exactly one caller wins
+      echo "$owner" > "$L/owner"; date -Is > "$L/since"
+      for k in "global stay_on_while_plugged_in" "system screen_off_timeout"; do
+        set -- $k; echo "$1 $2 $(adb -s "$serial" shell settings get "$1" "$2" 2>/dev/null | tr -d '\r')" >> "$L/settings"
+      done
+      echo "phone-lock: $owner now owns $serial"
+    else
+      [ "$(holder "$serial")" = "$owner" ] && { echo "phone-lock: $owner already owns $serial"; exit 0; }
+      echo "phone-lock: $serial is owned by '$(holder "$serial")' since $(cat "$L/since" 2>/dev/null). Not acquired." >&2; exit 1
+    fi ;;
+  release)
+    owner=$1; serial=${2:-$SERIAL_DEFAULT}; L=$(lockdir "$serial"); need "$owner" "$serial" || exit 1
+    while read -r ns key val; do
+      [ -n "${val:-}" ] && [ "$val" != "null" ] && adb -s "$serial" shell settings put "$ns" "$key" "$val" >/dev/null 2>&1
+    done < "$L/settings"
+    rm -rf "$L"; echo "phone-lock: $owner released $serial (settings restored)" ;;
+  status)
+    serial=${1:-$SERIAL_DEFAULT}; h=$(holder "$serial")
+    [ -n "$h" ] && echo "$serial: owned by $h since $(cat "$(lockdir "$serial")/since")" || echo "$serial: free" ;;
+  adb)
+    owner=$1; shift; serial=${ANDROID_SERIAL:-$SERIAL_DEFAULT}; need "$owner" "$serial" || exit 1
+    exec adb -s "$serial" "$@" ;;
+  run)
+    owner=$1; shift; [ "${1:-}" = "--" ] && shift
+    serial=${ANDROID_SERIAL:-$SERIAL_DEFAULT}; need "$owner" "$serial" || exit 1
+    ANDROID_SERIAL=$serial exec "$@" ;;
+  *) echo "usage: phone-lock acquire|release|status|adb|run ..." >&2; exit 2 ;;
+esac

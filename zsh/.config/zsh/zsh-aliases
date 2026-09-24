@@ -76,6 +76,14 @@ alias background_local='printf "\e]11;#282828\e\\"'
 alias background_server='printf "\e]11;#2E3440\e\\"'
 alias ssh_nuc="background_server; ssh nvio_t ; background_local"
 alias planner='flatpak run com.github.alainm23.planner'
+alias macvnc='vncviewer  -FullScreen  -ShortcutModifiers=Ctrl,Shift,Super  -AlwaysCursor  -CursorType=System  -SecurityTypes=VncAuth  -PasswordFile="$HOME/.config/tigervnc/macmini.passwd"  localhost:15900'
 # alias copilot='gh copilot'
 # alias gcs='gh copilot suggest'
 # alias gce='gh copilot explain'
+macclip() {
+    wl-paste | ssh -o ClearAllForwardings=yes macmini pbcopy
+}
+
+macclipget() {
+    ssh -o ClearAllForwardings=yes macmini pbpaste | wl-copy
+}

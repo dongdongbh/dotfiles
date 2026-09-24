@@ -190,3 +190,12 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # smux
 export PATH="$HOME/.smux/bin:$PATH"
+export PATH=$PATH:$HOME/.maestro/bin
+
+# pnpm
+export PNPM_HOME="/home/dd/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
