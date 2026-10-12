@@ -48,8 +48,9 @@ if [ -e "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
 fi
 rm -f "$HOME/.zshrc"
 
-for package in waybar niri hypr-common scripts tmux_cfg zsh fonts git agents rofi vim; do
-    [ -d "$package" ] && stow "$package"
+# Fonts come from the packages above; shared app-data directories stay outside dotfiles.
+for package in waybar niri hypr-common scripts tmux_cfg zsh git agents rofi vim; do
+    [ -d "$package" ] && stow --no-folding "$package"
 done
 
 ln -s -f ~/.config/tmux_cfg/tmux.conf ~/.tmux.conf
@@ -63,4 +64,4 @@ else
     git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 fi
 
-stow alacritty
+stow --no-folding alacritty

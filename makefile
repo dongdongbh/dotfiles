@@ -1,5 +1,9 @@
+PACKAGES := $(filter-out fonts/,$(wildcard */))
+
+.PHONY: all delete
+
 all:
-	stow --verbose --target=$$HOME --restow */
+	stow --no-folding --verbose --target=$$HOME --restow $(PACKAGES)
 
 delete:
-	stow --verbose --target=$$HOME --delete */
+	stow --no-folding --verbose --target=$$HOME --delete $(PACKAGES)

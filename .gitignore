@@ -30,4 +30,15 @@ scripts/.local/bin/bt-mic
 scripts/.local/bin/bt-music
 fonts/.local/share/webkitgtk-4.1/
 scripts/.local/bin/iii
+scripts/.local/bin/criticality_score
+scripts/.local/bin/hydectl
+scripts/.local/bin/rtk
+scripts/.local/bin/ueberzug.opencv413.bak
 
+# Installed tools, app data, and downloaded models are not dotfiles.
+**/.local/share/uv/
+**/.local/share/mindwtr-review-swift/
+**/.local/share/flatpak/
+**/.local/share/*mindwtr*/
+**/.local/share/WeChat_Data/
+**/.local/share/argos-translate/

@@ -120,7 +120,7 @@ mkdir dotfiles
 mkdir dotfiles/bash
 mv ~/.bashrc ~/dotfiles/bash/
 cd dotfiles
-stow bash
+stow --no-folding bash
 ```
 
 The default target folder that stow creating symbol link is the parent dir of current dir. In the above example, it's the home dir. You can specify the target dir with `stow -t`.
@@ -152,7 +152,11 @@ You should have the following in dotfiles by `mv ~/.config/nvim ~/dotfiles/nvim`
 -----------------------|------|---init.lua
 ```
 
-Then just `stow nvim` in `~/dotfiles`.
+Then just `stow --no-folding nvim` in `~/dotfiles`.
+
+Use `--no-folding` to link individual files while keeping shared parent directories such as `~/.local` and `~/.local/share` as real directories. Runtime tools, app data, and downloaded models belong outside this repository.
+
+Installed command binaries live in the real `~/.local/bin` directory and are installed separately rather than versioned here.
 
 For tmux, you should use tmux version newer than 3.1 to use config file located in `.config/tmux/`.
 
@@ -179,13 +183,15 @@ use [ git bare repository ](https://www.atlassian.com/git/tutorials/dotfiles).
    ```
    The script uses `set -euo pipefail`, installs packages with `pacman -S --needed`, builds `yay` only when absent, and backs up an existing `~/.zshrc` before stowing.
 
+   Fonts are supplied by `ttf-jetbrains-mono-nerd`, `noto-fonts`, and `noto-fonts-emoji`. Put any selected extra font files in the real `~/.local/share/fonts` directory. The ignored `fonts` directory is excluded from installation and restowing; never stow it. Keep uv tools, the Swift review toolchain, Flatpak installations, Mindwtr data, WeChat data, and downloaded models in the real `~/.local/share` directory.
+
 4. **Restow later**
    ```bash
-   make        # restow all packages
-   make delete # remove symlinks
+   make        # restow configuration and script packages, excluding fonts
+   make delete # remove their symlinks
    ```
 
-You can always link individual packages, e.g. `stow zsh waybar`.
+You can always link individual packages, e.g. `stow --no-folding zsh waybar`.
 
 ---
 
