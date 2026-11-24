@@ -9,7 +9,11 @@ if [[ "$OSTYPE" == darwin* ]]; then
             || eval "$(gdircolors -b)"
     fi
 
-    alias ls='gls --color=auto'
+    if command -v gls >/dev/null 2>&1; then
+        alias ls='gls --color=auto'
+    else
+        alias ls='ls -G'
+    fi
 else
     if command -v dircolors >/dev/null 2>&1; then
         [[ -r ~/.dircolors ]] \
